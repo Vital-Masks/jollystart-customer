@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .responsive {
+    @apply max-w-screen-xl px-4 mx-auto md:px-8 lg:px-20 xl:px-0;
+  }
+}
