@@ -72,7 +72,23 @@ const SportsGames = () => {
   ];
   return (
     <Swiper
-      slidesPerView={6}
+      breakpoints={{
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 1,
+        },
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+        1440: {
+          slidesPerView: 6,
+        },
+      }}
+      // slidesPerView={6}
       spaceBetween={0}
       freeMode={true}
       pagination={{

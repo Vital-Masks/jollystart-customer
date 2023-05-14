@@ -6,9 +6,11 @@ const Header = () => {
   return (
     <>
       <TopHeader />
-      <div className="bg-white">
+      <div className="hidden w-full bg-white md:inline-block">
         <div className="py-5 responsive">
-          <h1 className="text-4xl font-bold text-blue-900">JOLLY STARS SC</h1>
+          <h1 className="text-2xl font-bold text-center text-blue-900 md:text-left md:text-4xl">
+            JOLLY STARS SC
+          </h1>
         </div>
       </div>
       <Navbar />

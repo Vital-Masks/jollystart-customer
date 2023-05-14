@@ -14,16 +14,16 @@ const Gallery = () => {
             of the club shall apply in the prescribed.
           </p>
         </div>
-        <div className="grid grid-cols-5 gap-2">
-          {[1, 2, 3, 4, 5].map((img) => (
-            <div key={img}>
+        <div className="flex grid-cols-2 gap-2 overflow-auto md:grid md:grid-cols-3 lg:grid-cols-6">
+          {[1, 2, 3, 4, 5, 6].map((img) => (
+            <div key={img} className="w-full shrink-0">
               <Image
                 src={
                   'https://images.unsplash.com/photo-1578742209285-c4dbba4af948?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvY2tleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'
                 }
                 width={720}
                 height={720}
-                className="aspect-square"
+                className="w-full h-full aspect-square"
                 alt="gg"
               />
             </div>

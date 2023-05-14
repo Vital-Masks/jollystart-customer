@@ -1,16 +1,14 @@
-import { Inter } from 'next/font/google';
 import HomeBanner from '@/components/HomeBanner';
 import Container from '@/components/Shared/Container';
 import SportsGames from '@/components/SportsGamesSlider';
 import Membership from '@/components/Membership';
 import Gallery from '@/components/Gallery';
 import LatestNews from '@/components/LatestNews';
-
-const inter = Inter({ subsets: ['latin'] });
+import Messages from '@/components/Messages';
 
 export default function Home() {
   return (
-    <div className={`${inter.className}`}>
+    <div>
       <HomeBanner />
       <div className="bg-slate-100">
         <Container className="text-center">
@@ -50,6 +48,7 @@ export default function Home() {
       </div>
       <Membership />
       <Gallery />
+      <Messages />
       <LatestNews />
     </div>
   );
