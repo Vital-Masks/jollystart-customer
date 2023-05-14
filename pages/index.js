@@ -5,6 +5,8 @@ import SportsGames from '@/components/SportsGamesSlider';
 import Membership from '@/components/Membership';
 import Gallery from '@/components/Gallery';
 import LatestNews from '@/components/LatestNews';
+import Footer from '@/components/Footer';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -51,6 +53,8 @@ export default function Home() {
       <Membership />
       <Gallery />
       <LatestNews />
+      <br></br>
+      <Footer/>
     </div>
   );
 }
