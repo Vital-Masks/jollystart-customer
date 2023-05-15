@@ -53,6 +53,11 @@ export default function Home() {
       <Membership />
       <Gallery />
       <LatestNews />
+      <Container>
+      <button className="px-4 py-2 mt-10 bg-blue-900 rounded-md text-white content-center">
+            View More
+          </button>
+        </Container>
       <br></br>
       <Footer/>
     </div>

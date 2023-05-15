@@ -44,19 +44,19 @@ const Footer = () => {
          
           <a className='text-dark' href='https://mdbootstrap.com/'>
             Home
-          </a>
+          </a>&nbsp;&nbsp;&nbsp;
           <a className='text-dark' href='https://mdbootstrap.com/'>
             About
-          </a>
+          </a>&nbsp;&nbsp;&nbsp;
           <a className='text-dark' href='https://mdbootstrap.com/'>
             Cricket
-          </a>
+          </a>&nbsp;&nbsp;&nbsp;
           <a className='text-dark' href='https://mdbootstrap.com/'>
             BasketBall
-          </a>
+          </a>&nbsp;&nbsp;&nbsp;
           <a className='text-dark' href='https://mdbootstrap.com/'>
             Home
-          </a>
+          </a>&nbsp;&nbsp;&nbsp;
           <a className='text-dark' href='https://mdbootstrap.com/'>
             About
           </a>

@@ -9,6 +9,7 @@ const Navbar = () => {
       id: 0,
       label: 'Home',
       link: routes.HOME,
+     
     },
     {
       id: 1,
