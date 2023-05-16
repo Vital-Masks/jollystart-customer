@@ -4,13 +4,13 @@ import HomeBanner from '@/components/HomeBanner';
 import Container from '@/components/Shared/Container';
 
 
-const AboutUs = () => {
+const ClubCricket = () => {
     <div className={`${inter.className}`}>
     <HomeBanner />
     <div className="bg-slate-100">
       <Container className="text-left">
         <h1 className="text-2xl font-bold text-slate-800">
-          About Us
+        Team 22/23
         </h1>
         <p className="mt-5 text-slate-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -38,26 +38,12 @@ const AboutUs = () => {
             />
           </div>
 
-        <p className="mt-5 text-slate-600">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          vestibulum lorem ligula, a viverra justo luctus fringilla. Phasellus
-          lobortis dui et ipsum dictum semper. Quisque dui erat, feugiat in
-          sapien ut, bibendum lobortis lectus. Vivamus id tristique tellus.
-          Sed cursus sollicitudin sapien. Integer sollicitudin libero non erat
-          fermentum, vel tempus arcu varius. Nunc tempor ut metus a pretium.
-          Duis eget leo ut tellus aliquam pulvinar. Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit. Sed vestibulum lorem ligula, a
-          viverra justo luctus fringilla. Phasellus lobortis dui et ipsum
-          dictum semper. Quisque dui erat, feugiat in sapien ut, bibendum
-          lobortis lectus. Vivamus id tristique tellus. Sed cursus
-          sollicitudin sapien.
-        </p>
+        
       </Container>
     </div>
-
     <br></br>
     <Footer/>
   </div>
 };
 
-export default AboutUs;
+export default ClubCricket;

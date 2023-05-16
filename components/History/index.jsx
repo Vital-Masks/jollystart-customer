@@ -4,13 +4,13 @@ import HomeBanner from '@/components/HomeBanner';
 import Container from '@/components/Shared/Container';
 
 
-const AboutUs = () => {
+const History = () => {
     <div className={`${inter.className}`}>
     <HomeBanner />
     <div className="bg-slate-100">
       <Container className="text-left">
         <h1 className="text-2xl font-bold text-slate-800">
-          About Us
+        History
         </h1>
         <p className="mt-5 text-slate-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -54,10 +54,9 @@ const AboutUs = () => {
         </p>
       </Container>
     </div>
-
     <br></br>
     <Footer/>
   </div>
 };
 
-export default AboutUs;
+export default History;

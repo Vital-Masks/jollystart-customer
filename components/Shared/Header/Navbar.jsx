@@ -48,7 +48,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <div className="bg-blue-900">
+    <div className="bg-blue-900 text-white">
       <div className="flex py-3 space-x-8 responsive">
         {menus.map((menu) => (
           <NavItems key={menu.id} {...menu} />

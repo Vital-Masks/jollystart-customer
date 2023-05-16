@@ -10,14 +10,14 @@ const Header = () => {
       <div className="bg-white">
         <div className="py-5 responsive">
         <Image
-                src="/assets/brand/KSC.png"
+                src="/assets/brand/jolly 2.png"
                 alt="logo"
-                width={720}
-                height={720}
+                width={4000}
+                height={1000}
                 className="w-10 lg:w-12 shrink-0"
                 
               />
-          <h1 className="text-4xl font-bold text-blue-900">JOLLY STARS SC</h1>
+          
         </div>
       </div>
       <Navbar />

@@ -23,9 +23,9 @@ const LatestNews = () => {
           </p>
         </div>
         <div className="flex items-center justify-center gap-10">
-          <MembershipCard />
-          <MembershipCard />
-          <MembershipCard />
+          <LatestNewsCard />
+          <LatestNewsCard />
+          <LatestNewsCard />
         </div>
       </Container>
     </div>
@@ -34,7 +34,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 
-const MembershipCard = () => {
+const LatestNewsCard = () => {
   return (
     <div className="max-w-xs border-2 rounded-lg">
       <div className="flex items-center justify-center h-20 bg-slate-400 rounded-t-lg">
