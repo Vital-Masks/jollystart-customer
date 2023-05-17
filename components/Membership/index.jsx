@@ -22,7 +22,7 @@ const Membership = () => {
             accompany the application.
           </p>
         </div>
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-start gap-10 overflow-x-auto md:justify-center snap-x scroll-smooth">
           <MembershipCard />
           <MembershipCard />
           <MembershipCard />
@@ -36,11 +36,11 @@ export default Membership;
 
 const MembershipCard = () => {
   return (
-    <div className="max-w-xs border-2 rounded-lg">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
         <StarIcon className="w-10 h-10" />
       </div>
-      <div className="p-10 text-center text-black">
+      <div className="flex-1 p-10 text-center text-black">
         <h1 className="mb-5 text-xl font-bold">ORDINARY MEMBERS</h1>
         <div className="mb-10 text-sm">
           <p>Entrance Fee: Rs.5,000/-</p>

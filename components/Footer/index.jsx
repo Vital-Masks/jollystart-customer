@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
     return (
       <>
-        <div className="w-full p-10 text-center border-t bg-brand-light">
+        <div className="w-full p-10 text-center border-t bg-white">
           <div className="flex justify-center">
             <Image
               priority
@@ -25,7 +25,7 @@ const Footer = () => {
             dolorum nihil? Dolore laborum distinctio animi placeat obcaecati!
             Deleniti, quisquam placeat!
           </p> */}
-          <div className="px-10 py-3 bg-brand-light">
+          <div className="px-10 py-3 bg-white">
           <p className="text-sm text-center text-gray-400 justify-center">
           House My Brand designs clothing for the young, the old & everyone in between – but most importantly, for the fashionable House My
   Brand designs clothing for the young, the old & everyone in between – but most importantly, for the fashionable
@@ -73,7 +73,7 @@ const Footer = () => {
       </MDBFooter> 
   
         <div className="px-10 py-3 bg-brand-light">
-          <p className="text-sm text-center text-gray">
+          <p className="text-xs text-center text-gray">
             Copyright &copy; {new Date().getFullYear()} jollystarsportsclub.com.
             All Rights Reserved. Designed and Developed by{' '}
             <Link

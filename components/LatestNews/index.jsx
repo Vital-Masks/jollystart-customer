@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../Shared/Container';
 import Link from 'next/link';
 import { StarIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 const LatestNews = () => {
   return (
@@ -38,7 +39,15 @@ const LatestNewsCard = () => {
   return (
     <div className="max-w-xs border-2 rounded-lg">
       <div className="flex items-center justify-center h-20 bg-slate-400 rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+      <Image
+              src={
+                'https://images.unsplash.com/photo-1578742209285-c4dbba4af948?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvY2tleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'
+              }
+              width={100}
+              height={80}
+              className="rounded-t-lg"
+              alt="gg"
+            />
       </div>
       <div className="p-5 text-black">
       <div className="mb-5 text-sm text-slate-400"> 2023 July 10th</div>

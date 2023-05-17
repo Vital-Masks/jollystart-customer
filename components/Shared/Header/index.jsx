@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <TopHeader />
-      <div className="bg-white">
+      <div className="hidden w-full bg-white md:inline-block">
         <div className="py-5 responsive">
         <Image
                 src="/assets/brand/jolly 2.png"

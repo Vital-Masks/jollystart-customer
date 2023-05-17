@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Footer';
 import HomeBanner from '@/components/HomeBanner';
 import Container from '@/components/Shared/Container';
+import Image from 'next/image';
 
 
 const AboutUs = () => {

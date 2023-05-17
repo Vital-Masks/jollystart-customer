@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] });
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className={`${inter.className}`}>
       <Header />
-      {children}
+      <main className="h-[calc(100vh-11rem)]">{children}</main>
     </div>
   );
 };
