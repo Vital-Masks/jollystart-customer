@@ -4,10 +4,6 @@ import SportsGames from '@/components/SportsGamesSlider';
 import Membership from '@/components/Membership';
 import Gallery from '@/components/Gallery';
 import LatestNews from '@/components/LatestNews';
-import Footer from '@/components/Footer';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 import Messages from '@/components/Messages';
 
 export default function Home() {

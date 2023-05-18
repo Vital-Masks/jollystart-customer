@@ -1,22 +1,13 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import {
   ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
 } from '@heroicons/react/20/solid';
-import { routes } from '@/contents/routes';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -44,22 +35,38 @@ const Navbar = () => {
         {
           id: 1,
           label: 'History',
+<<<<<<< HEAD
           link: routes.HISTORY,
+=======
+          link: routes.ABOUT_US,
+>>>>>>> 2295fc2a8de5d580411db49d614565f7b69eca1e
         },
         {
           id: 2,
           label: 'Past Presidents',
+<<<<<<< HEAD
           link: routes.PAST_PRESIDENTS,
+=======
+          link: routes.ABOUT_US,
+>>>>>>> 2295fc2a8de5d580411db49d614565f7b69eca1e
         },
         {
           id: 3,
           label: 'Committee',
+<<<<<<< HEAD
           link: routes.COMMITTEE,
+=======
+          link: routes.ABOUT_US,
+>>>>>>> 2295fc2a8de5d580411db49d614565f7b69eca1e
         },
         {
           id: 4,
           label: 'Membership',
+<<<<<<< HEAD
           link: routes.MEMBERSHIP,
+=======
+          link: routes.ABOUT_US,
+>>>>>>> 2295fc2a8de5d580411db49d614565f7b69eca1e
         },
       ],
     },
@@ -170,7 +177,6 @@ const Navbar = () => {
 export default Navbar;
 
 const NavItems = ({ label, link, subMenu }) => {
-  const { asPath } = useRouter();
 
   if (subMenu) {
     return (

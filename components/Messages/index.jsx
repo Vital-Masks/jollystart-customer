@@ -14,10 +14,10 @@ const Messages = () => {
       <Container className="flex flex-col-reverse items-center gap-20 py-20 md:flex-row md:items-start xl:gap-40">
         <div className="flex flex-col justify-between flex-1 w-full overflow-hidden">
           <div>
-            <h1 className="text-2xl text-white font-bold text-center uppercase md:text-left text-brand-maroon">
+            <h1 className="text-2xl font-bold text-center uppercase md:text-left text-brand-maroon">
               PRESIDENT MESSAGE
             </h1>
-            <p className="h-64 mt-4  text-white overflow-hidden text-base text-center break-words md:text-left">
+            <p className="h-64 mt-4 overflow-hidden text-base text-center break-words md:text-left">
               I take great pleasure to welcome viewers to the Singhalese Sports
               Club revamped website. This website reflects the full scope of the
               numerous sports and entertainment activities the Club provides its
@@ -29,7 +29,7 @@ const Messages = () => {
             </p>
           </div>
           <div className="mt-10 text-center md:text-left">
-            <h4 className="text-lg font-bold  text-white">Mr.V. Manivannan</h4>
+            <h4 className="text-lg font-bold">Mr.V. Manivannan</h4>
             <p className="text-sm text-gray-400">President 2019/20</p>
           </div>
         </div>
