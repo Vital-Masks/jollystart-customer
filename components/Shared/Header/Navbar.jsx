@@ -30,7 +30,6 @@ const Navbar = () => {
       id: 0,
       label: 'Home',
       link: routes.HOME,
-     
     },
     {
       id: 1,
@@ -45,22 +44,22 @@ const Navbar = () => {
         {
           id: 1,
           label: 'History',
-          link: routes.ABOUT_US,
+          link: routes.HISTORY,
         },
         {
           id: 2,
           label: 'Past Presidents',
-          link: routes.ABOUT_US,
+          link: routes.PAST_PRESIDENTS,
         },
         {
           id: 3,
           label: 'Committee',
-          link: routes.ABOUT_US,
+          link: routes.COMMITTEE,
         },
         {
           id: 4,
           label: 'Membership',
-          link: routes.ABOUT_US,
+          link: routes.MEMBERSHIP,
         },
       ],
     },
@@ -68,11 +67,45 @@ const Navbar = () => {
       id: 2,
       label: 'Cricket',
       link: routes.CRICKET,
+      subMenu: [
+        {
+          id: 0,
+          label: 'Team 22/23',
+          link: routes.CRICKET_TEAM,
+        },
+        {
+          id: 1,
+          label: 'Club Cricket',
+          link: routes.CLUB_CRICKET,
+        },
+        {
+          id: 2,
+          label: 'Past Captains',
+          link: routes.CRICKET_PAST_CAPTAINS,
+        },
+      ],
     },
     {
       id: 3,
       label: 'Basket ball',
       link: routes.BASKET_BALL,
+      subMenu: [
+        {
+          id: 0,
+          label: 'Team 22/23',
+          link: routes.BASKET_TEAM,
+        },
+        {
+          id: 1,
+          label: 'Club Basket ball',
+          link: routes.CLUB_BASKET_BALL,
+        },
+        {
+          id: 2,
+          label: 'Past Captains',
+          link: routes.BASKET_PAST_CAPTAINS,
+        },
+      ],
     },
     {
       id: 4,

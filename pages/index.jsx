@@ -7,7 +7,6 @@ import LatestNews from '@/components/LatestNews';
 import Footer from '@/components/Footer';
 import { Inter } from 'next/font/google';
 
-
 const inter = Inter({ subsets: ['latin'] });
 import Messages from '@/components/Messages';
 
@@ -34,7 +33,7 @@ export default function Home() {
             lobortis lectus. Vivamus id tristique tellus. Sed cursus
             sollicitudin sapien.
           </p>
-          <button className="px-4 py-2 mt-10 bg-blue-900 text-white rounded-md">
+          <button className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More
           </button>
         </Container>
@@ -55,13 +54,6 @@ export default function Home() {
       <Gallery />
       <Messages />
       <LatestNews />
-      <Container>
-      <button className="px-4 py-2 mt-10 bg-blue-900 rounded-md text-white content-center">
-            View More
-          </button>
-        </Container>
-      <br></br>
-      <Footer/>
     </div>
   );
 }
