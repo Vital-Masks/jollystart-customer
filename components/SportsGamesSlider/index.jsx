@@ -110,7 +110,7 @@ const Item = ({ title, description, image }) => {
       <div className="h-[400px] relative divide-x">
         <div className="absolute bottom-0 left-0 z-20 px-5 py-10">
           <div className="w-16 h-16 mb-5 bg-blue-900 rounded-full"></div>
-          <h5 className="mb-3 text-lg font-bold"> {title}</h5>
+          <h5 className="mb-3 text-lg font-bold text-slate-200"> {title}</h5>
           <p className="mb-4 text-sm text-slate-200 line-clamp-5">
             {description}
           </p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import TopHeader from './TopHeader';
 import Navbar from './Navbar';
+import Image from 'next/image';
 
 const Header = () => {
   return (
@@ -13,6 +14,7 @@ const Header = () => {
           </h1>
         </div>
       </div>
+
       <Navbar />
     </>
   );
