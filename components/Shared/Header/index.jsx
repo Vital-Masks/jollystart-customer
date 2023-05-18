@@ -9,9 +9,14 @@ const Header = () => {
       <TopHeader />
       <div className="hidden w-full bg-white md:inline-block">
         <div className="py-5 responsive">
-          <h1 className="text-2xl font-bold text-center text-blue-900 md:text-left md:text-4xl">
-            JOLLY STARS SC
-          </h1>
+        <Image
+            priority
+            src="/assets/brand/jolly-2.png"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="z-20 object-contain w-16 h-16 mb-5 md:w-24 md:h-24"
+          />
         </div>
       </div>
 
