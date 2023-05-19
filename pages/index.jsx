@@ -15,7 +15,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold text-slate-800">
             JOLLY STARS SPORTS CLUB
           </h1>
-          <p className="mt-5 text-slate-600">
+          <p className="mt-5 text-slate-600 p-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             vestibulum lorem ligula, a viverra justo luctus fringilla. Phasellus
             lobortis dui et ipsum dictum semper. Quisque dui erat, feugiat in
