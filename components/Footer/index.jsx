@@ -13,9 +13,9 @@ const Footer = () => {
             priority
             src="/assets/brand/jolly 1.png"
             alt="logo"
-            width={1080}
-            height={1080}
-            className="z-20 object-contain w-16 h-16 mb-5 md:w-24 md:h-24"
+            width={720}
+            height={720}
+            className="w-[250px] object-contain"
           />
         </div>
 

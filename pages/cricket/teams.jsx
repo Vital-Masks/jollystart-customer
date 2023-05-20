@@ -8,9 +8,9 @@ const Teams = () => {
     <>
       <div className="bg-slate-100">
         <Container className="text-left">
-          <h1 className="text-2xl font-bold text-slate-800">Team 2022/23</h1>
+          <h1 className="text-2xl font-bold text-slate-800 p-5">Cricket Team 2022/23</h1>
 
-          <div className="grid grid-cols-2 gap-5 mt-5 md:grid-cols-4 xl:gap-10">
+          <div className="grid grid-cols-2 gap-5 mt-5 md:grid-cols-4 xl:gap-10 p-5">
             {[1, 2, 3, 4].map((img) => (
               <UserCard
                 key={img}
@@ -21,7 +21,7 @@ const Teams = () => {
             ))}
           </div>
 
-          <p className="mt-10 text-lg text-slate-600">
+          <p className="mt-10 text-lg text-slate-600 p-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             vestibulum lorem ligula, a viverra justo luctus fringilla. Phasellus
             lobortis dui et ipsum dictum semper. Quisque dui erat, feugiat in

@@ -9,7 +9,7 @@ const LatestNews = () => {
       <Container>
         <div className="mb-10 text-center">
           <h1 className="text-2xl font-bold text-slate-800">Latest News</h1>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 p-5">
             The membership of the club is open to all persons who are approved
             by the Executive Committee. Each applicant for admission as a member
             of the club shall apply in the prescribed “Membership Application
@@ -20,7 +20,7 @@ const LatestNews = () => {
             accompany the application.
           </p>
         </div>
-        <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center">
+        <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
           <LatestNewsCard />
           <LatestNewsCard />
           <LatestNewsCard />

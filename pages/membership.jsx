@@ -11,7 +11,7 @@ const Membership = () => {
           <h1 className="text-2xl font-bold text-slate-800">
             BECOME A MEMBER OF THE CLUB
           </h1>
-          <p className="mt-3 text-slate-600">
+          <p className="mt-3 text-slate-600 p-5">
             The membership of the club is open to all persons who are approved
             by the Executive Committee. Each applicant for admission as a member
             of the club shall apply in the prescribed “Membership Application
