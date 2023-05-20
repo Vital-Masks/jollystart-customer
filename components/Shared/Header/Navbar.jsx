@@ -96,7 +96,7 @@ const Navbar = () => {
     },
     {
       id: 4,
-      label: 'Sport',
+      label: 'Sports',
       link: routes.SPORTS,
     },
     {

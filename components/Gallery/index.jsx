@@ -18,9 +18,7 @@ const Gallery = () => {
           {[1, 2, 3, 4, 5, 6].map((img) => (
             <div key={img} className="w-full shrink-0">
               <Image
-                src={
-                  'https://images.unsplash.com/photo-1578742209285-c4dbba4af948?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvY2tleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'
-                }
+                src="/assets/banner/gallery1.jpg"
                 width={720}
                 height={720}
                 className="w-full h-full aspect-square"

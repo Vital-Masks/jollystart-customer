@@ -7,10 +7,10 @@ const ContactUs = () => {
       <Container>
         <>
           <div className="max-w-2xl mx-auto lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 p-5">
               Our offices
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 p-5">
               Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
               id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
               fames.
@@ -51,7 +51,7 @@ const ContactUs = () => {
               allowFullScreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              className="w-full h-[400px] mt-10"
+              className="w-full h-[400px] mt-10 p-5"
             ></iframe>
           </div>
         </>

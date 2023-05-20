@@ -68,11 +68,11 @@ const Slider = () => {
       className="rounded-md "
       onSlideChange={(e) => onSwiperChange(e.slides[e.activeIndex]['id'])}
     >
-      {[1, 2, 3].map((content) => (
+      {[1].map((content) => (
         <SwiperSlide id={content} key={content}>
           <Image
             src={
-              'https://images.unsplash.com/photo-1683480678001-d2b60353b0fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0NHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
+              'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'
             }
             alt={'gg'}
             width={600}
