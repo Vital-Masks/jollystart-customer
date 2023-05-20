@@ -26,7 +26,7 @@ const Sports = () => {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white p-5">
       <Container>
         <div>
           <div className="sm:hidden bg-slate-100 text-slate-600">

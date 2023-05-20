@@ -16,18 +16,11 @@ export default function Home() {
             JOLLY STARS SPORTS CLUB
           </h1>
           <p className="mt-5 text-slate-600 p-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vestibulum lorem ligula, a viverra justo luctus fringilla. Phasellus
-            lobortis dui et ipsum dictum semper. Quisque dui erat, feugiat in
-            sapien ut, bibendum lobortis lectus. Vivamus id tristique tellus.
-            Sed cursus sollicitudin sapien. Integer sollicitudin libero non erat
-            fermentum, vel tempus arcu varius. Nunc tempor ut metus a pretium.
-            Duis eget leo ut tellus aliquam pulvinar. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Sed vestibulum lorem ligula, a
-            viverra justo luctus fringilla. Phasellus lobortis dui et ipsum
-            dictum semper. Quisque dui erat, feugiat in sapien ut, bibendum
-            lobortis lectus. Vivamus id tristique tellus. Sed cursus
-            sollicitudin sapien.
+          Founded in 1948 by the esteemed alumni of Jaffna Hindu College, Jolly Stars Sports Club has proudly served as a symbol of sporting excellence and camaraderie for over seven decades. 
+          As we approach our remarkable 75th anniversary, we reflect upon our rich history and celebrate the countless achievements that have shaped our club.
+
+          Jolly Stars Sports Club exclusively welcomes students who have had the privilege of studying at Jaffna Hindu College, fostering a sense of unity and shared values among our members. 
+          Our club has become a vibrant hub where passionate sports enthusiasts come together to showcase their talents and compete in a variety of thrilling sporting events.
           </p>
           <button className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More

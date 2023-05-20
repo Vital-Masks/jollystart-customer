@@ -6,6 +6,7 @@ const PastCaptains = () => {
   const members = [
     {
       id: 1,
+      //year,
       title: 'Past Captains',
       members: [
         { id: 0, name: 'member' },
@@ -18,6 +19,7 @@ const PastCaptains = () => {
     },
     {
       id: 2,
+      //year,
       title: 'Past Vice Captains',
       members: [
         { id: 0, name: 'member' },
@@ -30,6 +32,7 @@ const PastCaptains = () => {
     },
     {
       id: 3,
+      //year,
       title: 'Past Coaches',
       members: [
         { id: 0, name: 'member' },

@@ -44,9 +44,8 @@ const LatestNewsCard = () => {
     <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
         <Image
-          src={
-            'https://images.unsplash.com/photo-1578742209285-c4dbba4af948?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvY2tleXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'
-          }
+          src=
+            '/assets/banner/gallery3.jpg'
           width={720}
           height={720}
           className="object-cover w-full h-full rounded-t-lg"
