@@ -7,15 +7,15 @@ const Header = () => {
   return (
     <>
       <TopHeader />
-      <div className="hidden w-full bg-white md:inline-block">
+      <div className="hidden w-full bg-white md:block">
         <div className="py-5 responsive">
-        <Image
+          <Image
             priority
             src="/assets/brand/jolly-2.png"
             alt="logo"
-            width={2000}
-            height={1000}
-            className="z-20 object-contain w-16 h-16 mb-5 md:w-24 md:h-24 p-5"
+            width={720}
+            height={720}
+            className="w-[250px] object-contain"
           />
         </div>
       </div>
