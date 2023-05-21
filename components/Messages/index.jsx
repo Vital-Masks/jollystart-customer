@@ -71,9 +71,8 @@ const Slider = () => {
       {[1].map((content) => (
         <SwiperSlide id={content} key={content}>
           <Image
-            src={
-              'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'
-            }
+            src=
+              '/assets/banner/mani.jpg'
             alt={'gg'}
             width={600}
             height={750}

@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex justify-center">
           <Image
             priority
-            src="/assets/brand/jolly 1.png"
+            src="/assets/brand/jolly1.png"
             alt="logo"
             width={720}
             height={720}
@@ -21,10 +21,10 @@ const Footer = () => {
 
         <div className="px-10 py-3 bg-white">
           <p className="justify-center text-sm text-center text-gray-400">
-            House My Brand designs clothing for the young, the old & everyone in
-            between – but most importantly, for the fashionable House My Brand
-            designs clothing for the young, the old & everyone in between – but
-            most importantly, for the fashionable
+          Founded in 1948 by the esteemed alumni of Jaffna Hindu College, Jolly Stars Sports 
+          Club has proudly served as a symbol of sporting excellence and camaraderie for over 
+          seven decades. As we approach our remarkable 75th anniversary, we reflect upon our rich history 
+          and celebrate the countless achievements that have shaped our club.
           </p>
         </div>
         <div className="flex justify-center mt-5">
@@ -81,7 +81,7 @@ const Footer = () => {
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">
-          Copyright &copy; {new Date().getFullYear()} jollystarsportsclub.com.
+          Copyright &copy; {new Date().getFullYear()} jollystarssc.com.
           All Rights Reserved. Designed and Developed by{' '}
           <Link
             href="https://www.vitalmasks.lk/"

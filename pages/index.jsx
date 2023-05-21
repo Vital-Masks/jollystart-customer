@@ -33,8 +33,8 @@ export default function Home() {
             SPORTS AND GAMES
           </h1>
           <p className="mt-3 text-slate-600">
-            LLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vestibulum lorem ligula, a viverra
+          The Club is a great way to get involved in your community and meet new people. 
+          We offer a variety of sports and games for all ages and skill levels.
           </p>
         </div>
         <SportsGames />
