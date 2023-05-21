@@ -11,7 +11,7 @@ const TopHeader = () => {
         </div>
         <div className="flex items-center gap-1 text-xs md:text-sm">
           <EnvelopeIcon className="w-4 h-4" />
-          hello@jssc.com
+          hello@jollystarssc.com
         </div>
       </div>
     </div>

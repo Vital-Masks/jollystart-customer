@@ -10,14 +10,9 @@ const LatestNews = () => {
         <div className="mb-10 text-center">
           <h1 className="text-2xl font-bold text-slate-800">Latest News</h1>
           <p className="mt-3 text-slate-600 p-5">
-            The membership of the club is open to all persons who are approved
-            by the Executive Committee. Each applicant for admission as a member
-            of the club shall apply in the prescribed “Membership Application
-            Form” and such application shall be proposed and seconded by a
-            member of the Executive Committee and one other member other than
-            Temporary or Student Member. The entrance fee and subscription for
-            at least one year relevant to the class of membership shall
-            accompany the application.
+          The latest news page for the Club is a great place to stay up-to-date on all the latest 
+          happenings in the club. Here you will find news about upcoming events, tournament results, 
+          and more. We encourage you to check back often for the latest news and information.
           </p>
         </div>
         <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
