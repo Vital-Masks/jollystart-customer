@@ -11,11 +11,11 @@ const Footer = () => {
         <div className="flex justify-center">
           <Image
             priority
-            src="/assets/brand/jolly 1.png"
+            src="/assets/brand/jolly-1.png"
             alt="logo"
             width={720}
             height={720}
-            className="w-[250px] object-contain"
+            className="w-[250px] h-auto object-contain"
           />
         </div>
 
