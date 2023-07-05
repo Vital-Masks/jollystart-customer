@@ -1,4 +1,6 @@
+import MemberRegisterForm from '@/components/MemberRegisterForm';
 import Container from '@/components/Shared/Container';
+import { MemberProvider } from '@/contexts/MemberContext';
 import { StarIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import React from 'react';
@@ -8,24 +10,24 @@ const Membership = () => {
     <div className="bg-slate-100">
       <Container>
         <div className="mb-10 text-center">
-          <h1 className="text-2xl font-bold text-slate-800">
-            BECOME A MEMBER OF THE CLUB
+          <h1 className="text-2xl font-bold uppercase text-slate-800">
+            Register New Member
           </h1>
-          <p className="mt-3 text-slate-600 p-5">
+          <p className="p-5 mt-3 text-slate-600">
             The membership of the club is open to all persons who are approved
             by the Executive Committee. Each applicant for admission as a member
-            of the club shall apply in the prescribed “Membership Application
-            Form” and such application shall be proposed and seconded by a
-            member of the Executive Committee and one other member other than
-            Temporary or Student Member. The entrance fee and subscription for
-            at least one year relevant to the class of membership shall
-            accompany the application.
+            of the club shall apply in the prescribed.
           </p>
         </div>
-        <div className="flex items-center justify-start gap-10 overflow-x-auto md:justify-center snap-x scroll-smooth">
+        {/* <div className="flex items-center justify-start gap-10 overflow-x-auto md:justify-center snap-x scroll-smooth">
           <MembershipCard />
           <MembershipCard />
           <MembershipCard />
+        </div> */}
+        <div className="text-slate-600">
+          <MemberProvider>
+            <MemberRegisterForm />
+          </MemberProvider>
         </div>
       </Container>
     </div>
