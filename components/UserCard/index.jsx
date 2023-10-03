@@ -9,6 +9,7 @@ const UserCard = ({ picture, name, occupation }) => {
         height={1024}
         className="h-[250px] lg:h-[300px] xl:h-[400px] object-cover"
         src={picture}
+        alt="mig"
       />
       <div className="mt-2 text-center">
         <h1 className="text-lg text-slate-900">{name}</h1>

@@ -127,6 +127,7 @@ const Item = ({ title, description, image }) => {
           height={2500}
           className="object-cover w-full h-full"
           src={image}
+          alt="img"
         />
       </div>
     </SwiperSlide>
