@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MDBFooter } from 'mdb-react-ui-kit';
+
 import React from 'react';
 import SocialMediaLinks from '../SocialMediaLinks';
 import Link from 'next/link';
@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <MDBFooter bgColor="light" className="text-center bg-white text-lg-left">
+      <div className="text-center bg-white bg-gray-50 text-lg-left">
         <div
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
@@ -78,7 +78,7 @@ const Footer = () => {
             Privacy Policy
           </a>
         </div>
-      </MDBFooter>
+      </div>
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">
