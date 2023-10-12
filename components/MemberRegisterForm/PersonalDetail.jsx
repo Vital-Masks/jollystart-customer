@@ -47,6 +47,7 @@ const PersonalDetail = () => {
                 label="First Name"
                 name="first_name"
                 required={true}
+                
               />
               <InputField label="Last Name" name="last_name" required={true} />
               <InputField

@@ -8,7 +8,12 @@ export const routes = {
   SPORTS: '/sports',
   LATEST_NEWS: '/latest-news',
   GALLERY: '/gallery',
+  GALLERYNUM: '/gallerynum',
   CONTACT_US: '/contact-us',
+  LOGIN: '/login/logreg',
+  MEMBERREGISTER: '/memberregister',
+  MEMBERSHIPFULL: '/memberpackage',
+  USERPROFILE: '/UserProfile',
 
   CRICKET: '/cricket',
   CRICKET_TEAM: '/cricket/teams',
