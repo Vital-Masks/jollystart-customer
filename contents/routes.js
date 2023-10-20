@@ -14,6 +14,8 @@ export const routes = {
   MEMBERREGISTER: '/memberregister',
   MEMBERSHIPFULL: '/memberpackage',
   USERPROFILE: '/UserProfile',
+  USERINFO: '/userinfo',
+  INFO: '/info',
 
   CRICKET: '/cricket',
   CRICKET_TEAM: '/cricket/teams',

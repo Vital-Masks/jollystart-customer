@@ -67,6 +67,12 @@ const Table = () => {
                       className="text-indigo-600 hover:text-indigo-900"
                     >
                       Edit<span className="sr-only">, {person.name}</span>
+                    </a>&nbsp;&nbsp;
+                    <a
+                      href="#"
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      Delete<span className="sr-only">, {person.name}</span>
                     </a>
                   </td>
                 </tr>
