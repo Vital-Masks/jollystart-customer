@@ -2,7 +2,6 @@ import React from 'react';
 import Container from '../Shared/Container';
 import Image from 'next/image';
 
-
 const Gallery = () => {
   const images = [
     {
@@ -27,30 +26,6 @@ const Gallery = () => {
     },
     {
       id: 6,
-      image: '/assets/banner/gallery6.jpg',
-    },
-    {
-      id: 7,
-      image: '/assets/banner/gallery1.jpg',
-    },
-    {
-      id: 8,
-      image: '/assets/banner/gallery2.jpg',
-    },
-    {
-      id: 9,
-      image: '/assets/banner/gallery3.jpg',
-    },
-    {
-      id: 10,
-      image: '/assets/banner/gallery4.jpg',
-    },
-    {
-      id: 11,
-      image: '/assets/banner/gallery5.jpg',
-    },
-    {
-      id: 12,
       image: '/assets/banner/gallery6.jpg',
     },
   ];
@@ -79,7 +54,6 @@ const Gallery = () => {
           ))}
         </div>
       </Container>
-      
     </div>
   );
 };

@@ -38,35 +38,35 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         >
-          <a className="text-sm text-dark" href="/">
+          <a className="text-sm text-dark" href="#">
             Home
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/about-us">
+          <a className="text-sm text-dark" href="#">
             About Us
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/cricket/club-cricket">
+          <a className="text-sm text-dark" href="#">
             Cricket
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/basketball/club-basketball">
+          <a className="text-sm text-dark" href="#">
             BasketBall
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/membership">
+          <a className="text-sm text-dark" href="#">
             Membership
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/latest-news">
+          <a className="text-sm text-dark" href="#">
             Sports News & Events
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/gallery">
+          <a className="text-sm text-dark" href="#">
             Gallery
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/contact-us">
+          <a className="text-sm text-dark" href="#">
             Contact Us
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,7 +74,7 @@ const Footer = () => {
             Terms Privacy
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/UserProfile">
+          <a className="text-sm text-dark" href="#">
             Privacy Policy
           </a>
         </div>
