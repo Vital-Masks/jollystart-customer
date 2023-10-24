@@ -25,24 +25,34 @@ const PaymentDetail = () => {
         </div>
         <div className="px-10 my-10">
           <div className="grid grid-cols-4 gap-3">
-            <div className="grid grid-cols-2 col-span-2 gap-2">
-              <InputField label="Title" name="title" required={true} />
+            <div className="grid grid-cols-3 col-span-3 gap-2">
+              
               <InputField
                 label="First Name"
                 name="first_name"
                 required={true}    
+              />
+              <InputField label="Bank" name="bank" required={true} />
+              <InputField
+                label="Barnch"
+                name="branch"
+                required={true}
               />
               <InputField
                 label="Mobile Number"
                 name="mobile_number"
                 required={true}
               />
-              <InputField
-                label="Telephone Number"
-                name="telephone_number"
+               <InputField
+                label="Totall"
+                name="totall"
                 required={true}
               />
-              
+              <InputField
+                label="Date"
+                name="date"
+                required={true}
+              />
             </div>
             <div>
               <div className="col-span-full">
@@ -81,7 +91,22 @@ const PaymentDetail = () => {
               </div>
             </div>
           </div>
-          <p>I agree</p>
+          <div className="relative flex items-center ">
+                  <div className="flex items-center h-6">
+                    <input
+                      id="comments"
+                      aria-describedby="comments-description"
+                      name="comments"
+                      type="checkbox"
+                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-600"
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <p id="comments-description" className="text-[#7E7A7C]">
+                      I agree the terms of service and Privacy policy.
+                    </p>
+                  </div>
+                </div>
         </div>
         
         <div className="flex items-center justify-center mb-10 gap-5">

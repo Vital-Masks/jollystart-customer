@@ -28,9 +28,10 @@ const PersonalDetail = () => {
             name="category"
             id="category"
           >
-            <option disabled>Select Category</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option>Select Category</option>
+            <option value="1">Ordinary Member</option>
+            <option value="2">Life time Member</option>
+            <option value="3">Hon Life time Member</option>
           </select>
           <button className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52">
             Pricing Table

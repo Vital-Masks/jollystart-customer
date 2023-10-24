@@ -61,8 +61,8 @@ const SchoolDetail = () => {
           <div className="flex items-end gap-4 mb-10">
             <div className="w-full">
               <InputField
-                label="School Name"
-                name="school_name"
+                label="Club Name"
+                name="club_name"
                 required={true}
               />
             </div>
