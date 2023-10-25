@@ -29,12 +29,12 @@ const Membershipfull = () => {
         </div>
 
       <div className='flex justify-center gap-3 py-5'>
-        <a className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center" href='/memberregister'>
+        <Link className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center" href='/memberregister'>
             Register
-        </a>
-        <a className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center" href='/login/logreg'>
+        </Link>
+        <Link className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center" href='/login/logreg'>
             Login
-        </a>
+        </Link>
       </div>
       </Container>
       

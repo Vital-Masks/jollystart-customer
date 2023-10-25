@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const PaymentTable = () => {
   const people = [
@@ -72,12 +73,12 @@ const PaymentTable = () => {
                     {person.date}
                   </td>
                   <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                    <a
+                    <Link
                       href="#"
                       className="text-indigo-600 hover:text-indigo-900"
                     >
                       View Image<span className="sr-only">, {person.date}</span>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               ))}

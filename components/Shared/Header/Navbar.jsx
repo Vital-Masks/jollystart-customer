@@ -140,9 +140,9 @@ const Navbar = () => {
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/login/logreg" className="text-sm font-semibold leading-6 text-gray-100">
-            Login/Signup <span aria-hidden="true">&rarr;</span>&nbsp;&nbsp;&nbsp;
-          </a>
+          <Link href="/login/logreg" className="text-sm font-semibold leading-6 text-gray-100">
+          Login/Signup <span aria-hidden="true">&rarr;</span>&nbsp;&nbsp;&nbsp;
+        </Link>
         </div>
       </nav>
       <MobileMenu

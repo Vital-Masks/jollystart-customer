@@ -49,13 +49,13 @@ import Container from '@/components/Shared/Container';
           </div>
 
       
-          <a className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md " href="/info">
+          <Link className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md " href="/info">
             Sign In
-          </a>
+          </Link>
           <div className='py-3 text-sm' >
-          <a id="comments-description" className="text-[#7E7A7C]" href="/memberpackage">
+          <Link id="comments-description" className="text-[#7E7A7C]" href="/memberpackage">
                     Register for membership?
-          </a>
+          </Link>
           </div>
           
         </Container>

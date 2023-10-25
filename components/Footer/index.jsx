@@ -38,45 +38,45 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         >
-          <a className="text-sm text-dark" href="/">
+          <Link className="text-sm text-dark" href="/">
             Home
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/about-us">
+          <Link className="text-sm text-dark" href="/about-us">
             About Us
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/cricket/club-cricket">
+          <Link className="text-sm text-dark" href="/cricket/club-cricket">
             Cricket
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/basketball/club-basketball">
+          <Link className="text-sm text-dark" href="/basketball/club-basketball">
             BasketBall
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/membership">
+          <Link className="text-sm text-dark" href="/membership">
             Membership
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/latest-news">
+          <Link className="text-sm text-dark" href="/latest-news">
             Sports News & Events
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/gallery">
+          <Link className="text-sm text-dark" href="/gallery">
             Gallery
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/contact-us">
+          <Link className="text-sm text-dark" href="/contact-us">
             Contact Us
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="#">
+          <Link className="text-sm text-dark" href="#">
             Terms Privacy
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a className="text-sm text-dark" href="/UserProfile">
+          <Link className="text-sm text-dark" href="/UserProfile">
             Privacy Policy
-          </a>
+          </Link>
         </div>
       </MDBFooter>
 

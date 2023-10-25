@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Table = () => {
   const people = [
@@ -62,18 +63,18 @@ const Table = () => {
                     {person.role}
                   </td>
                   <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                    <a
+                    <Link
                       href="#"
                       className="text-indigo-600 hover:text-indigo-900"
                     >
                       Edit<span className="sr-only">, {person.name}</span>
-                    </a>&nbsp;&nbsp;
-                    <a
+                    </Link>&nbsp;&nbsp;
+                    <Link
                       href="#"
                       className="text-red-500 hover:text-red-700"
                     >
                       Delete<span className="sr-only">, {person.name}</span>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               ))}
