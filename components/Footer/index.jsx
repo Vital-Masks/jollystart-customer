@@ -38,46 +38,119 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         >
-          {/* <Link className="text-sm text-dark" href="/">
+          {/* <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
+      
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+        <Link className="text-sm text-dark" href="/">
             Home
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/about-us">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/about-us">
             About Us
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/cricket/club-cricket">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/cricket/club-cricket">
             Cricket
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/basketball/club-basketball">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/basketball/club-basketball">
             BasketBall
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/membership">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/membership">
             Membership
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/latest-news">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/latest-news">
             Sports News & Events
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/gallery">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/gallery">
             Gallery
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/contact-us">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/contact-us">
             Contact Us
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="#">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="#">
             Terms Privacy
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link className="text-sm text-dark" href="/UserProfile">
+        </li>
+        <li>
+        <Link className="text-sm text-dark" href="/UserProfile">
             Privacy Policy
-          </Link> */}
-        </div>
+          </Link>
+        </li>
+    </ul>
+    </div> */}
+   
+<section>
+    <div class="max-w-screen-xl px-4 py-2 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+        <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/">
+            Home
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/about-us">
+            About Us
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/cricket/club-cricket">
+            Cricket
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/basketball/club-basketball">
+            BasketBall
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/membership">
+            Membership
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/latest-news">
+            Sports News & Events
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/gallery">
+            Gallery
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/contact-us">
+            Contact Us
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="#">
+            Terms Privacy
+          </Link>
+            </div>
+            <div class="px-5 py-2">
+            <Link className="text-sm text-dark" href="/UserProfile">
+            Privacy Policy
+          </Link>
+            </div>
+        </nav>
+    </div>
+</section>
+  </div>
       </MDBFooter>
 
       <div className="px-10 py-3 bg-brand-light">
