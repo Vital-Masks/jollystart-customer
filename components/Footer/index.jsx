@@ -38,7 +38,7 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         >
-          <Link className="text-sm text-dark" href="/">
+          {/* <Link className="text-sm text-dark" href="/">
             Home
           </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -76,7 +76,7 @@ const Footer = () => {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link className="text-sm text-dark" href="/UserProfile">
             Privacy Policy
-          </Link>
+          </Link> */}
         </div>
       </MDBFooter>
 
