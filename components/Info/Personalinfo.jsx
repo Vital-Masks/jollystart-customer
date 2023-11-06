@@ -52,7 +52,7 @@ const Personalinfo = () => {
                 name="telephone_number"
                 required={true}
               />
-              <div className="col-span-3">
+              <div className="col-span-2">
                 <InputField
                   label="Resident Address"
                   name="resident_address"
@@ -65,7 +65,11 @@ const Personalinfo = () => {
                 name="marital_status"
                 required={true}
               />
-              
+              <InputField
+                label="User Name"
+                name="User_name"
+                required={true}
+              />
               
             </div>
            

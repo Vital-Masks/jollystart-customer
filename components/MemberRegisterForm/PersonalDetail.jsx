@@ -88,6 +88,22 @@ const PersonalDetail = () => {
                 name="marital_status"
                 required={true}
               />
+              <InputField
+                label="User Name"
+                name="User_Name"
+                required={true}
+              />
+              <InputField
+                label="Password"
+                name="password"
+                required={true}
+              />
+              <InputField
+                label="Confirm Password"
+                name="Confirm_assword"
+                required={true}
+              />
+              
             </div>
             <div>
               <div className="col-span-full">
