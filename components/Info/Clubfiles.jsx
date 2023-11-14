@@ -34,7 +34,9 @@ export default Clubfile;
 
 const ClubfileCard = () => {
   return (
+    
     <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
+      
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
       <h1 className="mb-5 text-xl font-bold">
           Account Audit 2022
