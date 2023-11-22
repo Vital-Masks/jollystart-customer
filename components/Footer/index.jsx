@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MDBFooter } from 'mdb-react-ui-kit';
+// import { MDBFooter } from 'mdb-react-ui-kit';
 import React from 'react';
 import SocialMediaLinks from '../SocialMediaLinks';
 import Link from 'next/link';
@@ -33,11 +33,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <MDBFooter bgColor="light" className="text-center bg-white text-lg-left">
+      {/* <MDBFooter bgColor="light" className="text-center bg-white text-lg-left">
         <div
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
-        >
+        > */}
           {/* <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
       
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
@@ -150,8 +150,8 @@ const Footer = () => {
         </nav>
     </div>
 </section>
-  </div>
-      </MDBFooter>
+  {/* </div>
+      </MDBFooter> */}
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">

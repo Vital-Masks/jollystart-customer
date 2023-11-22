@@ -1,15 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-const Table = () => {
-  const people = [
-    {
-      name: 'Lindsay Walton',
-      title: 'Front-end Developer',
-      email: 'lindsay.walton@example.com',
-      role: 'Member',
-    },
-  ];
+const Table = (props) => {
+  const { items, handleEditItem, handleDeleteItem, table } = props;
+  const people = items;
 
   return (
     <div className="flow-root mt-8">
@@ -34,7 +28,7 @@ const Table = () => {
                   scope="col"
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                 >
-                  Email
+                  Game
                 </th>
                 <th
                   scope="col"
@@ -48,36 +42,40 @@ const Table = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {people.map((person) => (
-                <tr key={person.email}>
-                  <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
-                    {person.name}
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                    {person.title}
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                    {person.email}
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                    {person.role}
-                  </td>
-                  <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                    <Link
-                      href="#"
-                      className="text-indigo-600 hover:text-indigo-900"
-                    >
-                      Edit<span className="sr-only">, {person.name}</span>
-                    </Link>&nbsp;&nbsp;
-                    <Link
-                      href="#"
-                      className="text-red-500 hover:text-red-700"
-                    >
-                      Delete<span className="sr-only">, {person.name}</span>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
+              {people &&
+                people.map((person, index) => (
+                  <tr key={index}>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
+                      {table === "2" ? person.clubName : person.schoolName}
+                    </td>
+                    <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                      {table === "2" ? person.invloved : person.participated}
+                    </td>
+                    <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                      {person.game}
+                    </td>
+                    <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                      {person.role}
+                    </td>
+                    <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                      <div
+                        href="#"
+                        className="text-indigo-600 hover:text-indigo-900"
+                        onClick={() => handleEditItem(index)}
+                      >
+                        Edit<span className="sr-only">, {person.name}</span>
+                      </div>
+                      &nbsp;&nbsp;
+                      <div
+                        onClick={() => handleDeleteItem(index)}
+                        href="#"
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        Delete<span className="sr-only">, {person.name}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
