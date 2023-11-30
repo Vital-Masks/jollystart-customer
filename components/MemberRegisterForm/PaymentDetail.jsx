@@ -73,6 +73,8 @@ const PaymentDetail = (props) => {
           console.log(error, "error");
         }
       }
+
+      
       let paymentData = {
         paymentDetails: {
           memberId: values.memberId,

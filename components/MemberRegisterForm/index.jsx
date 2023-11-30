@@ -27,7 +27,7 @@ const MemberRegisterForm = () => {
     console.log(payObj, "payObj");
     setpaymentlData(payObj);
 let status ={
-  memberStatus:"PENDING"
+  memberApprovalStatus:"PENDING"
 }
     console.log(PersonalData, SchoolData, paymentlData,status);
 
