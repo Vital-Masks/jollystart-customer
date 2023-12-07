@@ -17,7 +17,9 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
     email: Yup.string().required("email is required"),
     userName: Yup.string().required("username is required"),
     password: Yup.string().required("password is required"),
-    cpassword: Yup.string().required("password is required"),
+    cpassword: Yup.string()
+      .required("Confirm Password is required")
+      .oneOf([Yup.ref("password")], "Passwords must match"),
     phoneNumber: Yup.string().required("phoneNumber is required"),
     telephoneNumber: Yup.string().required("telephoneNumber is required"),
     address: Yup.string().required("address is required"),
@@ -25,9 +27,15 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
     occupation: Yup.string().required("occupation is required"),
     officeAddress: Yup.string().required("officeAddress is required"),
     maritalStatus: Yup.string().required("maritalStatus is required"),
-    profilePicture: PersonalData
-      ? Yup.string().required("File is required")
-      : Yup.string().required("File is required"),
+    profilePicture: Yup.mixed().test('fileValidation', 'Invalid file', (value) => {
+      if (!value) {
+        return false;
+      }
+      if (typeof value === 'string') {
+        return value.length <= 3 * 1024 * 1024;
+      }
+      return value.size <= 2 * 1024 * 1024;
+    }).required('File is required'),
   });
   const { setStep } = useMembers();
   const intalvalue = {
@@ -80,7 +88,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         try {
           base64String = await convertFileToBase64(values.profilePicture);
         } catch (error) {
-          base64String=values.profilePicture
+          base64String = values.profilePicture;
           console.log(error, "error");
         }
       } else {
@@ -189,7 +197,6 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                   formik.errors.title && <p>{formik.errors.title}</p>
                 }
               />
-
               <InputField
                 label="First Name"
                 name="firstName"
@@ -231,6 +238,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               <InputField
                 label="Date of Birth"
                 name="dateOfBirth"
+                type="date"
                 required={true}
                 value={formik.values.dateOfBirth}
                 onChange={formik.handleChange}
@@ -244,6 +252,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
               <InputField
                 label="E-Mail Address"
+                type="email"
                 name="email"
                 required={true}
                 value={formik.values.email}
@@ -325,6 +334,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               <InputField
                 label="Password"
                 name="password"
+                type="password"
                 required={true}
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -336,6 +346,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
               <InputField
                 label="Confirm Password"
+                type="password"
                 name="cpassword"
                 required={true}
                 value={formik.values.cpassword}
@@ -388,9 +399,23 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
+                    <p
+                      className="text-xs leading-5 text-gray-600"
+                      style={
+                        formik.errors.profilePicture &&
+                        formik.touched.profilePicture && { borderColor: "red" }
+                      }
+                    >
+                      PNG, JPG, GIF up to2MB
                     </p>
+                    {formik.errors.profilePicture && (
+                      <p
+                        className="text-xs leading-5 text-red-400"
+                        style={{ color: "red" }}
+                      >
+                        {formik.errors.profilePicture}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

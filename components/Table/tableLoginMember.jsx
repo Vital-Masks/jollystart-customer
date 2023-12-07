@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-const Table = (props) => {
-  const { items, handleEditItem, handleDeleteItem, table, schoolDetails } =
-    props;
-  const people =
-    schoolDetails && schoolDetails.length > 0 ? schoolDetails : items;
+const LoginTable = (props) => {
+  const { items, handleEditItem, handleDeleteItem, table ,schoolDetails} = props;
+  const people = schoolDetails;
 
   return (
     <div className="flow-root mt-8">
@@ -38,13 +36,14 @@ const Table = (props) => {
                 >
                   Role
                 </th>
-                {!(schoolDetails && schoolDetails.length > 0)&&  <th
-                  colSpan={2}
+                <th
+                colSpan={2}
                   scope="col"
                   className="px-3 py-3.5 text-center text-sm font-semibold text-gray-900"
                 >
                   Action
-                </th>}
+                </th>
+               
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -63,7 +62,7 @@ const Table = (props) => {
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.role}
                     </td>
-                    {!(schoolDetails && schoolDetails.length > 0)&&     <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                    <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                       <div
                         href="#"
                         className="text-indigo-600 hover:text-indigo-900"
@@ -71,8 +70,10 @@ const Table = (props) => {
                       >
                         Edit<span className="sr-only">, {person.name}</span>
                       </div>
-                    </td>}
-                 {!(schoolDetails && schoolDetails.length > 0)&&   <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                     
+                    </td>
+                    <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                      
                       <div
                         onClick={() => handleDeleteItem(index)}
                         href="#"
@@ -80,7 +81,7 @@ const Table = (props) => {
                       >
                         Delete<span className="sr-only">, {person.name}</span>
                       </div>
-                    </td>}
+                    </td>
                   </tr>
                 ))}
             </tbody>
@@ -91,4 +92,4 @@ const Table = (props) => {
   );
 };
 
-export default Table;
+export default LoginTable;

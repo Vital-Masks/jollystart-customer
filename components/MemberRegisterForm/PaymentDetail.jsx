@@ -14,9 +14,17 @@ const PaymentDetail = (props) => {
     branch: Yup.string().required("Title is required"),
     total: Yup.string().required("Title is required"),
     date: Yup.string().required("Title is required"),
-    paymentSlip: paymentlData
-      ? Yup.string()
-      : Yup.mixed().required("File is required"),
+    paymentSlip: Yup.mixed()
+      .test("fileValidation", "Invalid file", (value) => {
+        if (!value) {
+          return false;
+        }
+        if (typeof value === "string") {
+          return value.length <= 3 * 1024 * 1024;
+        }
+        return value.size <= 2 * 1024 * 1024;
+      })
+      .required("File is required"),
     isPaymentDetailVerified: Yup.boolean().oneOf(
       [true],
       "You must accept the terms of service and Privacy policy"
@@ -46,9 +54,10 @@ const PaymentDetail = (props) => {
         paymentlData && paymentlData.paymentDetails
           ? paymentlData.paymentDetails.date
           : "",
-      paymentSlip: paymentlData && paymentlData.paymentDetails
-      ? paymentlData.paymentDetails.paymentSlip
-      : null,
+      paymentSlip:
+        paymentlData && paymentlData.paymentDetails
+          ? paymentlData.paymentDetails.paymentSlip
+          : null,
       isPaymentDetailVerified: true,
       mobileNumber: "077XXXXXXX",
     },
@@ -74,7 +83,6 @@ const PaymentDetail = (props) => {
         }
       }
 
-      
       let paymentData = {
         paymentDetails: {
           memberId: values.memberId,
@@ -220,6 +228,7 @@ const PaymentDetail = (props) => {
               <InputField
                 label="Date"
                 name="date"
+                type="date"
                 required={true}
                 value={formik.values.date}
                 onChange={formik.handleChange}
@@ -275,6 +284,14 @@ const PaymentDetail = (props) => {
                     <p className="text-xs leading-5 text-gray-600">
                       PNG, JPG, GIF up to 10MB
                     </p>
+                    {formik.errors.paymentSlip && (
+                      <p
+                        className="text-xs leading-5 text-red-400"
+                        style={{ color: "red" }}
+                      >
+                        {formik.errors.paymentSlip}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

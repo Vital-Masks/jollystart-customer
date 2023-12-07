@@ -1,117 +1,170 @@
-import { Fragment, useState } from 'react';
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import Link from 'next/link';
-import { routes } from '@/contents/routes';
+import { Fragment, useEffect, useState } from "react";
+import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
+import { routes } from "@/contents/routes";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 const Navbar = () => {
+  // sdsd
+  const [Loading, setLoading] = useState(true);
+  const [memberData, setmemberData] = useState({});
+
+  const fetchUserData = () => {
+    const userDataString = localStorage.getItem("userData");
+    try {
+      if (userDataString) {
+        // Parse the userData JSON string
+        const userData = JSON.parse(userDataString);
+        // Check if userData has the _id property
+        if (userData && userData._id) {
+          // Make a fetch request using the _id
+          fetch(`http://localhost:3000/api/member/${userData._id}`)
+            .then((fetchResponse) => {
+              // Check if the fetch request was successful
+              if (fetchResponse.ok) {
+                // Process the response here, e.g., parse the JSON response
+                console.log(fetchResponse, "==========");
+                return fetchResponse.json();
+              } else {
+                // Handle fetch error
+                throw new Error("Fetch request failed");
+              }
+            })
+            .then((userDataFromFetch) => {
+              // Do something with the userDataFromFetch
+              console.log(userDataFromFetch.result);
+              setmemberData(userDataFromFetch.result);
+            })
+            .catch((error) => {
+              // Handle fetch error or redirect to login page
+              console.error("Fetch error:", error);
+            });
+        } else {
+          // Redirect to login page if _id is not present in userData
+        }
+      } else {
+        // Redirect to login page if userData is not present in local storage
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/login/logreg";
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menus = [
     {
       id: 0,
-      label: 'Home',
+      label: "Home",
       link: routes.HOME,
     },
     {
       id: 1,
-      label: 'About us',
+      label: "About us",
       link: routes.ABOUT_US,
       subMenu: [
         {
           id: 0,
-          label: 'About us',
+          label: "About us",
           link: routes.ABOUT_US,
         },
         {
           id: 1,
-          label: 'History',
+          label: "History",
           link: routes.HISTORY,
         },
         {
           id: 2,
-          label: 'Past Presidents',
+          label: "Past Presidents",
           link: routes.PAST_PRESIDENTS,
         },
         {
           id: 3,
-          label: 'Committee',
+          label: "Committee",
           link: routes.COMMITTEE,
         },
         {
           id: 4,
-          label: 'Membership',
+          label: "Membership",
           link: routes.MEMBERREGISTER,
         },
       ],
     },
     {
       id: 2,
-      label: 'Cricket',
+      label: "Cricket",
       link: routes.CRICKET,
       subMenu: [
         {
           id: 0,
-          label: 'Team 22/23',
+          label: "Team 22/23",
           link: routes.CRICKET_TEAM,
         },
         {
           id: 1,
-          label: 'Club Cricket',
+          label: "Club Cricket",
           link: routes.CLUB_CRICKET,
         },
         {
           id: 2,
-          label: 'Past Captains',
+          label: "Past Captains",
           link: routes.CRICKET_PAST_CAPTAINS,
         },
       ],
     },
     {
       id: 3,
-      label: 'Basket ball',
+      label: "Basket ball",
       link: routes.BASKET_BALL,
       subMenu: [
         {
           id: 0,
-          label: 'Team 22/23',
+          label: "Team 22/23",
           link: routes.BASKET_TEAM,
         },
         {
           id: 1,
-          label: 'Club Basket ball',
+          label: "Club Basket ball",
           link: routes.CLUB_BASKET_BALL,
         },
         {
           id: 2,
-          label: 'Past Captains',
+          label: "Past Captains",
           link: routes.BASKET_PAST_CAPTAINS,
         },
       ],
     },
     {
       id: 4,
-      label: 'Sports',
+      label: "Sports",
       link: routes.SPORTS,
     },
     {
       id: 5,
-      label: 'Lates news',
+      label: "Lates news",
       link: routes.LATEST_NEWS,
     },
     {
       id: 6,
-      label: 'Gallery',
+      label: "Gallery",
       link: routes.GALLERY,
     },
     {
       id: 7,
-      label: 'Contact us',
+      label: "Contact us",
       link: routes.CONTACT_US,
     },
   ];
@@ -140,9 +193,32 @@ const Navbar = () => {
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/login/logreg" className="text-sm font-semibold leading-6 text-gray-100">
-          Login/Signup <span aria-hidden="true">&rarr;</span>&nbsp;&nbsp;&nbsp;
-        </Link>
+          {!(memberData && memberData.firstName) && (
+            <Link
+              href="/login/logreg"
+              className="text-sm font-semibold leading-6 text-gray-100"
+            >
+              Login/Signup <span aria-hidden="true">&rarr;</span>
+              &nbsp;&nbsp;&nbsp;
+            </Link>
+          )}
+
+          {memberData && memberData.firstName && (
+            <div className="text-sm font-semibold leading-6 text-gray-100">
+              {memberData.firstName} {memberData.lastName}
+              &nbsp;&nbsp;&nbsp;
+            </div>
+          )}
+          {memberData && memberData.firstName && (
+            <div
+              onClick={logout}
+              href="/login/logreg"
+              className="text-sm font-semibold leading-6 text-gray-100"
+            >
+              Logout <span aria-hidden="true">&rarr;</span>
+              &nbsp;&nbsp;&nbsp;
+            </div>
+          )}
         </div>
       </nav>
       <MobileMenu
@@ -250,8 +326,8 @@ const MobileMenu = ({ menus, mobileMenuOpen, setMobileMenuOpen }) => {
                             {label}
                             <ChevronDownIcon
                               className={classNames(
-                                open ? 'rotate-180' : '',
-                                'h-5 w-5 flex-none'
+                                open ? "rotate-180" : "",
+                                "h-5 w-5 flex-none"
                               )}
                               aria-hidden="true"
                             />

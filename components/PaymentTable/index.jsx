@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-const PaymentTable = () => {
+const PaymentTable = ({memberData}) => {
+  console.log(memberData,"memberData={memberData}memberData={memberData}");
+  // const {membershipCategory,} = memberData.
   const people = [
     {
       member_type: 'Basic User',
