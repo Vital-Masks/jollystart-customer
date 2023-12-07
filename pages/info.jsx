@@ -40,7 +40,7 @@ const Info = () => {
         // Check if userData has the _id property
         if (userData && userData._id) {
           // Make a fetch request using the _id
-          fetch(`http://localhost:3000/api/member/${userData._id}`)
+          fetch(`http://localhost:3000/api/member/memberPayment/${userData._id}`)
             .then((fetchResponse) => {
               // Check if the fetch request was successful
               if (fetchResponse.ok) {
@@ -55,7 +55,7 @@ const Info = () => {
             .then((userDataFromFetch) => {
               // Do something with the userDataFromFetch
               console.log(userDataFromFetch.result);
-              setmemberData(userDataFromFetch.result);
+              setmemberData(userDataFromFetch.result[0]);
             })
             .catch((error) => {
               // Handle fetch error or redirect to login page

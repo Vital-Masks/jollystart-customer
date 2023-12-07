@@ -9,6 +9,7 @@ import { PhotoIcon } from "@heroicons/react/24/solid";
 import SchoolinfoCard from "./InfoCard";
 
 const Paymentinfo = ({ memberData }) => {
+  const paymentDetails =memberData.paymentDetails || []
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5">
@@ -22,7 +23,7 @@ const Paymentinfo = ({ memberData }) => {
         </div>
         <div className="px-10 my-10">
           <div className="mt-10">
-            <PaymentTable memberData={memberData}/>
+            <PaymentTable paymentDetails={paymentDetails}/>
           </div>
         </div>
         <div className="flex items-center justify-center mb-10">
