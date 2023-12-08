@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Image from 'next/image';
 
 const Header = () => {
+  
   return (
     <>
       <TopHeader />
