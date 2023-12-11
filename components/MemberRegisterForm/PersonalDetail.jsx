@@ -5,6 +5,8 @@ import { useMembers } from "@/contexts/MemberContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
+import { routes } from "@/contents/routes";
+import Link from "next/link";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   const validationSchema = Yup.object().shape({
@@ -167,9 +169,9 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
             ))}
           </select>
-          <button className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52">
+          <Link href={routes.MEMBERSHIPFULL} className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center">
             Pricing Table
-          </button>
+          </Link >
         </div>
         {formik.touched.membershipCategory &&
           formik.errors.membershipCategory && (
