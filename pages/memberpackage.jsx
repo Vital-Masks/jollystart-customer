@@ -26,6 +26,7 @@ const Membershipfull = () => {
           <MembershipCard />
           <MembershipCard2 />
           <MembershipCard3 />
+          <MembershipCard4 />
         </div>
 
       <div className='flex justify-center gap-3 py-5'>
@@ -131,3 +132,31 @@ const MembershipCard3 = () => {
   );
 };
 
+const MembershipCard4 = () => {
+  return (
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
+      <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
+        <StarIcon className="w-10 h-10" />
+      </div>
+      <div className="flex-1 p-10 text-center text-black">
+        <h1 className="mb-5 text-xl font-bold">HON LIFE MEMBERS</h1>
+        <div className="mb-10 text-sm">
+          <p>Entrance Fee: Rs.5,000/-</p>
+          <p>Annual Subscription: Rs.5,000/-</p>
+        </div>
+        <div className="mb-10 text-sm">
+        <p>Life membership Fee: </p>
+        <p>Rs.5,000/-</p>
+        <p>Life membership Fee: </p>
+        <p>Rs.5,000/-</p>
+        <p>Life membership Fee: </p>
+        <p>Rs.5,000/-</p>
+        <p>Life membership Fee: </p>
+        <p>Rs.5,000/-</p>
+        <p>Life membership Fee: </p>
+        <p>Rs.5,000/-</p>
+        </div>
+      </div>
+    </div>
+  );
+};
