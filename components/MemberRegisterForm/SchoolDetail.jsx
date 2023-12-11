@@ -139,7 +139,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       file: items3,
     };
     if (SchoolData) {
-      if (items.length > 0 && items2.length > 0) {
+      if (items.length > 0 ) {
         setStep(3);
         AllSchoollData(obj);
       }
