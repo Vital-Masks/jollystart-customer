@@ -7,10 +7,12 @@ import InputField from "../UI/InputField";
 import Table from "../Table";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import SchoolinfoCard from "./InfoCard";
+import AddSchool from "./AddSchool";
+import AddClub from "./AddClub";
 
 const Schoolinfo = ({ memberData }) => {
-  const { schoolDetails,clubDetails } = memberData || [];
-  //  schoolName, participated, game, from, to, role, _id 
+  const { schoolDetails, clubDetails } = memberData || [];
+  //  schoolName, participated, game, from, to, role, _id
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5">
@@ -24,46 +26,19 @@ const Schoolinfo = ({ memberData }) => {
           School Details
         </div>
         <div className="px-10 my-10">
-          
-          
-          <div className="mt-10">
-            <Table schoolDetails={schoolDetails} />
-          </div>
+          <AddSchool schoolDetails={schoolDetails} />
         </div>
       </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Club Details
         </div>
-        <div className="px-10 my-10">
-          {/* <div className="flex items-end gap-4 mb-10">
-            <div className="w-full">
-              <InputField
-                label="School Name"
-                name="school_name"
-                required={true}
-              />
-            </div>
-
-            <button className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52">
-              Add
-            </button>
-          </div>
-          <div className="grid grid-cols-5 gap-3">
-            <InputField
-              label="Team you played"
-              name="team_you_played"
-              required={true}
-            />
-            <InputField label="Game" name="game" required={true} />
-            <InputField label="From" name="from" required={true} />
-            <InputField label="To" name="to" required={true} />
-            <InputField label="Role" name="role" required={true} />
-          </div> */}
+        <AddClub schoolDetails={clubDetails}/>
+        {/* <div className="px-10 my-10">
           <div className="mt-10">
-            <Table  schoolDetails={clubDetails} />
+            <Table schoolDetails={clubDetails} />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
         Image Proof
