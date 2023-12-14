@@ -86,50 +86,73 @@ const sampleGallayData = [
 ];
 const Gallery = () => {
   const [GallaryData, setGallaryData] = useState([]);
-  const fetchData = () => {
+  const [Loading, setLoading] = useState(false);
 
+  const fetchUserData = () => {
+    setLoading(true);
+    try {
+      // Parse the userData JSON string
+      // Check if userData has the _id property
+      // Make a fetch request using the _id
+      fetch(`http://localhost:3000/api/galleryManagement/getAllGallery`)
+        .then((fetchResponse) => {
+          // Check if the fetch request was successful
+          if (fetchResponse.ok) {
+            // Process the response here, e.g., parse the JSON response
+            console.log(fetchResponse, "==========");
+            return fetchResponse.json();
+          } else {
+            // Handle fetch error
+            throw new Error("Fetch request failed");
+          }
+        })
+        .then((userDataFromFetch) => {
+          // Do something with the userDataFromFetch
+          console.log(userDataFromFetch.result);
+          setGallaryData(userDataFromFetch.result);
+        })
+        .catch((error) => {
+          // Handle fetch error or redirect to login page
+          console.error("Fetch error:", error);
+          redirectToLoginPage();
+        });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
   useEffect(() => {
-      setGallaryData(sampleGallayData);
+    fetchUserData();
   }, []);
 
   return (
     <div className="bg-slate-200">
-      <Container>
-        <div className="mb-10 text-center responsive">
-          <h1 className="text-2xl font-bold text-slate-800">Gallery</h1>
-          <p className="mt-3 text-slate-600 p-5">
-            The membership of the club is open to all persons who are approved
-            by the Executive Committee. Each applicant for admission as a member
-            of the club shall apply in the prescribed.
-          </p>
+      {!Loading ? (
+        <Container>
+          <div className="mb-10 text-center responsive">
+            <h1 className="text-2xl font-bold text-slate-800">Gallery</h1>
+            <p className="mt-3 text-slate-600 p-5">
+              The membership of the club is open to all persons who are approved
+              by the Executive Committee. Each applicant for admission as a
+              member of the club shall apply in the prescribed.
+            </p>
+          </div>
+          <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
+            {GallaryData &&
+              GallaryData.length > 0 &&
+              GallaryData.map((item, index) => (
+                <div key={index}>
+                  <GallaryCard data={item} />
+                </div>
+              ))}
+          </div>
+        </Container>
+      ) : (
+        <div className="loaderBody">
+          <div className="loader"></div>
         </div>
-        <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {GallaryData &&
-            GallaryData.map((item, index) => (
-              <div key={index}>
-                <GallaryCard
-                  title={`${item.title + " " + index}`}
-                  image={item.image}
-                  description={item.description}
-                  href={item.href}
-                />
-              </div>
-            ))}
-        </div>
-
-        {/* {images.map((img) => (
-            <div key={img.id} className="w-full shrink-0">
-              <Image
-                src={img.image}
-                width={720}
-                height={720}
-                className="w-full h-full aspect-square"
-                alt="gg"
-              />
-            </div>
-          ))} */}
-      </Container>
+      )}
     </div>
   );
 };
