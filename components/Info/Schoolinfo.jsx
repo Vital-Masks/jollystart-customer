@@ -24,30 +24,8 @@ const Schoolinfo = ({ memberData }) => {
           School Details
         </div>
         <div className="px-10 my-10">
-          {/* <div className="flex items-end gap-4 mb-10">
-            <div className="w-full">
-              <InputField
-                label="School Name"
-                name="school_name"
-                required={true}
-              />
-            </div>
-
-            <button className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52">
-              Add
-            </button>
-          </div> */}
-          {/* <div className="grid grid-cols-5 gap-3">
-            <InputField
-              label="Team you played"
-              name="team_you_played"
-              required={true}
-            />
-            <InputField label="Game" name="game" required={true} />
-            <InputField label="From" name="from" required={true} />
-            <InputField label="To" name="to" required={true} />
-            <InputField label="Role" name="role" required={true} />
-          </div> */}
+          
+          
           <div className="mt-10">
             <Table schoolDetails={schoolDetails} />
           </div>
