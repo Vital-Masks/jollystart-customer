@@ -15,7 +15,7 @@ const Info = () => {
       name: "Personal Info",
       component: <Personalinfo memberData={memberData} />,
     },
-    { name: "Clubfiles", component: <Clubfiles memberData={memberData} /> },
+   
     {
       name: "Payment Info",
       component: <Paymentinfo memberData={memberData} />,
@@ -28,6 +28,7 @@ const Info = () => {
       name: "School & Club",
       component: <Schoolinfo memberData={memberData} />,
     },
+    { name: "Clubfiles", component: <Clubfiles memberData={memberData} /> },
   ];
   const [currentTab, setCurrentTab] = useState(tabs[0].name);
 

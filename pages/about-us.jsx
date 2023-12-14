@@ -1,16 +1,16 @@
-import Footer from '@/components/Footer';
-import HomeBanner from '@/components/HomeBanner';
-import Container from '@/components/Shared/Container';
-import Image from 'next/image';
-import React from 'react';
+import Footer from "@/components/Footer";
+import HomeBanner from "@/components/HomeBanner";
+import Container from "@/components/Shared/Container";
+import Image from "next/image";
+import React from "react";
 
 const AboutUs = () => {
   return (
     <>
       <div className="bg-slate-100">
         <Container className="text-left">
-          <h1 className="p-5 text-2xl font-bold text-slate-800">About Us</h1>
-          <p className="p-5 mt-5 text-slate-600">
+          <h1 className="p-2 text-2xl font-bold text-slate-800">About Us</h1>
+          <p className="p-2 mt-5 text-slate-600">
             Founded in 1948 by the esteemed alumni of Jaffna Hindu College,
             Jolly Stars Sports Club has proudly served as a symbol of sporting
             excellence and camaraderie for over seven decades. As we approach
@@ -23,7 +23,7 @@ const AboutUs = () => {
             showcase their talents and compete in a variety of thrilling
             sporting events.
           </p>
-          <p className="p-5 mt-5 text-slate-600">
+          <p className="p-2 mt-5 text-slate-600">
             We offer a diverse range of sports, catering to the interests and
             abilities of our members. From the excitement of football and
             cricket to the agility of badminton and athletics, the intensity of
@@ -32,7 +32,7 @@ const AboutUs = () => {
             Club provides a platform for individuals to excel in their chosen
             disciplines.
           </p>
-          <div className="flex justify-center p-5 mt-4">
+          <div className="flex justify-center p-2 mt-4">
             <Image
               src="/assets/banner/about.jpg"
               width={720}
@@ -42,7 +42,7 @@ const AboutUs = () => {
             />
           </div>
 
-          <p className="p-5 mt-5 text-slate-600">
+          <p className="p-2 mt-5 text-slate-600">
             Throughout our storied history, our club has consistently produced
             exceptional sportsmen and athletes who have made their mark not only
             within our organization but also at regional and national levels.
@@ -56,7 +56,7 @@ const AboutUs = () => {
             sportsmanship, discipline, teamwork, and leadership qualities that
             extend far beyond the realm of sports.
           </p>
-          <p className="p-5 mt-5 text-slate-600">
+          <p className="p-2 mt-5 text-slate-600">
             As we embark on our 75th anniversary, we remain steadfast in our
             mission to provide a platform for Jaffna Hindu College alumni to
             connect, compete, and flourish. We invite you to join our esteemed
@@ -67,6 +67,20 @@ const AboutUs = () => {
             that transcends time. Jolly Stars Sports Club - Where Champions are
             Made!
           </p>
+          <div className="flex justify-start gap-3 py-5">
+            <div
+              className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
+              href="/memberregister"
+            >
+              English
+            </div>
+            <div
+              className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center"
+              href="/login/logreg"
+            >
+              Tamil
+            </div>
+          </div>
         </Container>
       </div>
     </>

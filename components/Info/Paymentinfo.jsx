@@ -31,7 +31,7 @@ const Paymentinfo = ({ memberData }) => {
             onClick={() => setStep(2)}
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-72"
           >
-            Upgrade to Life Member
+            Pay Member Fee
           </button>
         </div>
       </div>

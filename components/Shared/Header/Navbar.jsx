@@ -99,7 +99,7 @@ const Navbar = () => {
         {
           id: 4,
           label: "Membership",
-          link: routes.MEMBERREGISTER,
+          link: routes.MEMBERSHIPFULL,
         },
       ],
     },

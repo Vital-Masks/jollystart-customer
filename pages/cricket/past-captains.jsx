@@ -17,32 +17,7 @@ const PastCaptains = () => {
         { id: 5, name: 'member' },
       ],
     },
-    {
-      id: 2,
-      //year,
-      title: 'Past Vice Captains',
-      members: [
-        { id: 0, name: 'member' },
-        { id: 1, name: 'member' },
-        { id: 2, name: 'member' },
-        { id: 3, name: 'member' },
-        { id: 4, name: 'member' },
-        { id: 5, name: 'member' },
-      ],
-    },
-    {
-      id: 3,
-      //year,
-      title: 'Past Coaches',
-      members: [
-        { id: 0, name: 'member' },
-        { id: 1, name: 'member' },
-        { id: 2, name: 'member' },
-        { id: 3, name: 'member' },
-        { id: 4, name: 'member' },
-        { id: 5, name: 'member' },
-      ],
-    },
+   
   ];
 
   return (

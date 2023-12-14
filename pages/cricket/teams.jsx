@@ -1,22 +1,82 @@
-import Container from '@/components/Shared/Container';
-import UserCard from '@/components/UserCard';
-import Image from 'next/image';
-import React from 'react';
+import Container from "@/components/Shared/Container";
+import UserCard from "@/components/UserCard";
+import UserFulViewName from "@/components/UserCard/UserFulViewName";
+import UserFullView from "@/components/UserCard/UserFullView";
+import Image from "next/image";
+import React from "react";
 
 const Teams = () => {
+  const MembersNames = [
+    {
+      name: "Ravi",
+      role: "President",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "President",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+    {
+      name: "Ravi",
+      role: "Member",
+    },
+  ];
   return (
     <>
       <div className="bg-slate-100">
         <Container className="text-left">
-          <h1 className="text-2xl font-bold text-slate-800 p-5">Cricket Team 2022/23</h1>
+          <h1 className="text-2xl font-bold text-slate-800 p-5">
+            Cricket Team 2022/23
+          </h1>
 
+          <div className="h-full">
+            <UserFullView
+              picture="https://images.saymedia-content.com/.image/t_share/MTc0MjUwOTUwNjYyMzAxNTY0/top-10-best-football-teams-of-all-time.jpg"
+              name={"Mr. V. Manivannan"}
+              occupation={"President"}
+            />
+          </div>
           <div className="grid grid-cols-2 gap-5 mt-5 md:grid-cols-4 xl:gap-10 p-5">
-            {[1, 2, 3, 4].map((img) => (
-              <UserCard
-                key={img}
-                picture="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
-                name={'Mr. V. Manivannan'}
-                occupation={'President'}
+            {MembersNames.map((item, index) => (
+              <UserFulViewName
+                key={index}
+                name={item.name}
+                occupation={item.role}
               />
             ))}
           </div>

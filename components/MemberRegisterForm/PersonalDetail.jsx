@@ -5,6 +5,8 @@ import { useMembers } from "@/contexts/MemberContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
+import { routes } from "@/contents/routes";
+import Link from "next/link";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   const validationSchema = Yup.object().shape({
@@ -15,18 +17,18 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
     dateOfBirth: Yup.string().required("DOB is required"),
     passportNumber: Yup.string().required("Passport Number is required"),
     email: Yup.string().required("email is required"),
-    userName: Yup.string().required("username is required"),
+    userName: Yup.string().required("Username is required"),
     password: Yup.string().required("password is required"),
     cpassword: Yup.string()
       .required("Confirm Password is required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
-    phoneNumber: Yup.string().required("phoneNumber is required"),
-    telephoneNumber: Yup.string().required("telephoneNumber is required"),
-    address: Yup.string().required("address is required"),
-    workPlaceName: Yup.string().required("workPlaceName is required"),
-    occupation: Yup.string().required("occupation is required"),
-    officeAddress: Yup.string().required("officeAddress is required"),
-    maritalStatus: Yup.string().required("maritalStatus is required"),
+    phoneNumber: Yup.string().required("Phone Number is required"),
+    telephoneNumber: Yup.string().required("Telephone Number is required"),
+    address: Yup.string().required("Address is required"),
+    workPlaceName: Yup.string().required("Required"),
+    occupation: Yup.string().required("Occupation is required"),
+    officeAddress: Yup.string().required("Office Address is required"),
+    maritalStatus: Yup.string().required("Marital Status is required"),
     profilePicture: Yup.mixed().test('fileValidation', 'Invalid file', (value) => {
       if (!value) {
         return false;
@@ -167,9 +169,9 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
             ))}
           </select>
-          <button className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52">
+          <Link href={routes.MEMBERSHIPFULL} className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center">
             Pricing Table
-          </button>
+          </Link >
         </div>
         {formik.touched.membershipCategory &&
           formik.errors.membershipCategory && (
@@ -442,7 +444,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               }
             />
             <InputField
-              label="Title"
+              label="Occupation"
               name="occupation"
               required={true}
               value={formik.values.occupation}
@@ -458,7 +460,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                 value={formik.values.officeAddress}
                 onChange={formik.handleChange}
                 onBlur={() => formik.setFieldTouched("officeAddress")}
-                label="Title"
+                label="Office Address"
                 name="officeAddress"
                 required={true}
                 error={
