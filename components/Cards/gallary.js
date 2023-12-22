@@ -19,12 +19,15 @@ const GallaryCard = (props) => {
     <>
       <div className="wrapper">
         <div className="card">
-          <img src={coverImage} alt="Mountain" />
+          <img
+            src={`data:image/png;base64,${coverImage}`}
+            alt="Mountain"
+          />
           <div className="info">
             <h1>{albumName}sds</h1>
             <p>{description}</p>
             <button>
-              <Link href={`/${albumLink}`} target="blank">
+              <Link href={`${albumLink}`} target="blank">
                 VIEW IMAGE
               </Link>
             </button>

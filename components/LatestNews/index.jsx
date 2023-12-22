@@ -73,16 +73,20 @@ const LatestNews = () => {
 
 export default LatestNews;
 
-const LatestNewsCard = ({data}) => {
+const LatestNewsCard = ({ data }) => {
   console.log(data);
   const { title, description, coverImage, _id, updated_at } = data;
   //  '/assets/banner/gallery3.jpg'
-  console.log(data.data,"props");
+  console.log(data.data, "props");
   return (
     <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
+        {/* <img
+           
+            alt="Mountain"
+          /> */}
         <Image
-          src={"/"+coverImage}
+          src={`data:image/png;base64,${coverImage}`}
           width={720}
           height={720}
           className="object-cover w-full h-full rounded-t-lg"
