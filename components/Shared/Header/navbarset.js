@@ -21,7 +21,7 @@ const ProfileInfoPopover = ({ label, link, subMenu }) => {
     <Popover open={openPopover} handler={setOpenPopover}>
       <PopoverHandler {...triggers}>
         <Button
-          className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1"
+          className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1 outline-none"
           variant="text"
         >
           {label}
@@ -31,9 +31,8 @@ const ProfileInfoPopover = ({ label, link, subMenu }) => {
         {subMenu.map(({ id, label, link }) => (
           <Link
             key={id}
-            as="a"
             href={link}
-            className="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
+            className="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 outline-none text-gray-900 rounded-lg hover:bg-gray-50"
             onClick={()=>setOpenPopover(!openPopover)}
           >
             {label}

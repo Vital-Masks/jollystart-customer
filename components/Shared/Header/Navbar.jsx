@@ -195,7 +195,7 @@ const Navbar = () => {
           ))}
         </Popover.Group>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end uppercase">
           {!(memberData && memberData.firstName) && (
             <Link
               href="/login/logreg"
@@ -253,7 +253,11 @@ const NavItems = (menu) => {
     );
   } else {
     return (
-      <div className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1" variant="text">{label}</div>
+      <Link
+      href={link}
+      className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1"     >
+      {label}
+    </Link>
 
     );
   }

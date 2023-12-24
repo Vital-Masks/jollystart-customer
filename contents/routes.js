@@ -7,6 +7,7 @@ export const routes = {
   MEMBERSHIP: '/membership',
   SPORTS: '/sports',
   LATEST_NEWS: '/latest-news',
+  LatestNewsOne:'/latest-news/[slug]',
   GALLERY: '/gallery',
   GALLERYNUM: '/gallerynum',
   CONTACT_US: '/contact-us',
@@ -26,4 +27,5 @@ export const routes = {
   BASKET_TEAM: '/basketball/teams',
   CLUB_BASKET_BALL: '/basketball/club-basketball',
   BASKET_PAST_CAPTAINS: '/basketball/past-captains',
+
 };

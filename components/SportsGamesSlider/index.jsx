@@ -104,9 +104,9 @@ const SportsGames = () => {
 
 export default SportsGames;
 
-const Item = ({ title, description, image }) => {
+const Item = ({ title, description, image,id }) => {
   return (
-    <SwiperSlide>
+    <SwiperSlide key={id}  >
       <div className="h-[400px] relative divide-x">
         <div className="absolute bottom-0 left-0 z-20 px-5 py-10">
           <div className="w-16 h-16 mb-5 bg-blue-900 rounded-full"></div>
