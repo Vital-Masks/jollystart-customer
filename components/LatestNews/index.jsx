@@ -28,7 +28,7 @@ const LatestNews = () => {
         .catch((error) => {
           // Handle fetch error or redirect to login page
           console.error("Fetch error:", error);
-          redirectToLoginPage();
+          // redirectToLoginPage();
         });
     } catch (error) {
       console.log(error);

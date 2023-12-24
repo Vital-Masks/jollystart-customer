@@ -4,8 +4,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { routes } from "@/contents/routes";
-import NavbarSet from "./navbarset";
-import { Button } from "flowbite-react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -188,7 +186,6 @@ const Navbar = () => {
           </button>
           <h1 className="text-xl font-bold">JOLLY STARS SC</h1>
         </div>
-        
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           {menus.map((menu) => (
             <NavItems key={menu.id} {...menu} />
@@ -235,26 +232,59 @@ const Navbar = () => {
 
 export default Navbar;
 
-const NavItems = (menu) => {
-  const { label, link, subMenu } =menu
+const NavItems = ({ label, link, subMenu }) => {
   if (subMenu) {
     return (
       <Popover className="relative"  >
-        {/* <Popover.Button  className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1">
+        <Popover.Button  className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1">
           {label}
           <ChevronDownIcon
             className="flex-none w-5 h-5 text-gray-100"
             aria-hidden="true"
           />
-        </Popover.Button> */}
+        </Popover.Button>
 
-        <NavbarSet key={link} {...menu} />
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 translate-y-1"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 translate-y-1"
+          style={{background:"red"}}
+          
+        >
+          <Popover.Panel className="absolute z-10 w-56 mt-3 overflow-hidden bg-blue-900 shadow-lg -left-8 top-full">
+            <div className="divide-y divide-blue-600">
+              {subMenu.map(({ id, label, link }) => (
+                <div
+                  key={id}
+                  className="relative flex items-center p-4 text-sm leading-6 group gap-x-6 hover:bg-blue-800"
+                >
+                  <div className="flex-auto">
+                    <Link
+                      href={link}
+                      className="block font-semibold text-gray-100"
+                    >
+                      {label}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Popover.Panel>
+        </Transition>
       </Popover>
     );
   } else {
     return (
-      <div className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1" variant="text">{label}</div>
-
+      <Link
+        href={link}
+        className="text-sm font-semibold leading-6 text-gray-100"
+      >
+        {label}
+      </Link>
     );
   }
 };
