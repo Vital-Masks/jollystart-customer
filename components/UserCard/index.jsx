@@ -3,7 +3,7 @@ import React from 'react';
 
 const UserCard = ({ picture, name, occupation }) => {
   return (
-    <div>
+    <div className='caption-card' >
       <Image
         width={1024}
         height={1024}

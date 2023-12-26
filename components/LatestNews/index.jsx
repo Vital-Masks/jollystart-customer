@@ -72,9 +72,9 @@ const LatestNews = () => {
         )}
 
         <div className="text-center">
-          <button className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
+          <Link href={'/latest-news'} className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More
-          </button>
+          </Link>
         </div>
       </Container>
     </div>

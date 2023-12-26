@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../Shared/Container";
 import Image from "next/image";
 import GallaryCard from "../Cards/gallary";
+import Link from "next/link";
 const sampleGallayData = [
   {
     image:
@@ -152,7 +153,15 @@ const Gallery = () => {
           <div className="loader"></div>
         </div>
       )}
+       <div className="text-center">
+          <Link href={'/gallery'} className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
+            View More
+          </Link>
+        </div>
+        <br/>
+        <br/>
     </div>
+    
   );
 };
 
