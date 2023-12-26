@@ -73,7 +73,6 @@ export default Membership;
 
 const MembershipCard = ({ datas }) => {
   const { title, para, link } = datas;
-  console.log(datas, "0000999s");
 
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-home-card ">
