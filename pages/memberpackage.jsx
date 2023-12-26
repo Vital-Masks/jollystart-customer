@@ -22,7 +22,8 @@ const Membershipfull = () => {
             accompany the application.
           </p>
         </div>
-        <div className="flex items-center justify-start gap-10 overflow-x-auto md:justify-center snap-x scroll-smooth">
+        <div className="flex items-center justify-start gap-10  justify-center flex-wrap">
+          
           <MembershipCard />
           <MembershipCard2 />
           <MembershipCard3 />
@@ -48,7 +49,7 @@ export default Membershipfull;
 
 const MembershipCard = () => {
   return (
-    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
         <StarIcon className="w-10 h-10" />
       </div>
@@ -76,7 +77,7 @@ const MembershipCard = () => {
 };
 const MembershipCard2 = () => {
   return (
-    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
         <StarIcon className="w-10 h-10" />
       </div>
@@ -105,7 +106,7 @@ const MembershipCard2 = () => {
 
 const MembershipCard3 = () => {
   return (
-    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
         <StarIcon className="w-10 h-10" />
       </div>
@@ -134,7 +135,7 @@ const MembershipCard3 = () => {
 
 const MembershipCard4 = () => {
   return (
-    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
         <StarIcon className="w-10 h-10" />
       </div>

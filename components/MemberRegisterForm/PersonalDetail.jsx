@@ -169,7 +169,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
             ))}
           </select>
-          <Link href={routes.MEMBERSHIPFULL} className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center">
+          <Link href={routes.MEMBERSHIPFULL} target="_blank" className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center">
             Pricing Table
           </Link >
         </div>

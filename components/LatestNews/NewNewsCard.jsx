@@ -10,7 +10,7 @@ const NewNewsCard = ({ SingleNew }) => {
   return (
     <>
       <div className="bg-slate-100">
-        <Container className="text-left">
+        <div className="text-left">
           <h1 className="p-2 text-2xl font-bold text-slate-800">{title}</h1>
 
           <div className="flex justify-center p-2 mt-4">
@@ -38,7 +38,7 @@ const NewNewsCard = ({ SingleNew }) => {
                 </div>
               ))}
           </div>
-        </Container>
+        </div>
       </div>
     </>
   );
