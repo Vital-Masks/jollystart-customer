@@ -6,23 +6,23 @@ import { StarIcon } from "@heroicons/react/24/solid";
 const Membership = () => {
   const data = [
     {
-      title: "ORDINARY ",
-      para: "Entrance Fee: Rs.5,000/- \n Annual Subscription: Rs.5,000/-",
+      title: "Resident Life member ",
+      para: "Entrance Fee: Rs.5,000/-",
       link: "",
     },
     {
-      title: "HON LIFE  TIME",
-      para: "Entrance Fee: Rs.5,000/- \n Annual Subscription: Rs.5,000/-",
+      title: "Overseas life member",
+      para: "Entrance Fee: 100 USD/-",
       link: "",
     },
     {
-      title: "HON TIME",
-      para: "Entrance Fee: Rs.5,000/- \n Annual Subscription: Rs.5,000/-",
+      title: "Ordinary Members",
+      para: "Entrance Fee: Rs.1,000/-",
       link: "",
     },
     {
-      title: "HON TIME",
-      para: "Entrance Fee: Rs.5,000/- \n Annual Subscription: Rs.5,000/-",
+      title: "HOPlaying members",
+      para: "Entrance Fee: Rs.300/-",
       link: "",
     },
   ];
@@ -80,7 +80,7 @@ const MembershipCard = ({ datas }) => {
         <StarIcon className="w-10 h-10" />
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">{title}</h1>
+        <h1 className="mb-5 text-xl font-bold uppercase " >{title}</h1>
         <div className="mb-10 text-sm">{para}</div>
         <Link
           href="/memberpackage"
