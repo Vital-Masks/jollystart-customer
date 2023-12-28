@@ -47,7 +47,7 @@ const Membership = () => {
         <div className="flex items-center justify-start gap-10 overflow-x-auto flex-wrap justify-center snap-x scroll-smooth">
           {data &&
             data.length > 0 &&
-            data.map((item, i) => <MembershipCard datas={item} />)}
+            data.map((item, i) => <MembershipCard datas={item} key={i} />)}
         </div>
         <br/>
         <div className="flex justify-center gap-3 py-5">

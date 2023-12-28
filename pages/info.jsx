@@ -15,7 +15,7 @@ const Info = () => {
       name: "Personal Info",
       component: <Personalinfo memberData={memberData} />,
     },
-   
+
     {
       name: "Payment Info",
       component: <Paymentinfo memberData={memberData} />,
@@ -31,9 +31,15 @@ const Info = () => {
     { name: "Clubfiles", component: <Clubfiles memberData={memberData} /> },
   ];
   const [currentTab, setCurrentTab] = useState(tabs[0].name);
-
-  const fetchUserData = () => {
-    const userDataString = localStorage.getItem("userData");
+  var userDataStrings = {};
+  if (typeof window !== "undefined") {
+     userDataStrings = localStorage.getItem("userData");
+  } else {
+     userDataStrings = {};
+  }
+  // const userDataStrings = localStorage.getItem("userData");
+  const fetchUserData = (userDataString) => {
+    // const userDataString = localStorage.getItem("userData");
     try {
       if (userDataString) {
         // Parse the userData JSON string
@@ -41,7 +47,9 @@ const Info = () => {
         // Check if userData has the _id property
         if (userData && userData._id) {
           // Make a fetch request using the _id
-          fetch(`http://localhost:3000/api/member/memberPayment/${userData._id}`)
+          fetch(
+            `http://localhost:3000/api/member/memberPayment/${userData._id}`
+          )
             .then((fetchResponse) => {
               // Check if the fetch request was successful
               if (fetchResponse.ok) {
@@ -82,8 +90,8 @@ const Info = () => {
     window.location.href = "/login/logreg";
   }
   useEffect(() => {
-    fetchUserData();
-  }, []);
+    fetchUserData(userDataStrings);
+  }, [userDataStrings]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
