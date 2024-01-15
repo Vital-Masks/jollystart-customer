@@ -14,16 +14,15 @@ const HeroBanner = ({imgclass}) => {
     <div class={`relative h-screen w-full flex items-center justify-start text-left bg-cover bg-center ${imgclass}`}>
       <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
 
-      <main class="px-10 lg:px-24 z-10">
+      <main class="px-10 py-3 lg:px-24 z-10">
         <div class="text-left">
         <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light"  >
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo.
+            Welcome to Jollystars Sports Club
           </p>
           <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl" style={{
             maxWidth:"600px"
         }}>
-            First Sport Club 
+            First Ever Sport Club 
             in Jaffna Peninsula !
           </h2>
          
