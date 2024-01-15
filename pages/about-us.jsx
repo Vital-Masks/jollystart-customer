@@ -67,7 +67,7 @@ const AboutUs = () => {
             that transcends time. Jolly Stars Sports Club - Where Champions are
             Made!
           </p>
-          <div className="flex justify-start gap-3 py-5">
+          <div className="mt-2 flex justify-start gap-3 py-5">
             <div
               className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
               href="/memberregister"

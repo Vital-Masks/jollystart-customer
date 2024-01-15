@@ -22,7 +22,7 @@ const Membershipfull = () => {
             accompany the application.
           </p>
         </div>
-        <div className="flex items-center justify-start gap-10  justify-center flex-wrap">
+        <div className="flex items-center justify-start gap-5  justify-center flex-wrap">
           
           <MembershipCard />
           <MembershipCard2 />
@@ -30,7 +30,7 @@ const Membershipfull = () => {
           <MembershipCard4 />
         </div>
 
-      <div className='flex justify-center gap-3 py-5'>
+      <div className='flex mt-5 justify-center gap-3 py-5'>
         <Link className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center" href='/memberregister'>
             Register
         </Link>
@@ -51,25 +51,13 @@ const MembershipCard = () => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+      <h1 className=" text-xl font-bold">RESIDENT LIFE MEMBER</h1>
+        {/* <StarIcon className="w-10 h-10" /> */}
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">ORDINARY MEMBERS</h1>
-        <div className="mb-10 text-sm">
+        {/* <h1 className="mb-5 text-xl font-bold">ORDINARY MEMBERS</h1> */}
+        <div className="text-sm">
           <p>Entrance Fee: Rs.5,000/-</p>
-          <p>Annual Subscription: Rs.5,000/-</p>
-        </div>
-        <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
         </div>
       </div>
     </div>
@@ -79,26 +67,13 @@ const MembershipCard2 = () => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+      <h1 className="text-xl font-bold">OVERSEAS LIFE MEMBER</h1>
+        {/* <StarIcon className="w-10 h-10" /> */}
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">LIFE MEMBERS</h1>
-        <div className="mb-10 text-sm">
-          <p>Life membership Fee: </p>
-          <p>Rs.5,000/-</p>
+        <div className="text-sm">
+          <p>Entrance Fee: 100 USD</p>
         </div>
-        <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-      </div>
     </div>
     </div>
   );
@@ -108,25 +83,11 @@ const MembershipCard3 = () => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+        <h1 className=" text-xl font-bold">ORDINARY MEMBERS</h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">HON LIFE MEMBERS</h1>
-        <div className="mb-10 text-sm">
-          <p>Entrance Fee: Rs.5,000/-</p>
-          <p>Annual Subscription: Rs.5,000/-</p>
-        </div>
-        <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
+        <div className=" text-sm">
+          <p>Entrance Fee: Rs.1,000/-</p>
         </div>
       </div>
     </div>
@@ -137,25 +98,11 @@ const MembershipCard4 = () => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+      <h1 className=" text-xl font-bold">PLAYING MEMBERS</h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">HON LIFE MEMBERS</h1>
-        <div className="mb-10 text-sm">
-          <p>Entrance Fee: Rs.5,000/-</p>
-          <p>Annual Subscription: Rs.5,000/-</p>
-        </div>
-        <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
+        <div className="text-sm">
+          <p>Entrance Fee: Rs.300/-</p>
         </div>
       </div>
     </div>

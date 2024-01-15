@@ -151,12 +151,12 @@ body {
 
 .member-pack-card {
   max-width: 280px;
-  height: 550px;
+  height: auto;
 }
 
 .member-pack-home-card {
   max-width: 280px;
-  height: 370px;
+  height: auto;
 
 }
 

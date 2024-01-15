@@ -17,7 +17,6 @@ const ClubBasketball = () => {
             players, our dedication to fostering talent and achieving milestones
             in basketball excellence remains steadfast.
           </p>
-          <br/>
           <p className="p-3 mt-1 text-slate-600">
             In our basketball journey, players exemplify rigorous training and
             values of discipline, forming a strong community on and off the

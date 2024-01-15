@@ -17,7 +17,6 @@ const ClubCricket = () => {
             Notable leaders, Shan Thayalan in 1998 and Nadarajah Sivaraj in 2003
             and 2014, showcased dynamic guidance.
           </p>
-          <br></br>
           <p className="p-4 mt-1 text-slate-600">
             Luxumykanth's vice-captaincy in 2003 and Giriharan Mathushan's role
             as Provincial Team Captain Under 19 exemplify our commitment to

@@ -21,7 +21,7 @@ const Membership = () => {
       link: "",
     },
     {
-      title: "HOPlaying members",
+      title: "Playing members",
       para: "Entrance Fee: Rs.300/-",
       link: "",
     },
@@ -77,17 +77,18 @@ const MembershipCard = ({ datas }) => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-home-card ">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+        {/* <StarIcon className="w-10 h-10" /> */}
+        <h1 className="text-xl font-bold uppercase " >{title}</h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold uppercase " >{title}</h1>
-        <div className="mb-10 text-sm">{para}</div>
-        <Link
+        {/* <h1 className="mb-5 text-xl font-bold uppercase " >{title}</h1> */}
+        <div className="text-sm">{para}</div>
+        {/* <Link
           href="/memberpackage"
           className="px-6 py-2 mt-10 text-lg text-white bg-blue-900 rounded-md "
         >
           More Details
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
@@ -103,7 +104,6 @@ const MembershipCard2 = () => {
         <h1 className="mb-5 text-xl font-bold">LIFE MEMBERS</h1>
         <div className="mb-10 text-sm">
           <p>Entrance Fee: Rs.5,000/-</p>
-          <p>Annual Subscription: Rs.5,000/-</p>
         </div>
         <Link
           href="/memberpackage"

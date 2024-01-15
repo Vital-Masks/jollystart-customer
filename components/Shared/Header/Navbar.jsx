@@ -189,7 +189,7 @@ const Navbar = () => {
           <h1 className="text-xl font-bold">JOLLY STARS SC</h1>
         </div>
         
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+        <Popover.Group className="hidden lg:flex lg:gap-x-10">
           {menus.map((menu) => (
             <NavItems key={menu.id} {...menu} />
           ))}
