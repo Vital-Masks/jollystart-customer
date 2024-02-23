@@ -10,34 +10,103 @@ import Link from "next/link";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   const validationSchema = Yup.object().shape({
-    membershipCategory: Yup.string().required("Category is required"),
-    title: Yup.string().required("Title is required"),
-    firstName: Yup.string().required("First Name is required"),
-    lastName: Yup.string().required("Last Name is required"),
-    dateOfBirth: Yup.string().required("DOB is required"),
-    passportNumber: Yup.string().required("Passport Number is required"),
-    email: Yup.string().required("email is required"),
-    userName: Yup.string().required("Username is required"),
-    password: Yup.string().required("password is required"),
+    membershipCategory: Yup.string()
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    title: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    firstName: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    lastName: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    dateOfBirth: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    passportNumber: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    userName: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    password: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
     cpassword: Yup.string()
-      .required("Confirm Password is required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
-    phoneNumber: Yup.string().required("Phone Number is required"),
-    telephoneNumber: Yup.string().required("Telephone Number is required"),
-    address: Yup.string().required("Address is required"),
-    workPlaceName: Yup.string().required("Required"),
-    occupation: Yup.string().required("Occupation is required"),
-    officeAddress: Yup.string().required("Office Address is required"),
-    maritalStatus: Yup.string().required("Marital Status is required"),
-    profilePicture: Yup.mixed().test('fileValidation', 'Invalid file', (value) => {
-      if (!value) {
-        return false;
-      }
-      if (typeof value === 'string') {
-        return value.length <= 3 * 1024 * 1024;
-      }
-      return value.size <= 2 * 1024 * 1024;
-    }).required('File is required'),
+    phoneNumber: Yup.string()
+      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    telephoneNumber: Yup.string()
+      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    address: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    workPlaceName: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    occupation: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    officeAddress: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    maritalStatus: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    profilePicture: Yup.mixed()
+      .test("fileValidation", "Invalid file", (value) => {
+        if (!value) {
+          return false;
+        }
+        if (typeof value === "string") {
+          return value.length <= 3 * 1024 * 1024;
+        }
+        return value.size <= 2 * 1024 * 1024;
+      })
+      .required("File is required"),
   });
   const { setStep } = useMembers();
   const intalvalue = {
@@ -169,9 +238,13 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
             ))}
           </select>
-          <Link href={routes.MEMBERSHIPFULL} target="_blank" className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center">
+          <Link
+            href={routes.MEMBERSHIPFULL}
+            target="_blank"
+            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
+          >
             Pricing Table
-          </Link >
+          </Link>
         </div>
         {formik.touched.membershipCategory &&
           formik.errors.membershipCategory && (
@@ -251,6 +324,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                     <p>{formik.errors.dateOfBirth}</p>
                   )
                 }
+                max={new Date().toISOString().split("T")[0]}
               />
               <InputField
                 label="E-Mail Address"
@@ -397,6 +471,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                               event.currentTarget.files[0]
                             );
                           }}
+                          accept="image/*"
                         />
                       </label>
                       <p className="pl-1">or drag and drop</p>

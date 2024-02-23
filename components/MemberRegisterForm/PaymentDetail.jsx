@@ -9,11 +9,37 @@ import { convertFileToBase64 } from "../utils/fileUtils";
 const PaymentDetail = (props) => {
   const { AllPaymentData, Loading, paymentlData, AllPaymentDatas } = props;
   const validationSchema = Yup.object().shape({
-    memberId: Yup.string(),
-    bank: Yup.string().required("Title is required"),
-    branch: Yup.string().required("Title is required"),
-    total: Yup.string().required("Title is required"),
-    date: Yup.string().required("Title is required"),
+    paymentCategory: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    bank: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    branch: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    total: Yup.string()
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(1, "Minimum 1 letter")
+      .max(10, "Max 10 Letter"),
+    mobileNumber: Yup.string()
+      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .required("Required")
+      .min(3, "Minimum 3 letter")
+      .max(40, "Max 40 Letter"),
+    date: Yup.string().required("Required"),
+    isPaymentDetailVerified: Yup.boolean().oneOf(
+      [true],
+      "You must accept the terms of service and Privacy policy"
+    ),
     paymentSlip: Yup.mixed()
       .test("fileValidation", "Invalid file", (value) => {
         if (!value) {
@@ -25,18 +51,14 @@ const PaymentDetail = (props) => {
         return value.size <= 2 * 1024 * 1024;
       })
       .required("File is required"),
-    isPaymentDetailVerified: Yup.boolean().oneOf(
-      [true],
-      "You must accept the terms of service and Privacy policy"
-    ),
   });
 
   const { setStep } = useMembers();
   const formik = useFormik({
     initialValues: {
-      memberId:
+      paymentCategory:
         paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.memberId
+          ? paymentlData.paymentDetails.paymentCategory
           : "",
       bank:
         paymentlData && paymentlData.paymentDetails
@@ -59,7 +81,7 @@ const PaymentDetail = (props) => {
           ? paymentlData.paymentDetails.paymentSlip
           : null,
       isPaymentDetailVerified: true,
-      mobileNumber: "077XXXXXXX",
+      mobileNumber: "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -85,7 +107,7 @@ const PaymentDetail = (props) => {
 
       let paymentData = {
         paymentDetails: {
-          memberId: values.memberId,
+          paymentCategory: values.paymentCategory,
           bank: values.bank,
           branch: values.branch,
           total: values.total,
@@ -126,7 +148,7 @@ const PaymentDetail = (props) => {
     let data = formik.values;
     let paymentData = {
       paymentDetails: {
-        memberId: data.memberId,
+        paymentCategory: data.paymentCategory,
         bank: data.bank,
         branch: data.branch,
         total: data.total,
@@ -149,6 +171,7 @@ const PaymentDetail = (props) => {
       <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
         STEP 03 - PAYMENT DETAILS
       </div>
+
       <div className="px-10 my-10">
         <p className="text-xl text-center">
           The membership of the club is open to all persons who are approved by
@@ -164,15 +187,17 @@ const PaymentDetail = (props) => {
           <div className="grid grid-cols-4 gap-3">
             <div className="grid grid-cols-3 col-span-3 gap-2">
               <InputField
-                label="First Name"
-                name="memberId"
+                label="Member Type"
+                name="paymentCategory"
                 required={true}
-                value={formik.values.memberId}
+                value={formik.values.paymentCategory}
                 onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("memberId")}
+                onBlur={() => formik.setFieldTouched("paymentCategory")}
                 error={
-                  formik.touched.memberId &&
-                  formik.errors.memberId && <p>{formik.errors.memberId}</p>
+                  formik.touched.paymentCategory &&
+                  formik.errors.paymentCategory && (
+                    <p>{formik.errors.paymentCategory}</p>
+                  )
                 }
               />
               <InputField
@@ -188,7 +213,7 @@ const PaymentDetail = (props) => {
                 }
               />
               <InputField
-                label="Barnch"
+                label="Branch"
                 name="branch"
                 required={true}
                 value={formik.values.branch}
@@ -212,10 +237,12 @@ const PaymentDetail = (props) => {
                     <p>{formik.errors.mobileNumber}</p>
                   )
                 }
+                // placeholder="075XXXXXXXX"
               />
               <InputField
                 label="Total"
                 name="total"
+                type={"number"}
                 required={true}
                 value={formik.values.total}
                 onChange={formik.handleChange}
@@ -277,6 +304,7 @@ const PaymentDetail = (props) => {
                               event.currentTarget.files[0]
                             );
                           }}
+                          accept="image/*"
                         />
                       </label>
                       <p className="pl-1">or drag and drop</p>
@@ -297,10 +325,6 @@ const PaymentDetail = (props) => {
               </div>
             </div>
           </div>
-          {formik.errors.paymentSlip && formik.touched.paymentSlip && (
-            <div>{formik.errors.paymentSlip}</div>
-          )}
-
           <div className="relative flex items-center ">
             <div className="flex items-center h-6">
               <input
@@ -318,10 +342,14 @@ const PaymentDetail = (props) => {
             </div>
           </div>
           {formik.errors.isPaymentDetailVerified && (
-            <p className="text-red-400 ps-4">
-              {" "}
-              {formik.errors.isPaymentDetailVerified}
-            </p>
+            <div className="mt-1 text-sm">
+              <p
+                className="text-xs leading-5 text-red-400"
+                style={{ color: "red" }}
+              >
+                {formik.errors.isPaymentDetailVerified}
+              </p>
+            </div>
           )}
         </div>
 
