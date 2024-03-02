@@ -8,7 +8,7 @@ const ClubBasketball = () => {
       <div className="bg-slate-100">
         <Container className="text-left">
           <h1 className="p-5 text-2xl font-bold text-slate-800">
-            Club Basket Ball History
+            Club BasketBall History
           </h1>
           <p className="p-3 mt-1 text-slate-600">
             Jollystars Sports Club excels in basketball, notably with Vaheesan's

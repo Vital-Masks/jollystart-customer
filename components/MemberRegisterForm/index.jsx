@@ -49,6 +49,7 @@ const MemberRegisterForm = () => {
           throw new Error("Network response was not ok");
         }
         toast.success("Successfully Added");
+        window.location.href ="/login/logreg"
         const data = await response.json();
         console.log("POST request successful. Response:", data);
       } catch (error) {
@@ -79,6 +80,7 @@ const MemberRegisterForm = () => {
         Loading={Loading}
         paymentlData={paymentlData}
         AllPaymentDatas={AllPaymentDatas}
+        PersonalData={PersonalData}
       />
     );
   }

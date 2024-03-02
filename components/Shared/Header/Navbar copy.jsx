@@ -127,7 +127,7 @@ const Navbar = () => {
     },
     {
       id: 3,
-      label: "Basket ball",
+      label: "Basketball",
       link: routes.BASKET_BALL,
       subMenu: [
         {
@@ -137,7 +137,7 @@ const Navbar = () => {
         },
         {
           id: 1,
-          label: "Club Basket ball",
+          label: "Club Basketball",
           link: routes.CLUB_BASKET_BALL,
         },
         {

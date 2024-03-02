@@ -14,10 +14,7 @@ const validationSchema = Yup.object().shape({
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string().required("Password is required"),
-  agreeTerms: Yup.boolean().oneOf(
-    [true],
-    "You must agree to the terms and privacy policy"
-  ),
+  
 });
 
 const ContactPage = () => {
@@ -28,7 +25,6 @@ const ContactPage = () => {
     initialValues: {
       email: "",
       password: "",
-      agreeTerms: false,
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -115,28 +111,7 @@ const ContactPage = () => {
                   </div>
                 )}
 
-                <div className="relative flex items-center">
-                  <div className="flex items-center h-6">
-                    <input
-                      id="agreeTerms"
-                      name="agreeTerms"
-                      type="checkbox"
-                      checked={formik.values.agreeTerms}
-                      onChange={formik.handleChange}
-                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="agreeTerms" className="text-[#7E7A7C]">
-                      I agree to the terms of service and Privacy policy.
-                    </label>
-                  </div>
-                </div>
-                {formik.touched.agreeTerms && formik.errors.agreeTerms && (
-                  <div className="text-red-500 text-sm text-start p-2">
-                    {formik.errors.agreeTerms}
-                  </div>
-                )}
+                
               </div>
               <button
                 type="submit"

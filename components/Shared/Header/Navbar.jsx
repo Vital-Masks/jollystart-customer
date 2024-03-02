@@ -129,7 +129,7 @@ const Navbar = () => {
     },
     {
       id: 3,
-      label: "Basket ball",
+      label: "Basketball",
       link: routes.BASKET_BALL,
       subMenu: [
         {
@@ -139,7 +139,7 @@ const Navbar = () => {
         },
         {
           id: 1,
-          label: "Club Basket ball",
+          label: "Club Basketball",
           link: routes.CLUB_BASKET_BALL,
         },
         {
@@ -149,14 +149,10 @@ const Navbar = () => {
         },
       ],
     },
-    {
-      id: 4,
-      label: "Sports",
-      link: routes.SPORTS,
-    },
+
     {
       id: 5,
-      label: "Lates news",
+      label: "Latest news",
       link: routes.LATEST_NEWS,
     },
     {
@@ -188,7 +184,7 @@ const Navbar = () => {
           </button>
           <h1 className="text-xl font-bold">JOLLY STARS SC</h1>
         </div>
-        
+
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           {menus.map((menu) => (
             <NavItems key={menu.id} {...menu} />
@@ -236,10 +232,10 @@ const Navbar = () => {
 export default Navbar;
 
 const NavItems = (menu) => {
-  const { label, link, subMenu } =menu
+  const { label, link, subMenu } = menu;
   if (subMenu) {
     return (
-      <Popover className="relative"  >
+      <Popover className="relative">
         {/* <Popover.Button  className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1">
           {label}
           <ChevronDownIcon
@@ -254,11 +250,11 @@ const NavItems = (menu) => {
   } else {
     return (
       <Link
-      href={link}
-      className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1"     >
-      {label}
-    </Link>
-
+        href={link}
+        className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1"
+      >
+        {label}
+      </Link>
     );
   }
 };

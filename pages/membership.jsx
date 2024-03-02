@@ -1,9 +1,10 @@
-import MemberRegisterForm from '@/components/MemberRegisterForm';
-import Container from '@/components/Shared/Container';
-import { MemberProvider } from '@/contexts/MemberContext';
-import { StarIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import React from 'react';
+import MemberRegisterForm from "@/components/MemberRegisterForm";
+import Container from "@/components/Shared/Container";
+import AllMemberAndPackages from "@/components/tabel/allmemberAndPackages";
+import { MemberProvider } from "@/contexts/MemberContext";
+import { StarIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import React from "react";
 
 const Membership = () => {
   return (
@@ -29,6 +30,7 @@ const Membership = () => {
             <MemberRegisterForm />
           </MemberProvider>
         </div>
+    
       </Container>
     </div>
   );

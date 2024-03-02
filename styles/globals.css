@@ -156,12 +156,12 @@ body {
 
 .member-pack-home-card {
   max-width: 280px;
-  height: 370px;
+  height: 200px;
 
 }
 
 .caption-card {
-  width: 300px;
+  width: 200px;
   /* border-radius: 12px; */
   /* background: red; */
 }

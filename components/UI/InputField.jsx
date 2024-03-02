@@ -1,6 +1,18 @@
 import React from "react";
 
-const InputField = ({ name, label, required, value, onChange, type,error,placeholder,max,min }) => {
+const InputField = ({
+  name,
+  label,
+  required,
+  value,
+  onChange,
+  type,
+  error,
+  placeholder,
+  max,
+  min,
+  disabled,
+}) => {
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="ml-2">
@@ -14,12 +26,12 @@ const InputField = ({ name, label, required, value, onChange, type,error,placeho
         value={value}
         onChange={onChange}
         className="p-2 ps-4 bg-transparent border rounded-full"
-        placeholder={ placeholder && placeholder}
+        placeholder={placeholder && placeholder}
         max={max && max}
         min={min && min}
-
+        disabled={disabled ? true : false}
       />
-       {error && <p className="text-red-400 ps-4">  {error}</p>}
+      {error && <p className="text-red-400 ps-4"> {error}</p>}
     </div>
   );
 };

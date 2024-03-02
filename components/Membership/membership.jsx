@@ -2,30 +2,9 @@ import React from "react";
 import Container from "../Shared/Container";
 import Link from "next/link";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { membershipPaymentdata } from "@/services/fixedDatas";
 
 const Membership = () => {
-  const data = [
-    {
-      title: "Resident Life member ",
-      para: "Entrance Fee: Rs.5,000/-",
-      link: "",
-    },
-    {
-      title: "Overseas life member",
-      para: "Entrance Fee: 100 USD/-",
-      link: "",
-    },
-    {
-      title: "Ordinary Members",
-      para: "Entrance Fee: Rs.1,000/-",
-      link: "",
-    },
-    {
-      title: "HOPlaying members",
-      para: "Entrance Fee: Rs.300/-",
-      link: "",
-    },
-  ];
   return (
     <div className="bg-slate-100">
       <Container>
@@ -45,11 +24,13 @@ const Membership = () => {
           </p>
         </div>
         <div className="flex items-center justify-start gap-10 overflow-x-auto flex-wrap justify-center snap-x scroll-smooth">
-          {data &&
-            data.length > 0 &&
-            data.map((item, i) => <MembershipCard datas={item} key={i} />)}
+          {membershipPaymentdata &&
+            membershipPaymentdata.length > 0 &&
+            membershipPaymentdata.map((item, i) => (
+              <MembershipCard datas={item} key={i} />
+            ))}
         </div>
-        <br/>
+        <br />
         <div className="flex justify-center gap-3 py-5">
           <Link
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
@@ -77,17 +58,10 @@ const MembershipCard = ({ datas }) => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-home-card ">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+        <h1 className=" text-xl font-bold uppercase ">{title}</h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold uppercase " >{title}</h1>
         <div className="mb-10 text-sm">{para}</div>
-        <Link
-          href="/memberpackage"
-          className="px-6 py-2 mt-10 text-lg text-white bg-blue-900 rounded-md "
-        >
-          More Details
-        </Link>
       </div>
     </div>
   );

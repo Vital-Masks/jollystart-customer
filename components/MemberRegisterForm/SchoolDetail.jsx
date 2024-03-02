@@ -173,13 +173,15 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       file: items3,
     };
     if (SchoolData) {
-      if (true) {
+      if (items && items.length > 0) {
         setStep(3);
         AllSchoollData(obj);
+      } else {
+        console.log(items, formik3.values.file);
       }
     }
 
-    console.log(obj, "ohhh");
+    console.log(items, "ohhh");
   };
   return (
     <div className="w-full bg-white border rounded-xl">
@@ -313,7 +315,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Club Details
+          Club Details | [optional ]
         </div>
         <form
           className="w-full bg-white border rounded-xl"
@@ -431,7 +433,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
         </form>
       </div>
       <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-        Image Of your team you played (for verification purpose)
+        Image of your team you played (for verification purpose)
       </div>
       <form onSubmit={formik3.handleSubmit} className="py-4 px-10">
         <div className="col-span-full">
@@ -475,6 +477,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
             </div>
           </div>
         </div>
+        
       </form>
       <div className="flex items-center justify-center mb-10">
         <button

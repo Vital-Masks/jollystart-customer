@@ -2,6 +2,25 @@
 # yarn lockfile v1
 
 
+"@ag-grid-community/client-side-row-model@^31.1.1":
+  "integrity" "sha512-KBSPaEJ1q97xooJd7U6W8PUfzUDecnsvE+Y05Xg/s6i61fLKyDTxDVJB/kETxdST0+T8FgjFMaPjY0hAZBOhWg=="
+  "resolved" "https://registry.npmjs.org/@ag-grid-community/client-side-row-model/-/client-side-row-model-31.1.1.tgz"
+  "version" "31.1.1"
+  dependencies:
+    "@ag-grid-community/core" "31.1.1"
+
+"@ag-grid-community/core@^31.1.1", "@ag-grid-community/core@31.1.1":
+  "integrity" "sha512-WFN3yXpFR0uMJQZak6x4kzLl7nJPrrorUWf/KWH4ToP6PMZcc6cKT3jge3bJ0SBkzs2m7oQGnmi8rfTaHuXI4Q=="
+  "resolved" "https://registry.npmjs.org/@ag-grid-community/core/-/core-31.1.1.tgz"
+  "version" "31.1.1"
+
+"@ag-grid-community/react@^31.1.1":
+  "integrity" "sha512-b2htrkndkCx86Ze0LppG+Oc7em/19nMKvzaLzi0hO6lFGueL+xW24ALLu2nSyqsgAePSZLZpUNyM3BnhrTcFwQ=="
+  "resolved" "https://registry.npmjs.org/@ag-grid-community/react/-/react-31.1.1.tgz"
+  "version" "31.1.1"
+  dependencies:
+    "prop-types" "^15.8.1"
+
 "@alloc/quick-lru@^5.2.0":
   "integrity" "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="
   "resolved" "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
@@ -4822,7 +4841,7 @@
     "minimist" "^1.2.0"
     "strip-json-comments" "~2.0.1"
 
-"react-dom@*", "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16 || ^17 || ^18", "react-dom@^16.8.0 || ^17 || ^18", "react-dom@^18", "react-dom@^18.0.0", "react-dom@^18.1.0", "react-dom@^18.2.0", "react-dom@>=16", "react-dom@>=16.8 || ^17.0.0 || ^18.0.0", "react-dom@>=16.8.0", "react-dom@18.2.0":
+"react-dom@*", "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16 || ^17 || ^18", "react-dom@^16.3.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17 || ^18", "react-dom@^18", "react-dom@^18.0.0", "react-dom@^18.1.0", "react-dom@^18.2.0", "react-dom@>=16", "react-dom@>=16.8 || ^17.0.0 || ^18.0.0", "react-dom@>=16.8.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -4902,7 +4921,7 @@
   dependencies:
     "clsx" "^1.1.1"
 
-"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17 || ^18", "react@^16.8.0 || ^17 || ^18", "react@^18", "react@^18.0.0", "react@^18.1.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.8.0", "react@>=18", "react@0.14 || 15 || 16 || 17 || 18", "react@18.2.0":
+"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17 || ^18", "react@^16.3.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", "react@^18", "react@^18.0.0", "react@^18.1.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.8.0", "react@>=18", "react@0.14 || 15 || 16 || 17 || 18", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

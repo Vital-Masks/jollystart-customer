@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 
 const PaymentDetail = (props) => {
-  const { AllPaymentData, Loading, paymentlData, AllPaymentDatas } = props;
+  const { AllPaymentData, Loading, paymentlData, AllPaymentDatas,PersonalData } = props;
   const validationSchema = Yup.object().shape({
     paymentCategory: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
@@ -30,7 +30,7 @@ const PaymentDetail = (props) => {
       .min(1, "Minimum 1 letter")
       .max(10, "Max 10 Letter"),
     mobileNumber: Yup.string()
-      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
       .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
       .min(3, "Minimum 3 letter")
@@ -57,8 +57,8 @@ const PaymentDetail = (props) => {
   const formik = useFormik({
     initialValues: {
       paymentCategory:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.paymentCategory
+        PersonalData && PersonalData.membershipCategory
+          ? PersonalData.membershipCategory
           : "",
       bank:
         paymentlData && paymentlData.paymentDetails
@@ -80,7 +80,7 @@ const PaymentDetail = (props) => {
         paymentlData && paymentlData.paymentDetails
           ? paymentlData.paymentDetails.paymentSlip
           : null,
-      isPaymentDetailVerified: true,
+      isPaymentDetailVerified: false,
       mobileNumber: "",
     },
     validationSchema,
@@ -187,6 +187,7 @@ const PaymentDetail = (props) => {
           <div className="grid grid-cols-4 gap-3">
             <div className="grid grid-cols-3 col-span-3 gap-2">
               <InputField
+              disabled
                 label="Member Type"
                 name="paymentCategory"
                 required={true}

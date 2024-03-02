@@ -7,7 +7,7 @@ const UserCard = ({ picture, name, occupation }) => {
       <Image
         width={1024}
         height={1024}
-        className="h-[250px] lg:h-[300px] xl:h-[400px] object-cover"
+        // className="h-[100px] lg:h-[150px] xl:h-[150px] object-cover"
         src={picture}
         alt="mig"
       />

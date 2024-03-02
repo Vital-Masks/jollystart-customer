@@ -19,13 +19,12 @@ const PastPresidents = () => {
     },
   ];
 
-
-
   return (
     <div className="bg-white">
       <Container>
-        <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {[1, 2, 3, 4].map((img) => (
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Presidents</h1>
+        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((img) => (
             <UserCard
               key={img}
               picture="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
@@ -34,7 +33,30 @@ const PastPresidents = () => {
             />
           ))}
         </div>
-
+        <br /> <br />
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Secretary</h1>
+        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((img) => (
+            <UserCard
+              key={img}
+              picture="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              name={"Mr. V. Manivannan"}
+              occupation={"President"}
+            />
+          ))}
+        </div>
+        <br /> <br />
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Treasurer</h1>
+        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
+          {[1, 2, 3, 4, 5, 6, 7, 8,9,10].map((img) => (
+            <UserCard
+              key={img}
+              picture="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              name={"Mr. V. Manivannan"}
+              occupation={"President"}
+            />
+          ))}
+        </div>
         {/* <ListViewer data={members} /> */}
       </Container>
     </div>

@@ -1,7 +1,9 @@
-import Container from '@/components/Shared/Container';
-import { StarIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import React from 'react';
+import Container from "@/components/Shared/Container";
+import AllMemberAndPackages from "@/components/tabel/allmemberAndPackages";
+import { membershipPaymentdata } from "@/services/fixedDatas";
+import { StarIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import React from "react";
 
 const Membershipfull = () => {
   return (
@@ -23,54 +25,46 @@ const Membershipfull = () => {
           </p>
         </div>
         <div className="flex items-center justify-start gap-10  justify-center flex-wrap">
-          
-          <MembershipCard />
-          <MembershipCard2 />
-          <MembershipCard3 />
-          <MembershipCard4 />
+          {membershipPaymentdata &&
+            membershipPaymentdata.length > 0 &&
+            membershipPaymentdata.map((item, i) => (
+              <MembershipCard datas={item} key={i} />
+            ))}
         </div>
 
-      <div className='flex justify-center gap-3 py-5'>
-        <Link className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center" href='/memberregister'>
+        <div className="flex justify-center gap-3 py-5">
+          <Link
+            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
+            href="/memberregister"
+          >
             Register
-        </Link>
-        <Link className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center" href='/login/logreg'>
+          </Link>
+          <Link
+            className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center"
+            href="/login/logreg"
+          >
             Login
-        </Link>
-      </div>
+          </Link>
+        </div>
+        <br />
+        <AllMemberAndPackages />
       </Container>
-      
-      
     </div>
   );
 };
 
 export default Membershipfull;
 
-const MembershipCard = () => {
+const MembershipCard = ({ datas }) => {
+  const { title, para, link } = datas;
+
   return (
-    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-card">
+    <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-home-card ">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <StarIcon className="w-10 h-10" />
+        <h1 className=" text-xl font-bold uppercase ">{title}</h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <h1 className="mb-5 text-xl font-bold">ORDINARY MEMBERS</h1>
-        <div className="mb-10 text-sm">
-          <p>Entrance Fee: Rs.5,000/-</p>
-          <p>Annual Subscription: Rs.5,000/-</p>
-        </div>
-        <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        </div>
+        <div className="mb-10 text-sm">{para}</div>
       </div>
     </div>
   );
@@ -88,18 +82,18 @@ const MembershipCard2 = () => {
           <p>Rs.5,000/-</p>
         </div>
         <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
@@ -117,16 +111,16 @@ const MembershipCard3 = () => {
           <p>Annual Subscription: Rs.5,000/-</p>
         </div>
         <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
         </div>
       </div>
     </div>
@@ -146,16 +140,16 @@ const MembershipCard4 = () => {
           <p>Annual Subscription: Rs.5,000/-</p>
         </div>
         <div className="mb-10 text-sm">
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
-        <p>Life membership Fee: </p>
-        <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
+          <p>Life membership Fee: </p>
+          <p>Rs.5,000/-</p>
         </div>
       </div>
     </div>

@@ -60,13 +60,13 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
       .required("Required")
       .oneOf([Yup.ref("password")], "Passwords must match"),
     phoneNumber: Yup.string()
-      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
       .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
       .min(3, "Minimum 3 letter")
       .max(40, "Max 40 Letter"),
     telephoneNumber: Yup.string()
-      .matches(/^[0-9]{10}$/, "Invalid phone number format")
+      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
       .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
       .min(3, "Minimum 3 letter")
@@ -356,6 +356,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               <InputField
                 label="Mobile Number"
                 name="phoneNumber"
+                placeholder={"00442078628000"}
                 required={true}
                 value={formik.values.phoneNumber}
                 onChange={formik.handleChange}
@@ -370,6 +371,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               <InputField
                 label="Telephone Number"
                 name="telephoneNumber"
+                placeholder={"00442078628000"}
                 required={true}
                 value={formik.values.telephoneNumber}
                 onChange={formik.handleChange}
