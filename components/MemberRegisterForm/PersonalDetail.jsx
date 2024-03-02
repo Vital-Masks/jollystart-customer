@@ -478,6 +478,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
+                   
                     <p
                       className="text-xs leading-5 text-gray-600"
                       style={

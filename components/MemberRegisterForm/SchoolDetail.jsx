@@ -5,6 +5,9 @@ import { useMembers } from "@/contexts/MemberContext";
 import Table from "../Table";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -167,6 +170,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     setItems2(updatedItems);
   };
   const nextPage = () => {
+
+
+
     let obj = {
       schoolDetails: items,
       clubDetails: items2,
@@ -174,10 +180,18 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     };
     if (SchoolData) {
       if (items && items.length > 0) {
-        setStep(3);
+
+        if (formik3.values.file) {
+          setStep(3);
+        }else{
+          toast.error("Upload the Image");
+        }
+
+       
         AllSchoollData(obj);
       } else {
         console.log(items, formik3.values.file);
+        toast.error("Fill the School Details");
       }
     }
 
@@ -315,7 +329,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Club Details | [optional ]
+          Club Details  (Optional) 
         </div>
         <form
           className="w-full bg-white border rounded-xl"
@@ -461,7 +475,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                     type="file"
                     className="sr-only"
                     onChange={(event) => {
-                      formik.setFieldValue(
+                      formik3.setFieldValue(
                         "file",
                         event.currentTarget.files[0]
                       );
@@ -477,7 +491,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
             </div>
           </div>
         </div>
-        
       </form>
       <div className="flex items-center justify-center mb-10">
         <button
