@@ -62,14 +62,14 @@ const MemberRegisterForm = () => {
     handlePostRequest();
   };
 
-  if (step === 2) {
+  if (step === 1) {
     return (
       <PersonalDetail
         AllPersonalData={AllPersonalData}
         PersonalData={PersonalData}
       />
     );
-  } else if (step === 1) {
+  } else if (step === 2) {
     return (
       <SchoolDetail AllSchoollData={AllSchoollData} SchoolData={SchoolData} />
     );

@@ -15,7 +15,7 @@ export const membershipPaymentdata = [
       link: "",
     },
     {
-      title: "HOPlaying members",
+      title: "Playing members",
       para: "Entrance Fee: Rs.300/-",
       link: "",
     },
