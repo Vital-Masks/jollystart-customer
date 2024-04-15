@@ -3,9 +3,12 @@ import InputField from "../UI/InputField";
 import SchoolinfoCard from "./InfoCard";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { isEmpty } from "@/utils/utils";
 import { MemberTitleOptions } from "@/services/defaultConst";
 import ChangePasswordForm from "./updatepassword";
+import { isEmpty } from "@/utils/utils";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const validationSchema = Yup.object().shape({
   membershipCategory: Yup.string().required("Category is required"),
@@ -23,7 +26,39 @@ const validationSchema = Yup.object().shape({
   maritalStatus: Yup.string().required("maritalStatus is required"),
 });
 const Personalinfo = ({ memberData }) => {
+  const [Loading, setLoading] = useState(false);
+
   console.log(memberData, "line 23 ");
+
+  const updateData = async (obj, id) => {
+    setLoading(true);
+
+    try {
+      // Perform the API request (replace the URL with your actual API endpoint)
+      const response = await axios.put(
+        "http://localhost:3000/api/member/" + id,
+        obj
+      );
+      console.log(response);
+
+      // Handle success
+      if (!isEmpty(response.data.result)) {
+        toast.success("successfully changed");
+        localStorage.setItem("userData", JSON.stringify(response.data.result));
+        window.location.href = "/info";
+      } else {
+        toast.error("something went wrong");
+      }
+    } catch (error) {
+      // Handle error
+      console.error("Error submitting data:", error);
+
+      // Display error message (you can use a toast library or another UI element)
+      toast.error("Error Login data. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   const formik = useFormik({
     initialValues: {
       membershipCategory: memberData ? memberData.membershipCategory : "",
@@ -44,6 +79,7 @@ const Personalinfo = ({ memberData }) => {
     onSubmit: async (values) => {
       // Submit form data to server or perform other actions
       console.log("Submitted values:", values);
+      updateData(values, memberData._id);
     },
   });
 
@@ -78,7 +114,6 @@ const Personalinfo = ({ memberData }) => {
                       )
                     }
                   />
-                 
                   <InputField
                     label="First Name"
                     name="firstName"
@@ -223,7 +258,7 @@ const Personalinfo = ({ memberData }) => {
                 type="submit"
                 className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
               >
-                Update
+                {Loading ? "Loading" : "Update"}
               </button>
             </div>
           </form>
@@ -231,8 +266,8 @@ const Personalinfo = ({ memberData }) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Change Password
         </div>
-        
-        <ChangePasswordForm memberData ={memberData} />
+
+        <ChangePasswordForm memberData={memberData} />
       </div>
     </div>
   );
