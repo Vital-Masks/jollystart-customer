@@ -19,6 +19,9 @@ const PaymentTable = ({ paymentDetails }) => {
   };
   return (
     <div className="flow-root mt-8">
+      {/* {
+        JSON.stringify(data)
+      } */}
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
           <table className="min-w-full divide-y divide-gray-300">
@@ -59,13 +62,14 @@ const PaymentTable = ({ paymentDetails }) => {
                 </th>
               </tr>
             </thead>
+
             <tbody className="divide-y divide-gray-200">
               {data &&
                 data.length > 0 &&
                 data.map((person) => (
                   <tr key={person.date}>
                     <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
-                      {person.member_type}
+                      {person.paymentCategory}
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.bank}
