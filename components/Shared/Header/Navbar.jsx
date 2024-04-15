@@ -6,6 +6,7 @@ import Link from "next/link";
 import { routes } from "@/contents/routes";
 import NavbarSet from "./navbarset";
 import { Button } from "flowbite-react";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -166,6 +167,8 @@ const Navbar = () => {
       link: routes.CONTACT_US,
     },
   ];
+  const currentPath = usePathname();
+  useEffect(() => {}, [currentPath]);
 
   return (
     <header className="bg-blue-900 text-slate-100">
@@ -186,9 +189,10 @@ const Navbar = () => {
         </div>
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          {menus.map((menu) => (
-            <NavItems key={menu.id} {...menu} />
-          ))}
+          {currentPath &&
+            menus.map((menu) => (
+              <NavItems key={menu.id} menu={menu} currentPath={currentPath} />
+            ))}
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end uppercase">
@@ -231,8 +235,9 @@ const Navbar = () => {
 
 export default Navbar;
 
-const NavItems = (menu) => {
+const NavItems = ({ menu, currentPath }) => {
   const { label, link, subMenu } = menu;
+  console.log(currentPath, "currentPath");
   if (subMenu) {
     return (
       <Popover className="relative">
@@ -244,16 +249,20 @@ const NavItems = (menu) => {
           />
         </Popover.Button> */}
 
-        <NavbarSet key={link} {...menu} />
+        <NavbarSet key={link} currentPath={currentPath} {...menu} />
       </Popover>
     );
   } else {
     return (
       <Link
         href={link}
-        className="flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1"
+        className={`flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1 ${
+          currentPath === link ? " navactive" : " "
+        } `}
+        style={{ padding: "6px" }}
+        // className={currentPath.pathname == "/" ? "active" : ""}
       >
-        {label}
+        {label} 
       </Link>
     );
   }

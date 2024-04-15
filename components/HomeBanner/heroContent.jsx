@@ -11,7 +11,9 @@ import Link from "next/link";
 
 const HeroBanner = ({imgclass}) => {
   return (
-    <div class={`relative h-screen w-full flex items-center justify-start text-left bg-cover bg-center ${imgclass}`}>
+    <div class={`relative h-screen w-full flex items-center justify-center text-left bg-cover bg-center ${imgclass}`} 
+    style={{marginTop:"-150px" }}
+    >
       <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
 
       <main class="px-10 lg:px-24 z-10">

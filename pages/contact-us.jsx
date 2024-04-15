@@ -1,5 +1,5 @@
-import Container from '@/components/Shared/Container';
-import React from 'react';
+import Container from "@/components/Shared/Container";
+import React from "react";
 
 const ContactUs = () => {
   return (
@@ -47,7 +47,8 @@ const ContactUs = () => {
           </div>
           <div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31465.033713873992!2d80.00782707805787!3d9.669999242928622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe53fd7be66aa5%3A0xc7da0d9203baf512!2sJaffna!5e0!3m2!1sen!2slk!4v1684598161590!5m2!1sen!2slk"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.632784479475!2d79.88689167522007!3d6.814440719713547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae245b28611882f%3A0x6c0b8ef0e70a59a!2sHindu%20College%20Play%20Ground!5e0!3m2!1sen!2slk!4v1710755104472!5m2!1sen!2slk"
+              // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31465.033713873992!2d80.00782707805787!3d9.669999242928622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe53fd7be66aa5%3A0xc7da0d9203baf512!2sJaffna!5e0!3m2!1sen!2slk!4v1684598161590!5m2!1sen!2slk"
               allowFullScreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

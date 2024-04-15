@@ -7,6 +7,11 @@ import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 import { routes } from "@/contents/routes";
 import Link from "next/link";
+import {
+  MemberTitleOptions,
+  MembershipTypeDetails,
+  MembershipTypeDetailsOptions,
+} from "@/services/defaultConst";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   const validationSchema = Yup.object().shape({
@@ -200,9 +205,22 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
     // setStep(2)
   };
   const options = [
-    { value: "Ordinary Member", label: "Ordinary Member" },
-    { value: "Life time Member", label: "Life time Member" },
-    { value: "Hon Life time Member", label: "Hon Life time Member" },
+    {
+      value: MembershipTypeDetails.RESIDENT_LIFE_MEMBER,
+      label: MembershipTypeDetails.RESIDENT_LIFE_MEMBER,
+    },
+    {
+      value: MembershipTypeDetails.OVERSEAS_LIFE_MEMBER,
+      label: MembershipTypeDetails.OVERSEAS_LIFE_MEMBER,
+    },
+    {
+      value: MembershipTypeDetails.ORDINARY_MEMBERS,
+      label: MembershipTypeDetails.ORDINARY_MEMBERS,
+    },
+    {
+      value: MembershipTypeDetails.PLAYING_MEMBER,
+      label: MembershipTypeDetails.PLAYING_MEMBER,
+    },
   ];
   return (
     <div className="w-full bg-white border rounded-xl">
@@ -230,7 +248,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
             value={formik.values.membershipCategory}
           >
             <option value="" label="Select an option" />
-            {options.map((option) => (
+            {MembershipTypeDetailsOptions.map((option) => (
               <option
                 key={option.value}
                 value={option.value}
@@ -260,10 +278,10 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         <div className="px-10 my-10 ">
           <div className="grid grid-cols-4 gap-3">
             <div className="grid grid-cols-3 col-span-3 gap-3">
-              <InputField
+              {/* <InputField
                 label="Title"
                 name="title"
-                required={true}
+                
                 value={formik.values.title}
                 onChange={formik.handleChange}
                 onBlur={() => formik.setFieldTouched("title")}
@@ -271,7 +289,32 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                   formik.touched.title &&
                   formik.errors.title && <p>{formik.errors.title}</p>
                 }
-              />
+              /> */}
+              <div>
+                <label htmlFor={"title"} className="ml-2">
+                  {"Title"}
+                  {true && <span className="text-red-500">*</span>}
+                </label>
+                <select
+                  required={true}
+                  nBlur={() => formik.setFieldTouched("title")}
+                  className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
+                  id="selectedOption"
+                  name="title"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.title}
+                >
+                  <option value="" label="Select an option" />
+                  {MemberTitleOptions.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                      label={option.label}
+                    />
+                  ))}
+                </select>
+              </div>
               <InputField
                 label="First Name"
                 name="firstName"
@@ -478,7 +521,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
-                   
+
                     <p
                       className="text-xs leading-5 text-gray-600"
                       style={

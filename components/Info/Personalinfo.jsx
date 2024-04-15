@@ -4,6 +4,8 @@ import SchoolinfoCard from "./InfoCard";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { isEmpty } from "@/utils/utils";
+import { MemberTitleOptions } from "@/services/defaultConst";
+import ChangePasswordForm from "./updatepassword";
 
 const validationSchema = Yup.object().shape({
   membershipCategory: Yup.string().required("Category is required"),
@@ -75,7 +77,8 @@ const Personalinfo = ({ memberData }) => {
                         <p>{formik.errors.membershipCategory}</p>
                       )
                     }
-                  />{" "}
+                  />
+                 
                   <InputField
                     label="First Name"
                     name="firstName"
@@ -228,35 +231,8 @@ const Personalinfo = ({ memberData }) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Change Password
         </div>
-        <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-6">
-            <InputField
-              label="Old Password"
-              name="old_password"
-              required={true}
-            />
-            <InputField
-              label="New Password"
-              name="new_password"
-              required={true}
-            />
-            <div className="col-span-1">
-              <InputField
-                label="Confirm Password"
-                name="confirm_password"
-                required={true}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-center mb-10">
-          <button
-            onClick={() => setStep(2)}
-            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
-          >
-            Update
-          </button>
-        </div>
+        
+        <ChangePasswordForm memberData ={memberData} />
       </div>
     </div>
   );

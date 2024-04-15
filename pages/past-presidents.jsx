@@ -34,7 +34,7 @@ const PastPresidents = () => {
           ))}
         </div>
         <br /> <br />
-        <h1 className="text-2xl font-bold text-slate-800 p-5">Secretary</h1>
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Secretaries</h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((img) => (
             <UserCard
@@ -46,7 +46,7 @@ const PastPresidents = () => {
           ))}
         </div>
         <br /> <br />
-        <h1 className="text-2xl font-bold text-slate-800 p-5">Treasurer</h1>
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Treasurers</h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
           {[1, 2, 3, 4, 5, 6, 7, 8,9,10].map((img) => (
             <UserCard
