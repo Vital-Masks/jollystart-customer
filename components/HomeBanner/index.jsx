@@ -24,10 +24,10 @@ const HomeBanner = () => {
           <HeroBanner imgclass={"hero-img-sec"} />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroBanner imgclass={"hero-img-sec"} />
+          <HeroBanner imgclass={"hero-img-sec2"} />
         </SwiperSlide>
         <SwiperSlide>
-          <HeroBanner imgclass={"hero-img-sec"} />
+          <HeroBanner imgclass={"hero-img-sec3"} />
         </SwiperSlide>
       </Swiper>
     </div>

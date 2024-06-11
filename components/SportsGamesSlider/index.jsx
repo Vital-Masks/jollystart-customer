@@ -74,19 +74,19 @@ const SportsGames = () => {
       id: 6,
       title: 'Weight Lifting',
       description:
-        "Determination defines Jollystars' lifters, becoming sculpted powerhouses through immense dedication. Our lifters, forged with unwavering commitment, epitomize the club's focus on producing elite athletes. With dedication to excellence, our weight lifting legacy is a testament to the strength and determination instilled in every athlete.",      image:
-        'https://images.unsplash.com/photo-1599391398131-cd12dfc6c24e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1011&q=80',
+        "Determination defines Jollystars' lifters, becoming sculpted powerhouses through immense dedication. Our lifters, forged with unwavering commitment, epitomize the club's focus on producing elite athletes. With dedication to excellence, our weight lifting legacy is a testament to the strength and determination instilled in every athlete.", 
       icon: '',
       link: '#',
+      image:"https://live.staticflickr.com/7441/27454746931_0214e92469_b.jpg"
     },
     {
       id: 7,
       title: 'Table Tennis',
       description:
-"Table tennis captivates our players, and the club staff is on a mission to shape and create champions through unyielding effort. Our paddlers, honed with dedication, embody the club's mission to produce exceptional players. With a relentless pursuit of excellence, our table tennis legacy is marked by players consistently reaching new heights.",      image:
-        'https://images.unsplash.com/photo-1599391398131-cd12dfc6c24e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1011&q=80',
+"Table tennis captivates our players, and the club staff is on a mission to shape and create champions through unyielding effort. Our paddlers, honed with dedication, embody the club's mission to produce exceptional players. With a relentless pursuit of excellence, our table tennis legacy is marked by players consistently reaching new heights.",  
       icon: '',
       link: '#',
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnHVe-TEQk5uFlTpsDbWCWWrxNdwqekC4QVQ&usqp=CAU"
     },
   ];
   return (

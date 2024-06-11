@@ -72,7 +72,7 @@ const Slider = () => {
         <SwiperSlide id={content} key={content}>
           <Image
             src=
-              '/assets/banner/mani.jpg'
+              '/assets2/banner/mani.jpg'
             alt={'gg'}
             width={600}
             height={750}
