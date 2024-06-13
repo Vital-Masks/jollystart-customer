@@ -7,9 +7,9 @@ const UserFullView = ({ picture }) => {
       <Image
         width={2500}
         height={2500}
-        className="h-[250px] lg:h-[300px] xl:h-[400px] object-cover"
+        className="h-full w-full object-cover"
         src={picture}
-        style={{ objectFit: "contain", width: "1200px", height: "auto" }}
+        style={{ objectFit: "contain", width: "900px", height: "auto" }}
       />
       {/* <div className="mt-2 text-center">
         <h1 className="text-lg text-slate-900">{name}</h1>
