@@ -7,6 +7,7 @@ import React from "react";
 import commityImg from "../../public/assets2/banner/basketballteam.jpg";
 
 const Teams = () => {
+  // new
   const MembersNames = [
     {
       name: "Ravi",
