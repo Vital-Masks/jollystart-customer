@@ -1,4 +1,5 @@
 import Container from "@/components/Shared/Container";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
 import React from "react";
 
 const ContactUs = () => {
@@ -22,8 +23,8 @@ const ContactUs = () => {
                 Address
               </h3>
               <address className="pt-2 pl-6 not-italic text-gray-600 border-l border-gray-200">
-                <p>4556 Brendan Ferry</p>
-                <p>Los Angeles, CA 90210</p>
+                <p>Jollystars Sports Club,</p>
+                <p> Jaffna Hindu College Jaffna.</p>
               </address>
             </div>
             <div>
@@ -31,8 +32,8 @@ const ContactUs = () => {
                 Contact Us
               </h3>
               <address className="pt-2 pl-6 not-italic text-gray-600 border-l border-gray-200">
-                <p>886 Walter Street</p>
-                <p>New York, NY 12345</p>
+                <p>T. Sivathas (Secreatary) </p>
+                <p>+94 77 519 3669</p>
               </address>
             </div>
             <div>
@@ -40,8 +41,9 @@ const ContactUs = () => {
                 Social Media
               </h3>
               <address className="pt-2 pl-6 not-italic text-gray-600 border-l border-gray-200">
-                <p>7363 Cynthia Pass</p>
-                <p>Toronto, ON N3Y 4H8</p>
+                <SocialMediaLinks />
+                {/* <p>7363 Cynthia Pass</p>
+                <p>Toronto, ON N3Y 4H8</p> */}
               </address>
             </div>
           </div>

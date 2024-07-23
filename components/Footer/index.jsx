@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image from "next/image";
 // import { MDBFooter } from 'mdb-react-ui-kit';
-import React from 'react';
-import SocialMediaLinks from '../SocialMediaLinks';
-import Link from 'next/link';
+import React from "react";
+import SocialMediaLinks from "../SocialMediaLinks";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         > */}
-          {/* <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
+      {/* <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
       
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
@@ -93,70 +93,73 @@ const Footer = () => {
         </li>
     </ul>
     </div> */}
-   
-<section>
-    <div class="max-w-screen-xl px-4 py-2 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-        <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+
+      <section>
+        <div class="max-w-screen-xl px-4 py-2 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+          <nav class="flex flex-wrap justify-center -mx-5 -my-2">
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/">
-            Home
-          </Link>
+              <Link className="text-sm text-dark" href="/">
+                Home
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/about-us">
-            About Us
-          </Link>
+              <Link className="text-sm text-dark" href="/about-us">
+                About Us
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/cricket/club-cricket">
-            Cricket
-          </Link>
+              <Link className="text-sm text-dark" href="/cricket/club-cricket">
+                Cricket
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/basketball/club-basketball">
-            BasketBall
-          </Link>
+              <Link
+                className="text-sm text-dark"
+                href="/basketball/club-basketball"
+              >
+                BasketBall
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/membership">
-            Membership
-          </Link>
+              <Link className="text-sm text-dark" href="/memberpackage">
+                Membership
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/latest-news">
-            Sports News & Events
-          </Link>
+              <Link className="text-sm text-dark" href="/latest-news">
+                News & Events
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/gallery">
-            Gallery
-          </Link>
+              <Link className="text-sm text-dark" href="/gallery">
+                Gallery
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/contact-us">
-            Contact Us
-          </Link>
+              <Link className="text-sm text-dark" href="/contact-us">
+                Contact Us
+              </Link>
+            </div>
+            {/* <div class="px-5 py-2">
+              <Link className="text-sm text-dark" href="#">
+                Terms Privacy
+              </Link>
             </div>
             <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="#">
-            Terms Privacy
-          </Link>
-            </div>
-            <div class="px-5 py-2">
-            <Link className="text-sm text-dark" href="/UserProfile">
-            Privacy Policy
-          </Link>
-            </div>
-        </nav>
-    </div>
-</section>
-  {/* </div>
+              <Link className="text-sm text-dark" href="/UserProfile">
+                Privacy Policy
+              </Link>
+            </div> */}
+          </nav>
+        </div>
+      </section>
+      {/* </div>
       </MDBFooter> */}
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">
           Copyright &copy; {new Date().getFullYear()} jollystarssc.com. All
-          Rights Reserved. Designed and Developed by{' '}
+          Rights Reserved. Designed and Developed by{" "}
           <Link
             href="https://www.vitalmasks.lk/"
             target="_blank"

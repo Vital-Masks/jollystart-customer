@@ -47,7 +47,7 @@ const GridExample = () => {
     {
       field: "lastName",
     },
-    { field: "membershipCategory", headerName: "membershipCategory" },
+    { field: "membershipCategory", headerName: "Membership Category" },
     // { field: "date", filter: "agDateColumnFilter" },
     // {
     //   field: "views",

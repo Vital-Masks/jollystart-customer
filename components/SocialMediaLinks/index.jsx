@@ -5,9 +5,9 @@ import { FaFacebookSquare, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const SocialMediaLinks = () => {
   const [social, setSocial] = useState({
-    facebook_link: '',
-    instagram_link: '',
-    youtube_link: '',
+    facebook_link: 'https://facebook.com/jollystars.sc',
+    instagram_link: 'https://instagram.com/jollystarssc',
+    // youtube_link: '',
   });
 
   const fetchSocialLinks = async () => {
@@ -31,9 +31,9 @@ const SocialMediaLinks = () => {
       <Link href={social?.instagram_link || ''} target="_blank">
         <FaInstagram className="text-xl text-gray-300 transition-colors" />
       </Link>
-      <Link href={social?.youtube_link || ''} target="_blank">
+      {/* <Link href={social?.youtube_link || ''} target="_blank">
         <FaYoutube className="text-xl text-gray-300 transition-colors" />
-      </Link>
+      </Link> */}
     </div>
   );
 };
