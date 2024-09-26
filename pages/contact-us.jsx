@@ -9,13 +9,13 @@ const ContactUs = () => {
         <>
           <div className="max-w-2xl mx-auto lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 p-5">
-              Our offices
+            Keep in Touch with us!
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 p-5">
+            {/* <p className="mt-6 text-lg leading-8 text-gray-600 p-5">
               Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
               id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
               fames.
-            </p>
+            </p> */}
           </div>
           <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-16 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div>

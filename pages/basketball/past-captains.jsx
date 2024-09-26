@@ -22,7 +22,7 @@ const PastPresidents = () => {
   return (
     <div className="bg-white">
       <Container>
-        <h1 className="text-2xl font-bold text-slate-800 p-5">Presidents</h1>
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Captains</h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((img) => (
             <UserCard

@@ -19,7 +19,7 @@ const HeroBanner = ({imgclass}) => {
       <main class="px-10 lg:px-24 z-10" style={{marginTop:"136px"}}>
         <div class="text-left">
         <p class="mt-3 text-white sm:mt-5  md:mt-5 text-lg font-light text-center "  >
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+            {/* Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. */}
           </p>
           <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl text-center" style={{
             maxWidth:"900px",
