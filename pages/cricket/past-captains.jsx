@@ -2,6 +2,7 @@ import ListViewer from "@/components/ListViewer";
 import Container from "@/components/Shared/Container";
 import UserCard from "@/components/UserCard";
 import React from "react";
+import img2 from "../../public/assets2/banner/mani.jpg";
 
 const PastPresidents = () => {
   const members = [
@@ -24,17 +25,30 @@ const PastPresidents = () => {
       <Container>
         <h1 className="text-2xl font-bold text-slate-800 p-5">Captains</h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((img) => (
+          {[1].map((img) => (
             <UserCard
               key={img}
-              picture="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              picture={img2}
               name={"Mr. V. Manivannan"}
-              occupation={"President"}
+              occupation={"Captain (2023/24)"}
             />
           ))}
         </div>
         <br /> <br />
-       
+        <h1 className="text-2xl font-bold text-slate-800 p-5">
+          {" "}
+          Past Captains
+        </h1>
+        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
+          {[1].map((img) => (
+            <UserCard
+              key={img}
+              picture={img2}
+              name={"Mr. V. Manivannan"}
+              occupation={"Captain (2022/23)"}
+            />
+          ))}
+        </div>
         {/* <ListViewer data={members} /> */}
       </Container>
     </div>
