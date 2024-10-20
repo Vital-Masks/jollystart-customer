@@ -11,7 +11,7 @@ const LatestNews = () => {
   const [Loading, setLoading] = useState(true);
   const fetchUserData = () => {
     try {
-      fetch(`http://localhost:3000/api/newsManagement/getAllNews`)
+      fetch(`https://api.jollystarssc.com/api/newsManagement/getAllNews`)
         .then((fetchResponse) => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {

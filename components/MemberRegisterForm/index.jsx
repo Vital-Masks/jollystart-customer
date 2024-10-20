@@ -37,7 +37,7 @@ const MemberRegisterForm = () => {
     const handlePostRequest = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:3000/api/member", {
+        const response = await fetch("https://api.jollystarssc.com/api/member", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -32,7 +32,7 @@ const ContactPage = () => {
       try {
         // Perform the API request (replace the URL with your actual API endpoint)
         const response = await axios.post(
-          "http://localhost:3000/api/member/login",
+          "https://api.jollystarssc.com/api/member/login",
           values
         );
         console.log(response);
