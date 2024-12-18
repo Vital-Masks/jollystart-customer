@@ -100,7 +100,6 @@ const Gallery = () => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {
             // Process the response here, e.g., parse the JSON response
-            console.log(fetchResponse, "==========");
             return fetchResponse.json();
           } else {
             // Handle fetch error

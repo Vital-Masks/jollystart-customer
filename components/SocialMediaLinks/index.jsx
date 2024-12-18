@@ -1,4 +1,4 @@
-import { getContactUs } from '@/services';
+// import { getContactUs } from '@/services';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaFacebookSquare, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -10,18 +10,18 @@ const SocialMediaLinks = () => {
     // youtube_link: '',
   });
 
-  const fetchSocialLinks = async () => {
-    try {
-      const res = await getContactUs();
-      setSocial(res.data.attributes);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchSocialLinks = async () => {
+  //   try {
+  //     const res = await getContactUs();
+  //     setSocial(res.data.attributes);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchSocialLinks();
-  }, []);
+  // useEffect(() => {
+  //   fetchSocialLinks();
+  // }, []);
 
   return (
     <div className="flex items-center gap-4">

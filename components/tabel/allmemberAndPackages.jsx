@@ -65,7 +65,6 @@ const GridExample = () => {
     //   .getAllColumns()
     //   ?.findIndex((col) => col.getColDef().field === field);
     const data = e.data;
-    console.log(field, data);
   };
   const onBtnExport = useCallback(() => {
     console.log("d");
@@ -113,10 +112,9 @@ const GridExample = () => {
         }
       })
       .then((userDataFromFetch) => {
-        console.log(userDataFromFetch.result, "==========");
         let sample = [];
         sample = userDataFromFetch.result;
-        console.log(sample, "sampleeee");
+       
         const flatData = sample.map((row) => ({
           ...row,
         }));

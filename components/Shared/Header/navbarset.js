@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const ProfileInfoPopover = ({ label, link, subMenu, currentPath }) => {
   const [openPopover, setOpenPopover] = React.useState(false);
-  console.log(currentPath, "0000000000");
+
   const triggers = {
     onMouseEnter: () => setOpenPopover(true),
     onMouseLeave: () => setOpenPopover(false),
