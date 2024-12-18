@@ -23,7 +23,7 @@ const Membership = () => {
             accompany the application.
           </p>
         </div>
-        <div className="flex items-center justify-start gap-10 overflow-x-auto flex-wrap justify-center snap-x scroll-smooth">
+        <div className="flex items-center justify-start gap-10 flex-wrap justify-center">
           {membershipPaymentdata &&
             membershipPaymentdata.length > 0 &&
             membershipPaymentdata.map((item, i) => (

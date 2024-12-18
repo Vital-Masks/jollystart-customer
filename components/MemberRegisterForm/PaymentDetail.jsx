@@ -5,9 +5,16 @@ import { useMembers } from "@/contexts/MemberContext";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
+import Image from "next/image";
 
 const PaymentDetail = (props) => {
-  const { AllPaymentData, Loading, paymentlData, AllPaymentDatas,PersonalData } = props;
+  const {
+    AllPaymentData,
+    Loading,
+    paymentlData,
+    AllPaymentDatas,
+    PersonalData,
+  } = props;
   const validationSchema = Yup.object().shape({
     paymentCategory: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
@@ -52,6 +59,8 @@ const PaymentDetail = (props) => {
       })
       .required("File is required"),
   });
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const { setStep } = useMembers();
   const formik = useFormik({
@@ -168,7 +177,7 @@ const PaymentDetail = (props) => {
       // onSubmit={formik.handleSubmit}
       className="w-full bg-white border rounded-xl"
     >
-      <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
+      <div className="py-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
         STEP 03 - PAYMENT DETAILS
       </div>
 
@@ -184,10 +193,10 @@ const PaymentDetail = (props) => {
           Payment Details
         </div>
         <div className="px-10 my-10">
-          <div className="grid grid-cols-4 gap-3">
-            <div className="grid grid-cols-3 col-span-3 gap-2">
+          <div className="md:grid md:grid-cols-4 gap-3">
+            <div className="md:grid md:grid-cols-3 col-span-3 gap-2 space-y-4 md:space-y-0">
               <InputField
-              disabled
+                disabled
                 label="Member Type"
                 name="paymentCategory"
                 required={true}
@@ -267,7 +276,7 @@ const PaymentDetail = (props) => {
                 }
               />
             </div>
-            <div>
+            <div className="mt-5">
               <div className="col-span-full">
                 <label
                   htmlFor="cover-photo"
@@ -283,10 +292,14 @@ const PaymentDetail = (props) => {
                   }
                 >
                   <div className="text-center">
-                    <PhotoIcon
-                      className="w-12 h-12 mx-auto text-gray-300"
-                      aria-hidden="true"
-                    />
+                    {selectedImage ? (
+                      <Image src={selectedImage} width={200} height={200} />
+                    ) : (
+                      <PhotoIcon
+                        className="w-12 h-12 mx-auto text-gray-300"
+                        aria-hidden="true"
+                      />
+                    )}
                     <div className="flex mt-4 text-sm leading-6 text-gray-600">
                       <label
                         htmlFor="paymentSlip"
@@ -303,6 +316,9 @@ const PaymentDetail = (props) => {
                             formik.setFieldValue(
                               "paymentSlip",
                               event.currentTarget.files[0]
+                            );
+                            setSelectedImage(
+                              URL.createObjectURL(event.currentTarget.files[0])
                             );
                           }}
                           accept="image/*"
@@ -336,7 +352,7 @@ const PaymentDetail = (props) => {
                 className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-600"
               />
             </div>
-            <div className="ml-3 text-sm">
+            <div className="ml-3 text-sm mt-4">
               <p id="comments-description" className="text-[#7E7A7C]">
                 I agree the terms of service and Privacy policy.
               </p>
@@ -354,7 +370,7 @@ const PaymentDetail = (props) => {
           )}
         </div>
 
-        <div className="flex items-center justify-center mb-10 gap-5">
+        <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-5">
           <button
             type="button"
             onClick={pre}

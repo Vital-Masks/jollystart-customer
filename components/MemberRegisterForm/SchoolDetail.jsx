@@ -199,7 +199,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
   };
   return (
     <div className="w-full bg-white border rounded-xl">
-      <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
+      <div className="p-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
         STEP 02 - FILL YOUR SCHOOL AND CLUB DETAILS
       </div>
       <div className="px-10 my-10">
@@ -218,7 +218,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           onSubmit={formik.handleSubmit}
         >
           <div className="px-10 my-10">
-            <div className="flex  gap-4 mb-10">
+            <div className="flex flex-col md:flex-row  gap-4 mb-10">
               <div className="w-full">
                 <InputField
                   label="School Name"
@@ -250,7 +250,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="md:grid md:grid-cols-5 gap-3 space-y-4 md:space-y-0">
               <InputField
                 label="Team you played"
                 name="participated"
@@ -336,7 +336,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           onSubmit={formik2.handleSubmit}
         >
           <div className="px-10 my-10">
-            <div className="flex  gap-4 mb-10">
+            <div className="flex flex-col md:flex-row gap-4 mb-10">
               <div className="w-full">
                 <InputField
                   label="Club Name"
@@ -368,7 +368,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="md:grid md:grid-cols-5 gap-3 space-y-4 md:space-y-0">
               <InputField
                 label="Team you played"
                 name="invloved"
@@ -492,7 +492,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           </div>
         </div>
       </form>
-      <div className="flex items-center justify-center mb-10">
+      <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-3">
         <button
           onClick={() => setStep(1)}
           className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52"

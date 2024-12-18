@@ -224,7 +224,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   ];
   return (
     <div className="w-full bg-white border rounded-xl">
-      <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
+      <div className="p-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
         STEP 01 - FILL YOUR PERSONAL DATA
       </div>
       <div className="px-10 my-10">
@@ -238,7 +238,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Membership Details
         </div>
-        <div className="flex items-center gap-4 px-10 mt-10">
+        <div className="flex flex-col md:flex-row items-center gap-4 px-10 mt-10">
           <select
             className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
             id="selectedOption"
@@ -266,7 +266,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         </div>
         {formik.touched.membershipCategory &&
           formik.errors.membershipCategory && (
-            <p className=" mb-10 px-14 text-red-400">
+            <p className="mb-10 px-14 text-red-400">
               {formik.errors.membershipCategory}
             </p>
           )}
@@ -276,8 +276,8 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
           Personal Details
         </div>
         <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-3">
-            <div className="grid grid-cols-3 col-span-3 gap-3">
+          <div className="grid md:grid-cols-4 gap-3">
+            <div className="md:grid md:grid-cols-3 col-span-3 gap-3 space-y-4 md:space-y-0">
               {/* <InputField
                 label="Title"
                 name="title"
@@ -479,8 +479,8 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                 }
               />
             </div>
-            <div>
-              <div className="col-span-full">
+            <div className="w-full col-span-3 md:col-span-1">
+              <div className="col-span-full w-full">
                 <label
                   htmlFor="cover-photo"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -492,7 +492,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                     formik.errors.profilePicture &&
                     formik.touched.profilePicture && { borderColor: "red" }
                   }
-                  className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25"
+                  className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25 w-full"
                 >
                   <div className="text-center">
                     <PhotoIcon
@@ -546,10 +546,10 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
           </div>
         </div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Personal Details
+          Workplace Details
         </div>
         <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-3">
+          <div className="md:grid md:grid-cols-4 gap-3 space-y-4 md:space-y-0">
             <InputField
               label="Workplace Name"
               name="workPlaceName"
