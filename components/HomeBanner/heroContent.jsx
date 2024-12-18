@@ -11,21 +11,16 @@ import Link from "next/link";
 
 const HeroBanner = ({imgclass}) => {
   return (
-    <div class={`relative h-screen w-full flex items-center justify-center text-left bg-cover bg-center ${imgclass}`} 
-    style={{marginTop:"-150px" }}
+    <div class={`relative h-full w-full flex items-center justify-center text-left bg-cover bg-center ${imgclass}`} 
     >
       <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
 
-      <main class="px-10 lg:px-24 z-10" style={{marginTop:"136px"}}>
+      <main class="px-10 lg:px-24 z-10">
         <div class="text-left">
         <p class="mt-3 text-white sm:mt-5  md:mt-5 text-lg font-light text-center "  >
             {/* Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. */}
           </p>
-          <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl text-center" style={{
-            maxWidth:"900px",
-            fontSize:"5rem",
-            margin:"20px 0px"
-        }}>
+          <h2 class="text-3xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl text-center md:w-[700px]">
             First Sports Club 
             in Jaffna Peninsula!
           </h2>

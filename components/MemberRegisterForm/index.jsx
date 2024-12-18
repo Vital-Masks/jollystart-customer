@@ -37,19 +37,22 @@ const MemberRegisterForm = () => {
     const handlePostRequest = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://api.jollystarssc.com/api/member", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(allData),
-        });
+        const response = await fetch(
+          "https://api.jollystarssc.com/api/member",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(allData),
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         toast.success("Successfully Added");
-        window.location.href ="/login/logreg"
+        window.location.href = "/login/logreg";
         const data = await response.json();
         console.log("POST request successful. Response:", data);
       } catch (error) {

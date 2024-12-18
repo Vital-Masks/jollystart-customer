@@ -95,7 +95,7 @@ const LatestNewsOne = () => {
           ) : (
             <>
               {<NewNewsCard SingleNew={SingleNew} />}
-              <div className="flex items-center text-red justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
+              <div className="flex items-center justify-start gap-5 p-5 overflow-auto text-red lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center">
                 {AllNewsData &&
                   AllNewsData.map((item, index) => (
                     <div key={index}>
@@ -106,7 +106,7 @@ const LatestNewsOne = () => {
             </>
           )}
         </div>
-        {/* <div className="flex items-center text-red justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
+        {/* <div className="flex items-center justify-start gap-5 p-5 overflow-auto text-red lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center">
           {Loading
             ? "Loading ..."
             : AllNewsData &&
@@ -117,11 +117,11 @@ const LatestNewsOne = () => {
               ))}
         </div> */}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <Link href={'/latest-news'} className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More
           </Link>
-        </div>
+        </div> */}
       </Container>
     </div>
   );

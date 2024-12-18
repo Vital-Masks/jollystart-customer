@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../UI/InputField";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useMembers } from "@/contexts/MemberContext";
-import { useFormik } from "formik";
+import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 import { routes } from "@/contents/routes";
@@ -12,95 +12,107 @@ import {
   MembershipTypeDetails,
   MembershipTypeDetailsOptions,
 } from "@/services/defaultConst";
+import Image from "next/image";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
+  const [initialValues, setinitialValues] = useState({
+    membershipCategory: "",
+    title: "",
+    firstName: "",
+    lastName: "",
+    passportNumber: "",
+    dateOfBirth: "",
+    email: "",
+    address: "",
+    phoneNumber: "",
+    telephoneNumber: "",
+    maritalStatus: "",
+    userName: "",
+    password: "",
+    cpassword: "",
+    workPlaceName: "",
+    occupation: "",
+    officeAddress: "",
+    profilePicture: "",
+  });
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const validationSchema = Yup.object().shape({
-    membershipCategory: Yup.string()
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    title: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+    membershipCategory: Yup.string().required("Required"),
+    title: Yup.string().required("Required"),
     firstName: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
     lastName: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    dateOfBirth: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
     passportNumber: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    dateOfBirth: Yup.string().required("Required"),
     email: Yup.string()
+      .required("Required")
       .email("Invalid email address")
       .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    userName: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    password: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    cpassword: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .oneOf([Yup.ref("password")], "Passwords must match"),
-    phoneNumber: Yup.string()
-      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    telephoneNumber: Yup.string()
-      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
-      .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
     address: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    workPlaceName: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    phoneNumber: Yup.string()
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    occupation: Yup.string()
+      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
       .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    telephoneNumber: Yup.string()
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
-    officeAddress: Yup.string()
+      .matches(/^[0-9]{10,13}$/, "Invalid phone number format")
       .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
     maritalStatus: Yup.string()
-      .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    userName: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    password: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    cpassword: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .oneOf([Yup.ref("password")], "Passwords must match"),
+    workPlaceName: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    occupation: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
+    officeAddress: Yup.string()
+      .required("Required")
+      .matches(/^\S.*$/, "Cannot start with a space")
+      .min(3, "Minimum 3 characters")
+      .max(40, "Maximum 40 characters"),
     profilePicture: Yup.mixed()
       .test("fileValidation", "Invalid file", (value) => {
         if (!value) {
@@ -113,52 +125,11 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
       })
       .required("File is required"),
   });
+
   const { setStep } = useMembers();
-  const intalvalue = {
-    membershipCategory: PersonalData ? PersonalData.membershipCategory : "",
-    title: PersonalData ? PersonalData.title : "",
-    firstName: PersonalData ? PersonalData.firstName : "",
-    lastName: PersonalData ? PersonalData.lastName : "",
-    dateOfBirth: PersonalData ? PersonalData.dateOfBirth : "",
-    passportNumber: PersonalData ? PersonalData.passportNumber : "",
-    email: PersonalData ? PersonalData.email : "",
-    userName: PersonalData ? PersonalData.userName : "",
-    password: PersonalData ? PersonalData.password : "",
-    cpassword: PersonalData ? PersonalData.membershipCategory : "",
-    phoneNumber: PersonalData ? PersonalData.membershipCategory : "",
-    telephoneNumber: PersonalData ? PersonalData.membershipCategory : "",
-    address: PersonalData ? PersonalData.membershipCategory : "",
-    workPlaceName: PersonalData ? PersonalData.membershipCategory : "",
-    occupation: PersonalData ? PersonalData.membershipCategory : "",
-    officeAddress: PersonalData ? PersonalData.membershipCategory : "",
-    maritalStatus: PersonalData ? PersonalData.membershipCategory : "",
-    profilePicture: PersonalData ? PersonalData.membershipCategory : "",
-  };
-  const formik = useFormik({
-    initialValues: {
-      membershipCategory: PersonalData ? PersonalData.membershipCategory : "",
-      title: PersonalData ? PersonalData.title : "",
-      firstName: PersonalData ? PersonalData.firstName : "",
-      lastName: PersonalData ? PersonalData.lastName : "",
-      dateOfBirth: PersonalData ? PersonalData.dateOfBirth : "",
-      passportNumber: PersonalData ? PersonalData.passportNumber : "",
-      email: PersonalData ? PersonalData.email : "",
-      userName: PersonalData ? PersonalData.userName : "",
-      password: PersonalData ? PersonalData.password : "",
-      cpassword: PersonalData ? PersonalData.cpassword : "",
-      phoneNumber: PersonalData ? PersonalData.phoneNumber : "",
-      telephoneNumber: PersonalData ? PersonalData.telephoneNumber : "",
-      address: PersonalData ? PersonalData.address : "",
-      workPlaceName: PersonalData ? PersonalData.workPlaceName : "",
-      occupation: PersonalData ? PersonalData.occupation : "",
-      officeAddress: PersonalData ? PersonalData.officeAddress : "",
-      maritalStatus: PersonalData ? PersonalData.maritalStatus : "",
-      profilePicture: PersonalData ? PersonalData.profilePicture : "",
-    },
-    validationSchema,
-    onSubmit: async (values) => {
-      // Submit form data to server or perform other actions
-      console.log("Submitted values:", values);
+
+  const handleSubmit = async (values) => {
+    try {
       var base64String = "";
       if (PersonalData) {
         try {
@@ -171,7 +142,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         try {
           base64String = await convertFileToBase64(values.profilePicture);
         } catch (error) {
-          console.log(error, "error");
+          console.log("error:", error);
         }
       }
 
@@ -197,31 +168,17 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
       };
       AllPersonalData(obj);
       setStep(2);
-    },
-  });
-
-  const changeStep = (e) => {
-    formik.handleSubmit();
-    // setStep(2)
+    } catch (error) {
+      console.log(">> error", error);
+    }
   };
-  const options = [
-    {
-      value: MembershipTypeDetails.RESIDENT_LIFE_MEMBER,
-      label: MembershipTypeDetails.RESIDENT_LIFE_MEMBER,
-    },
-    {
-      value: MembershipTypeDetails.OVERSEAS_LIFE_MEMBER,
-      label: MembershipTypeDetails.OVERSEAS_LIFE_MEMBER,
-    },
-    {
-      value: MembershipTypeDetails.ORDINARY_MEMBERS,
-      label: MembershipTypeDetails.ORDINARY_MEMBERS,
-    },
-    {
-      value: MembershipTypeDetails.PLAYING_MEMBER,
-      label: MembershipTypeDetails.PLAYING_MEMBER,
-    },
-  ];
+
+  useEffect(() => {
+    if (PersonalData) {
+      setinitialValues(PersonalData);
+    }
+  }, [PersonalData]);
+
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
@@ -234,376 +191,274 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
           the club shall apply in the prescribed.
         </p>
       </div>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Membership Details
-        </div>
-        <div className="flex items-center gap-4 px-10 mt-10">
-          <select
-            className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
-            id="selectedOption"
-            name="membershipCategory"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.membershipCategory}
-          >
-            <option value="" label="Select an option" />
-            {MembershipTypeDetailsOptions.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                label={option.label}
-              />
-            ))}
-          </select>
-          <Link
-            href={routes.MEMBERSHIPFULL}
-            target="_blank"
-            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
-          >
-            Pricing Table
-          </Link>
-        </div>
-        {formik.touched.membershipCategory &&
-          formik.errors.membershipCategory && (
-            <p className=" mb-10 px-14 text-red-400">
-              {formik.errors.membershipCategory}
-            </p>
-          )}
-        <br />
-        <br />
-        <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Personal Details
-        </div>
-        <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-3">
-            <div className="grid grid-cols-3 col-span-3 gap-3">
-              {/* <InputField
-                label="Title"
-                name="title"
-                
-                value={formik.values.title}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("title")}
-                error={
-                  formik.touched.title &&
-                  formik.errors.title && <p>{formik.errors.title}</p>
-                }
-              /> */}
-              <div>
-                <label htmlFor={"title"} className="ml-2">
-                  {"Title"}
-                  {true && <span className="text-red-500">*</span>}
-                </label>
-                <select
-                  required={true}
-                  nBlur={() => formik.setFieldTouched("title")}
-                  className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
-                  id="selectedOption"
-                  name="title"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.title}
-                >
-                  <option value="" label="Select an option" />
-                  {MemberTitleOptions.map((option) => (
-                    <option
-                      key={option.value}
-                      value={option.value}
-                      label={option.label}
-                    />
-                  ))}
-                </select>
-              </div>
-              <InputField
-                label="First Name"
-                name="firstName"
-                required={true}
-                value={formik.values.firstName}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("firstName")}
-                error={
-                  formik.touched.firstName &&
-                  formik.errors.firstName && <p>{formik.errors.firstName}</p>
-                }
-              />
-              <InputField
-                label="Last Name"
-                name="lastName"
-                required={true}
-                value={formik.values.lastName}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("lastName")}
-                error={
-                  formik.touched.lastName &&
-                  formik.errors.lastName && <p>{formik.errors.lastName}</p>
-                }
-              />
-              <InputField
-                label="NIC/ Passport ID"
-                name="passportNumber"
-                required={true}
-                value={formik.values.passportNumber}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("passportNumber")}
-                error={
-                  formik.touched.passportNumber &&
-                  formik.errors.passportNumber && (
-                    <p>{formik.errors.passportNumber}</p>
-                  )
-                }
-              />
-              <InputField
-                label="Date of Birth"
-                name="dateOfBirth"
-                type="date"
-                required={true}
-                value={formik.values.dateOfBirth}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("dateOfBirth")}
-                error={
-                  formik.touched.dateOfBirth &&
-                  formik.errors.dateOfBirth && (
-                    <p>{formik.errors.dateOfBirth}</p>
-                  )
-                }
-                max={new Date().toISOString().split("T")[0]}
-              />
-              <InputField
-                label="E-Mail Address"
-                type="email"
-                name="email"
-                required={true}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("email")}
-                error={
-                  formik.touched.email &&
-                  formik.errors.email && <p>{formik.errors.email}</p>
-                }
-              />
-              <div className="col-span-3">
-                <InputField
-                  label="Resident Address"
-                  name="address"
-                  required={true}
-                  value={formik.values.address}
-                  onChange={formik.handleChange}
-                  onBlur={() => formik.setFieldTouched("address")}
-                  error={
-                    formik.touched.address &&
-                    formik.errors.address && <p>{formik.errors.address}</p>
-                  }
-                />
-              </div>
-              <InputField
-                label="Mobile Number"
-                name="phoneNumber"
-                placeholder={"00442078628000"}
-                required={true}
-                value={formik.values.phoneNumber}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("phoneNumber")}
-                error={
-                  formik.touched.phoneNumber &&
-                  formik.errors.phoneNumber && (
-                    <p>{formik.errors.phoneNumber}</p>
-                  )
-                }
-              />
-              <InputField
-                label="Telephone Number"
-                name="telephoneNumber"
-                placeholder={"00442078628000"}
-                required={true}
-                value={formik.values.telephoneNumber}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("telephoneNumber")}
-                error={
-                  formik.touched.telephoneNumber &&
-                  formik.errors.telephoneNumber && (
-                    <p>{formik.errors.telephoneNumber}</p>
-                  )
-                }
-              />
-              <InputField
-                label="Marital Status"
-                name="maritalStatus"
-                required={true}
-                value={formik.values.maritalStatus}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("maritalStatus")}
-                error={
-                  formik.touched.maritalStatus &&
-                  formik.errors.maritalStatus && (
-                    <p>{formik.errors.maritalStatus}</p>
-                  )
-                }
-              />
-              <InputField
-                label="User Name"
-                name="userName"
-                required={true}
-                value={formik.values.userName}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("userName")}
-                error={
-                  formik.touched.userName &&
-                  formik.errors.userName && <p>{formik.errors.userName}</p>
-                }
-              />
-              <InputField
-                label="Password"
-                name="password"
-                type="password"
-                required={true}
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("password")}
-                error={
-                  formik.touched.password &&
-                  formik.errors.password && <p>{formik.errors.password}</p>
-                }
-              />
-              <InputField
-                label="Confirm Password"
-                type="password"
-                name="cpassword"
-                required={true}
-                value={formik.values.cpassword}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("cpassword")}
-                error={
-                  formik.touched.cpassword &&
-                  formik.errors.cpassword && <p>{formik.errors.cpassword}</p>
-                }
-              />
-            </div>
-            <div>
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Add picture
-                </label>
-                <div
-                  style={
-                    formik.errors.profilePicture &&
-                    formik.touched.profilePicture && { borderColor: "red" }
-                  }
-                  className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25"
-                >
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="w-12 h-12 mx-auto text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="flex mt-4 text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="profilePicture"
-                        className="relative font-semibold text-indigo-600 bg-white rounded-md cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="profilePicture"
-                          name="profilePicture"
-                          type="file"
-                          className="sr-only"
-                          onChange={(event) => {
-                            formik.setFieldValue(
-                              "profilePicture",
-                              event.currentTarget.files[0]
-                            );
-                          }}
-                          accept="image/*"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
+      <Formik
+        initialValues={initialValues}
+        enableReinitialize
+        validationSchema={validationSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
+        onSubmit={(values, actions) => {
+          handleSubmit(values).then(() => {
+            actions.setSubmitting(false);
+            // actions.resetForm();
+          });
+        }}
+      >
+        {({
+          handleSubmit,
+          errors,
+          values,
+          touched,
+          isSubmitting,
+          isValidating,
+          isValid,
+          setFieldValue,
+          dirty,
+        }) => (
+          // warn user when leaving the page without saving
+          // {WarnIfUnsaved(Object.keys(touched).some((v) => v !== '') && dirty)}
 
-                    <p
-                      className="text-xs leading-5 text-gray-600"
-                      style={
-                        formik.errors.profilePicture &&
-                        formik.touched.profilePicture && { borderColor: "red" }
-                      }
+          <Form onSubmit={handleSubmit} className="space-y-5">
+            <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
+              Membership Details
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-4 px-10 mt-10">
+              <Field
+                as="select"
+                name="membershipCategory"
+                className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
+              >
+                {MembershipTypeDetailsOptions.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                    label={option.label}
+                  />
+                ))}
+              </Field>
+              <Link
+                href={routes.MEMBERSHIPFULL}
+                target="_blank"
+                className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
+              >
+                Pricing Table
+              </Link>
+            </div>
+            {touched.membershipCategory && errors.membershipCategory && (
+              <p className=" mb-10 px-14 text-red-400">
+                {errors.membershipCategory}
+              </p>
+            )}
+            <br />
+            <br />
+            <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
+              Personal Details
+            </div>
+            <div className="px-10 my-10 ">
+              <div className="md:grid md:grid-cols-4 gap-3">
+                <div className="md:grid  md:grid-cols-3 col-span-4 md:col-span-3 gap-3">
+                  <div>
+                    <label htmlFor={"title"} className="ml-2">
+                      {"Title"}
+                      {true && <span className="text-red-500">*</span>}
+                    </label>
+                    <Field
+                      as="select"
+                      name="title"
+                      className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
                     >
-                      PNG, JPG, GIF up to2MB
-                    </p>
-                    {formik.errors.profilePicture && (
-                      <p
-                        className="text-xs leading-5 text-red-400"
-                        style={{ color: "red" }}
-                      >
-                        {formik.errors.profilePicture}
-                      </p>
-                    )}
+                      {MemberTitleOptions.map((option) => (
+                        <option
+                          key={option.value}
+                          value={option.value}
+                          label={option.label}
+                        />
+                      ))}
+                    </Field>
+                  </div>
+                  <InputField
+                    label="First Name"
+                    name="firstName"
+                    error={errors.firstName}
+                  />
+                  <InputField
+                    label="Last Name"
+                    name="lastName"
+                    error={errors.lastName}
+                  />
+                  <InputField
+                    label="NIC/ Passport ID"
+                    name="passportNumber"
+                    error={errors.passportNumber}
+                  />
+                  <InputField
+                    label="Date of Birth"
+                    name="dateOfBirth"
+                    type="date"
+                    error={errors.dateOfBirth}
+                    max={new Date().toISOString().split("T")[0]}
+                  />
+                  <InputField
+                    label="E-Mail Address"
+                    type="text"
+                    name="email"
+                    error={errors.email}
+                  />
+                  <div className="col-span-3">
+                    <InputField
+                      label="Resident Address"
+                      name="address"
+                      error={errors.address}
+                    />
+                  </div>
+                  <InputField
+                    label="Mobile Number"
+                    name="phoneNumber"
+                    placeholder={"00442078628000"}
+                    error={errors.phoneNumber}
+                  />
+                  <InputField
+                    label="Telephone Number"
+                    name="telephoneNumber"
+                    placeholder={"00442078628000"}
+                    error={errors.telephoneNumber}
+                  />
+                  <InputField
+                    label="Marital Status"
+                    name="maritalStatus"
+                    error={errors.maritalStatus}
+                  />
+                  <InputField
+                    label="User Name"
+                    name="userName"
+                    error={errors.userName}
+                  />
+                  <InputField
+                    label="Password"
+                    name="password"
+                    type="password"
+                    error={errors.password}
+                  />
+                  <InputField
+                    label="Confirm Password"
+                    type="password"
+                    name="cpassword"
+                    error={errors.cpassword}
+                  />
+                </div>
+                <div>
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="cover-photo"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Add picture
+                    </label>
+                    <div
+                      style={
+                        errors.profilePicture &&
+                        touched.profilePicture && { borderColor: "red" }
+                      }
+                      className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25"
+                    >
+                      <div className="text-center">
+                        {selectedImage ? (
+                          <Image src={selectedImage} width={200} height={200} />
+                        ) : (
+                          <PhotoIcon
+                            className="w-12 h-12 mx-auto text-gray-300"
+                            aria-hidden="true"
+                          />
+                        )}
+                        <div className="flex mt-4 text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="profilePicture"
+                            className="relative font-semibold text-indigo-600 bg-white rounded-md cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="profilePicture"
+                              name="profilePicture"
+                              type="file"
+                              className="sr-only"
+                              onChange={(event) => {
+                                setFieldValue(
+                                  "profilePicture",
+                                  event.currentTarget.files[0]
+                                );
+                                setSelectedImage(
+                                  URL.createObjectURL(
+                                    event.currentTarget.files[0]
+                                  )
+                                );
+                              }}
+                              accept="image/*"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+
+                        <p
+                          className="text-xs leading-5 text-gray-600"
+                          style={
+                            errors.profilePicture &&
+                            touched.profilePicture && {
+                              borderColor: "red",
+                            }
+                          }
+                        >
+                          PNG, JPG, GIF up to2MB
+                        </p>
+                        {errors.profilePicture && (
+                          <p
+                            className="text-xs leading-5 text-red-400"
+                            style={{ color: "red" }}
+                          >
+                            {errors.profilePicture}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Personal Details
-        </div>
-        <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-3">
-            <InputField
-              label="Workplace Name"
-              name="workPlaceName"
-              required={true}
-              value={formik.values.workPlaceName}
-              onChange={formik.handleChange}
-              onBlur={() => formik.setFieldTouched("workPlaceName")}
-              error={
-                formik.touched.workPlaceName &&
-                formik.errors.workPlaceName && (
-                  <p>{formik.errors.workPlaceName}</p>
-                )
-              }
-            />
-            <InputField
-              label="Occupation"
-              name="occupation"
-              required={true}
-              value={formik.values.occupation}
-              onChange={formik.handleChange}
-              onBlur={() => formik.setFieldTouched("occupation")}
-              error={
-                formik.touched.occupation &&
-                formik.errors.occupation && <p>{formik.errors.occupation}</p>
-              }
-            />
-            <div className="col-span-2">
-              <InputField
-                value={formik.values.officeAddress}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("officeAddress")}
-                label="Office Address"
-                name="officeAddress"
-                required={true}
-                error={
-                  formik.touched.officeAddress &&
-                  formik.errors.officeAddress && (
-                    <p>{formik.errors.officeAddress}</p>
-                  )
-                }
-              />
+            <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
+              Personal Details
             </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-center mb-10">
-          <button
-            type="submit"
-            onClick={changeStep}
-            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
-          >
-            Next
-          </button>
-        </div>
-      </form>
+            <div className="px-10 my-10 ">
+              <div className="md:grid md:grid-cols-4 gap-3">
+                <InputField
+                  label="Workplace Name"
+                  name="workPlaceName"
+                  error={errors.workPlaceName}
+                />
+                <InputField
+                  label="Occupation"
+                  name="occupation"
+                  error={errors.occupation}
+                />
+                <div className="col-span-2">
+                  <InputField
+                    label="Office Address"
+                    name="officeAddress"
+                    error={errors.officeAddress}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-center mb-10">
+              <button
+                type="submit"
+                // onClick={changeStep}
+                className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
+              >
+                Next
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };

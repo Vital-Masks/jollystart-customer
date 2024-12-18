@@ -33,7 +33,7 @@ const Messages = () => {
             <p className="text-sm text-gray-400 p-5">President 2019/20</p>
           </div>
         </div>
-        <div className="flex-shrink-0 w-[400px] p-7">
+        <div className="flex-shrink-0 w-[400px] mx-auto p-7">
           <Slider />
         </div>
       </Container>
@@ -76,7 +76,7 @@ const Slider = () => {
             alt={'gg'}
             width={600}
             height={750}
-            className="rounded-md object-cover w-[300px] h-[400px] "
+            className="rounded-md object-cover w-[300px] h-[400px] mx-auto"
           />
         </SwiperSlide>
       ))}

@@ -91,6 +91,7 @@ const GridExample = () => {
       // },
     };
   }, []);
+  
   const defaultColDef = useMemo(() => {
     return {
       editable: true,
@@ -153,6 +154,7 @@ const GridExample = () => {
           {rowData && rowData.length} Result Found
         </h2>
         <br />
+        
         <div style={gridStyle} className={"ag-theme-quartz"}>
           <AgGridReact
             suppressExcelExport={true}

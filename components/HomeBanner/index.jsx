@@ -11,7 +11,7 @@ import HeroBanner from "./heroContent";
 
 const HomeBanner = () => {
   return (
-    <div className="h-[calc(100vh-5rem)] md:h-[calc(100vh-11rem)]">
+    <div className="h-[calc(100vh-10rem)]">
       <Swiper
         navigation={true}
         pagination={true}
