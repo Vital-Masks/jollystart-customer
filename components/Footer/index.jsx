@@ -38,9 +38,9 @@ const Footer = () => {
           className="p-3 text-center"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
         > */}
-      {/* <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
+      {/* <div className="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
       
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+    <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
         <Link className="text-sm text-dark" href="/">
             Home
@@ -95,24 +95,24 @@ const Footer = () => {
     </div> */}
 
       <section>
-        <div class="max-w-screen-xl px-4 py-2 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-          <nav class="flex flex-wrap justify-center -mx-5 -my-2">
-            <div class="px-5 py-2">
+        <div className="max-w-screen-xl px-4 py-2 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+          <nav className="flex flex-wrap justify-center -mx-5 -my-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/">
                 Home
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/about-us">
                 About Us
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/cricket/club-cricket">
                 Cricket
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link
                 className="text-sm text-dark"
                 href="/basketball/club-basketball"
@@ -120,32 +120,32 @@ const Footer = () => {
                 BasketBall
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/memberpackage">
                 Membership
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/latest-news">
                 News & Events
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/gallery">
                 Gallery
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/contact-us">
                 Contact Us
               </Link>
             </div>
-            {/* <div class="px-5 py-2">
+            {/* <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="#">
                 Terms Privacy
               </Link>
             </div>
-            <div class="px-5 py-2">
+            <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/UserProfile">
                 Privacy Policy
               </Link>

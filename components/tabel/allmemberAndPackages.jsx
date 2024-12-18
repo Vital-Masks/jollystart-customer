@@ -11,7 +11,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
 function actionCellRenderer(params) {
   return (
     <button
-      class="action-button update flex justify-center w-full items-center h-full "
+      className="action-button update flex justify-center w-full items-center h-full "
       data-action="update"
     >
       <FaEye />
@@ -128,12 +128,11 @@ const GridExample = () => {
     <div>
       <div style={containerStyle}>
         <div
-          class="flex items-center justify-between  "
+          className="flex items-center justify-between  "
           style={{ color: "black", fontSize: "14px" }}
         >
           <buton
             variant="outlined"
-            startIcon={<MdOutlineTune />}
             style={{ color: "black", borderColor: "black" }}
           >
             Filter
@@ -142,7 +141,7 @@ const GridExample = () => {
             <input
               type="text"
               placeholder="Search with Name"
-              class="filter-input w-full"
+              className="filter-input w-full"
               onInput={onFilterTextBoxChanged}
               id="filter-text-box"
             />
