@@ -21,19 +21,21 @@ function actionCellRenderer(params) {
 
 const GridExample = () => {
   const gridRef = useRef();
-
+  console.log(">>", gridRef.current)
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
   const gridStyle = useMemo(
     () => ({ height: "500px", width: "100%", minWidth: "300px" }),
     []
   );
   const [rowData, setRowData] = useState([]);
+
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current.api.setGridOption(
       "quickFilterText",
       document.getElementById("filter-text-box").value
     );
   }, []);
+
   const [columnDefs, setColumnDefs] = useState([
     // {
     //   field: "rideId",
@@ -114,11 +116,14 @@ const GridExample = () => {
       .then((userDataFromFetch) => {
         let sample = [];
         sample = userDataFromFetch.result;
-       
+
         const flatData = sample.map((row) => ({
           ...row,
         }));
         setRowData(flatData);
+      })
+      .catch((error) => {
+        setRowData([]);
       });
   }, []);
 

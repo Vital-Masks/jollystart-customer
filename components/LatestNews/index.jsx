@@ -56,26 +56,31 @@ const LatestNews = () => {
           </p>
         </div>
 
-        {JSON.stringify(Loading)}
+   
         {Loading ? (
           <div className="loaderBody">
             <div className="loader"></div>
           </div>
         ) : (
           <div className="flex items-center text-red justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-           { memberData && memberData.map((item, index) => (
-            <div key={index}>
-              <LatestNewsCard data={item} />
-            </div>
+            {memberData.map((item, index) => (
+              <div key={index}>
+                <LatestNewsCard data={item} />
+              </div>
             ))}
           </div>
         )}
 
-        <div className="text-center">
-          <Link href={'/latest-news'} className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
-            View More
-          </Link>
-        </div>
+        {memberData.length > 4 && (
+          <div className="text-center">
+            <Link
+              href={"/latest-news"}
+              className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md"
+            >
+              View More
+            </Link>
+          </div>
+        )}
       </Container>
     </div>
   );
@@ -84,10 +89,9 @@ const LatestNews = () => {
 export default LatestNews;
 
 const LatestNewsCard = ({ data }) => {
-  console.log(data);
   const { title, description, coverImage, _id, updated_at } = data;
   //  '/assets/banner/gallery3.jpg'
-  console.log(data.data, "props");
+
   return (
     <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
@@ -105,7 +109,6 @@ const LatestNewsCard = ({ data }) => {
       </div>
       <div className="p-5 text-black">
         <div className="mb-5 text-sm text-slate-400">
-          {" "}
           <DateDisplay dateString={updated_at} />
         </div>
         <h1 className="mb-5 text-xl font-bold">{title}</h1>
@@ -124,7 +127,6 @@ const LatestNewsCard = ({ data }) => {
         </div>
         <Link
           href={`/latest-news/${_id}`}
-          target="blank"
           className="mb-5 text-sm font-bold text-blue-900"
         >
           Read More

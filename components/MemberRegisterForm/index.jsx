@@ -5,6 +5,7 @@ import PaymentDetail from "./PaymentDetail";
 import { useMembers } from "@/contexts/MemberContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 const MemberRegisterForm = () => {
   const { step } = useMembers();
@@ -12,6 +13,7 @@ const MemberRegisterForm = () => {
   const [SchoolData, setSchoolData] = useState({});
   const [paymentlData, setpaymentlData] = useState({});
   const [Loading, setLoading] = useState(false);
+  const router = useRouter()
 
   const AllPersonalData = (parObj) => {
     console.log(parObj, "payObj");
@@ -49,7 +51,8 @@ const MemberRegisterForm = () => {
           throw new Error("Network response was not ok");
         }
         toast.success("Successfully Added");
-        window.location.href ="/login/logreg"
+        router.push("/login/logreg");
+        
         const data = await response.json();
         console.log("POST request successful. Response:", data);
       } catch (error) {

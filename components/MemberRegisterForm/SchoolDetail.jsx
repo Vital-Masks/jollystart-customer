@@ -296,6 +296,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 error={
                   formik.errors.to && formik.touched.to && formik.errors.to
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
               <InputField
                 value={formik.values.role}
@@ -414,6 +416,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 error={
                   formik2.errors.to && formik2.touched.to && formik2.errors.to
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
               <InputField
                 value={formik2.values.role}

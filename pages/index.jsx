@@ -22,9 +22,9 @@ export default function Home() {
           Jolly Stars Sports Club exclusively welcomes students who have had the privilege of studying at Jaffna Hindu College, fostering a sense of unity and shared values among our members. 
           Our club has become a vibrant hub where passionate sports enthusiasts come together to showcase their talents and compete in a variety of thrilling sporting events.
           </p>
-          <button className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
+          {/* <button className="px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More
-          </button>
+          </button> */}
         </Container>
       </div>
       <div className="py-20 bg-slate-200">

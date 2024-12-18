@@ -14,11 +14,11 @@ const validationSchema = Yup.object().shape({
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string().required("Password is required"),
-  
 });
 
 const ContactPage = () => {
   const router = useRouter();
+  const [error, setError] = useState(null);
 
   const [Loading, setLoading] = useState(false);
   const formik = useFormik({
@@ -35,21 +35,21 @@ const ContactPage = () => {
           "https://api.jollystarssc.com/api/member/login",
           values
         );
-        console.log(response);
 
         // Handle success
         if (!isEmpty(response.data.result)) {
-          toast.success("Login successfully");
-          localStorage.setItem('userData', JSON.stringify(response.data.result));
-          window.location.href='/info';
+          localStorage.setItem(
+            "userData",
+            JSON.stringify(response.data.result)
+          );
+          router.push("/info", { scroll: false });
           resetForm();
         } else {
-          toast.error("email or password incorrect");
+          setError("email or password incorrect");
         }
       } catch (error) {
         // Handle error
         console.error("Error submitting data:", error);
-
         // Display error message (you can use a toast library or another UI element)
         toast.error("Error Login data. Please try again.");
       } finally {
@@ -57,6 +57,7 @@ const ContactPage = () => {
       }
     },
   });
+
   return (
     <div className="w-full bg-white border rounded-xl">
       <Container className="text-center">
@@ -74,6 +75,8 @@ const ContactPage = () => {
               className="flex flex-col justify-between h-full text-slate-500"
               style={{ maxWidth: "400px", margin: "0 auto" }}
             >
+              {error && <small className="text-red-500">{error}</small>}
+
               <div className="mt-5 space-y-2">
                 <input
                   type="text"
@@ -110,8 +113,6 @@ const ContactPage = () => {
                     {formik.errors.password}
                   </div>
                 )}
-
-                
               </div>
               <button
                 type="submit"

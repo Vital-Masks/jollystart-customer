@@ -19,18 +19,13 @@ const GallaryCard = (props) => {
     <>
       <div className="wrapper">
         <div className="card">
-          <img
-            src={`data:image/png;base64,${coverImage}`}
-            alt="Mountain"
-          />
+          <img src={`data:image/png;base64,${coverImage}`} alt="Mountain" />
           <div className="info">
             <h1>{albumName}sds</h1>
-            <p>{description}</p>
-            <button>
-              <Link href={`${albumLink}`} target="blank">
-                VIEW IMAGE
-              </Link>
-            </button>
+            <p className="mb-2 line-clamp-2 text-sm font-light text-gray-200">{description}</p>
+            <Link href={`${albumLink}`}>
+              <button>VIEW IMAGE</button>
+            </Link>
           </div>
         </div>
         {/* Repeat the above structure for other cards */}

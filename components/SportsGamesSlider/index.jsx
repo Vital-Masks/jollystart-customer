@@ -133,12 +133,6 @@ const Item = ({ title, description, image,id }) => {
           <p className="mb-4 text-sm text-slate-200 line-clamp-5">
             {description}
           </p>
-          <Link
-            href="#"
-            className="px-4 py-2 text-sm rounded-md bg-slate-50 text-slate-600"
-          >
-            More Details
-          </Link>
         </div>
         <div className="absolute top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50"></div>
         <Image
