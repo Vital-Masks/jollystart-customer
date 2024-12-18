@@ -237,7 +237,7 @@ export default Navbar;
 
 const NavItems = ({ menu, currentPath }) => {
   const { label, link, subMenu } = menu;
-  console.log(currentPath, "currentPath");
+
   if (subMenu) {
     return (
       <Popover className="relative">

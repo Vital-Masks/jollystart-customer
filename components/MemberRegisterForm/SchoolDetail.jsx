@@ -66,6 +66,7 @@ const validationSchema3 = Yup.object().shape({
 });
 const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
   const { setStep } = useMembers();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const initialValues = {
     schoolName: "",
@@ -170,9 +171,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     setItems2(updatedItems);
   };
   const nextPage = () => {
-
-
-
     let obj = {
       schoolDetails: items,
       clubDetails: items2,
@@ -180,14 +178,12 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     };
     if (SchoolData) {
       if (items && items.length > 0) {
-
         if (formik3.values.file) {
           setStep(3);
-        }else{
+        } else {
           toast.error("Upload the Image");
         }
 
-       
         AllSchoollData(obj);
       } else {
         console.log(items, formik3.values.file);
@@ -199,7 +195,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
   };
   return (
     <div className="w-full bg-white border rounded-xl">
-      <div className="py-4 m-2 text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
+      <div className="p-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
         STEP 02 - FILL YOUR SCHOOL AND CLUB DETAILS
       </div>
       <div className="px-10 my-10">
@@ -218,7 +214,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           onSubmit={formik.handleSubmit}
         >
           <div className="px-10 my-10">
-            <div className="flex  gap-4 mb-10">
+            <div className="flex flex-col md:flex-row  gap-4 mb-10">
               <div className="w-full">
                 <InputField
                   label="School Name"
@@ -250,7 +246,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="md:grid md:grid-cols-5 gap-3 space-y-4 md:space-y-0">
               <InputField
                 label="Team you played"
                 name="participated"
@@ -300,6 +296,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 error={
                   formik.errors.to && formik.touched.to && formik.errors.to
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
               <InputField
                 value={formik.values.role}
@@ -329,14 +327,14 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Club Details  (Optional) 
+          Club Details (Optional)
         </div>
         <form
           className="w-full bg-white border rounded-xl"
           onSubmit={formik2.handleSubmit}
         >
           <div className="px-10 my-10">
-            <div className="flex  gap-4 mb-10">
+            <div className="flex flex-col md:flex-row gap-4 mb-10">
               <div className="w-full">
                 <InputField
                   label="Club Name"
@@ -368,7 +366,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="md:grid md:grid-cols-5 gap-3 space-y-4 md:space-y-0">
               <InputField
                 label="Team you played"
                 name="invloved"
@@ -418,6 +416,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                 error={
                   formik2.errors.to && formik2.touched.to && formik2.errors.to
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
               <InputField
                 value={formik2.values.role}
@@ -459,10 +459,14 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           </label>
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
-              <PhotoIcon
-                className="w-12 h-12 mx-auto text-gray-300"
-                aria-hidden="true"
-              />
+              {selectedImage ? (
+                <Image src={selectedImage} width={200} height={200} />
+              ) : (
+                <PhotoIcon
+                  className="w-12 h-12 mx-auto text-gray-300"
+                  aria-hidden="true"
+                />
+              )}
               <div className="flex mt-4 text-sm leading-6 text-gray-600">
                 <label
                   htmlFor="file"
@@ -479,6 +483,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                         "file",
                         event.currentTarget.files[0]
                       );
+                      setSelectedImage(
+                        URL.createObjectURL(event.currentTarget.files[0])
+                      );
                     }}
                     accept="image/*"
                   />
@@ -492,7 +499,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           </div>
         </div>
       </form>
-      <div className="flex items-center justify-center mb-10">
+      <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-3">
         <button
           onClick={() => setStep(1)}
           className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52"

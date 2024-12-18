@@ -11,7 +11,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
 function actionCellRenderer(params) {
   return (
     <button
-      class="action-button update flex justify-center w-full items-center h-full "
+      className="action-button update flex justify-center w-full items-center h-full "
       data-action="update"
     >
       <FaEye />
@@ -21,19 +21,21 @@ function actionCellRenderer(params) {
 
 const GridExample = () => {
   const gridRef = useRef();
-
+  console.log(">>", gridRef.current)
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
   const gridStyle = useMemo(
     () => ({ height: "500px", width: "100%", minWidth: "300px" }),
     []
   );
   const [rowData, setRowData] = useState([]);
+
   const onFilterTextBoxChanged = useCallback(() => {
     gridRef.current.api.setGridOption(
       "quickFilterText",
       document.getElementById("filter-text-box").value
     );
   }, []);
+
   const [columnDefs, setColumnDefs] = useState([
     // {
     //   field: "rideId",
@@ -65,7 +67,6 @@ const GridExample = () => {
     //   .getAllColumns()
     //   ?.findIndex((col) => col.getColDef().field === field);
     const data = e.data;
-    console.log(field, data);
   };
   const onBtnExport = useCallback(() => {
     console.log("d");
@@ -113,14 +114,16 @@ const GridExample = () => {
         }
       })
       .then((userDataFromFetch) => {
-        console.log(userDataFromFetch.result, "==========");
         let sample = [];
         sample = userDataFromFetch.result;
-        console.log(sample, "sampleeee");
+
         const flatData = sample.map((row) => ({
           ...row,
         }));
         setRowData(flatData);
+      })
+      .catch((error) => {
+        setRowData([]);
       });
   }, []);
 
@@ -128,12 +131,11 @@ const GridExample = () => {
     <div>
       <div style={containerStyle}>
         <div
-          class="flex items-center justify-between  "
+          className="flex items-center justify-between  "
           style={{ color: "black", fontSize: "14px" }}
         >
           <buton
             variant="outlined"
-            startIcon={<MdOutlineTune />}
             style={{ color: "black", borderColor: "black" }}
           >
             Filter
@@ -142,7 +144,7 @@ const GridExample = () => {
             <input
               type="text"
               placeholder="Search with Name"
-              class="filter-input w-full"
+              className="filter-input w-full"
               onInput={onFilterTextBoxChanged}
               id="filter-text-box"
             />

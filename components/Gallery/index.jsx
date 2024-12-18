@@ -100,7 +100,6 @@ const Gallery = () => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {
             // Process the response here, e.g., parse the JSON response
-            console.log(fetchResponse, "==========");
             return fetchResponse.json();
           } else {
             // Handle fetch error
@@ -139,7 +138,7 @@ const Gallery = () => {
             </p>
           </div>
           <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-            {GallaryData &&
+            {
               GallaryData.length > 0 &&
               GallaryData.map((item, index) => (
                 <div key={index}>
@@ -153,15 +152,19 @@ const Gallery = () => {
           <div className="loader"></div>
         </div>
       )}
-       <div className="text-center">
-          <Link href={'/gallery'} className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
+      {GallaryData.length > 4 && (
+        <div className="text-center">
+          <Link
+            href={"/gallery"}
+            className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md"
+          >
             View More
           </Link>
         </div>
-        <br/>
-        <br/>
+      )}
+      <br />
+      <br />
     </div>
-    
   );
 };
 
