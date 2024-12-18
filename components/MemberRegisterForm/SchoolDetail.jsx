@@ -66,6 +66,7 @@ const validationSchema3 = Yup.object().shape({
 });
 const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
   const { setStep } = useMembers();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const initialValues = {
     schoolName: "",
@@ -170,9 +171,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     setItems2(updatedItems);
   };
   const nextPage = () => {
-
-
-
     let obj = {
       schoolDetails: items,
       clubDetails: items2,
@@ -180,14 +178,12 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     };
     if (SchoolData) {
       if (items && items.length > 0) {
-
         if (formik3.values.file) {
           setStep(3);
-        }else{
+        } else {
           toast.error("Upload the Image");
         }
 
-       
         AllSchoollData(obj);
       } else {
         console.log(items, formik3.values.file);
@@ -329,7 +325,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          Club Details  (Optional) 
+          Club Details (Optional)
         </div>
         <form
           className="w-full bg-white border rounded-xl"
@@ -459,10 +455,14 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           </label>
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
-              <PhotoIcon
-                className="w-12 h-12 mx-auto text-gray-300"
-                aria-hidden="true"
-              />
+              {selectedImage ? (
+                <Image src={selectedImage} width={200} height={200} />
+              ) : (
+                <PhotoIcon
+                  className="w-12 h-12 mx-auto text-gray-300"
+                  aria-hidden="true"
+                />
+              )}
               <div className="flex mt-4 text-sm leading-6 text-gray-600">
                 <label
                   htmlFor="file"
@@ -478,6 +478,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                       formik3.setFieldValue(
                         "file",
                         event.currentTarget.files[0]
+                      );
+                      setSelectedImage(
+                        URL.createObjectURL(event.currentTarget.files[0])
                       );
                     }}
                     accept="image/*"

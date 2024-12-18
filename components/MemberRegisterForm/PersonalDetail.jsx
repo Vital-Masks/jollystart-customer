@@ -12,8 +12,11 @@ import {
   MembershipTypeDetails,
   MembershipTypeDetailsOptions,
 } from "@/services/defaultConst";
+import Image from "next/image";
 
 const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const validationSchema = Yup.object().shape({
     membershipCategory: Yup.string()
       .required("Required")
@@ -222,6 +225,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
       label: MembershipTypeDetails.PLAYING_MEMBER,
     },
   ];
+
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="p-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
@@ -495,10 +499,14 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                   className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25 w-full"
                 >
                   <div className="text-center">
-                    <PhotoIcon
-                      className="w-12 h-12 mx-auto text-gray-300"
-                      aria-hidden="true"
-                    />
+                    {selectedImage ? (
+                      <Image src={selectedImage} width={200} height={200} />
+                    ) : (
+                      <PhotoIcon
+                        className="w-12 h-12 mx-auto text-gray-300"
+                        aria-hidden="true"
+                      />
+                    )}
                     <div className="flex mt-4 text-sm leading-6 text-gray-600">
                       <label
                         htmlFor="profilePicture"
@@ -514,6 +522,9 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                             formik.setFieldValue(
                               "profilePicture",
                               event.currentTarget.files[0]
+                            );
+                            setSelectedImage(
+                              URL.createObjectURL(event.currentTarget.files[0])
                             );
                           }}
                           accept="image/*"
