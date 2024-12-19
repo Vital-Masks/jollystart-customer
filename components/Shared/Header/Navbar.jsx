@@ -7,6 +7,7 @@ import { routes } from "@/contents/routes";
 import NavbarSet from "./navbarset";
 import { Button } from "flowbite-react";
 import { usePathname } from "next/navigation";
+import { isEmpty } from "@/utils/utils";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -225,6 +226,7 @@ const Navbar = () => {
         </div>
       </nav>
       <MobileMenu
+        memberData={memberData ? memberData : {}}
         menus={menus}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
@@ -262,13 +264,18 @@ const NavItems = ({ menu, currentPath }) => {
         style={{ padding: "6px" }}
         // className={currentPath.pathname == "/" ? "active" : ""}
       >
-        {label} 
+        {label}
       </Link>
     );
   }
 };
 
-const MobileMenu = ({ menus, mobileMenuOpen, setMobileMenuOpen }) => {
+const MobileMenu = ({
+  menus,
+  mobileMenuOpen,
+  setMobileMenuOpen,
+  memberData,
+}) => {
   return (
     <Dialog
       as="div"
@@ -283,7 +290,7 @@ const MobileMenu = ({ menus, mobileMenuOpen, setMobileMenuOpen }) => {
             href={routes.HOME}
             className="-m-1.5 p-1.5 text-blue-900 text-2xl font-bold"
           >
-            JOLLY STARS SC
+            JOLLY STARS SC 
           </Link>
           <button
             type="button"
@@ -331,16 +338,56 @@ const MobileMenu = ({ menus, mobileMenuOpen, setMobileMenuOpen }) => {
                   );
                 } else {
                   return (
-                    <Link
+                    <a
                       key={id}
                       href={link}
                       className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
                     >
                       {label}
-                    </Link>
+                    </a>
                   );
                 }
               })}
+              {isEmpty(memberData) ? (
+                <a
+                  href="/login/logreg"
+                  className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
+                >
+                  Login <span aria-hidden="true">&rarr;</span>
+                  &nbsp;&nbsp;&nbsp;
+                </a>
+              ) : (
+                <div>
+                  <a
+                    href="/login/logreg"
+                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
+                  >
+                    Logout <span aria-hidden="true">&rarr;</span>
+                    &nbsp;&nbsp;&nbsp;
+                  </a>
+                 
+                  bsp;&nbsp;
+                </div>
+              )}
+              {/* login part */}
+              <div className="hidden lg:flex lg:flex-1 lg:justify-end uppercase">
+                {!(memberData && memberData.firstName) && (
+                  <Link
+                    href="/login/logreg"
+                    className="text-sm font-semibold leading-6 "
+                  >
+                    Login/Signup <span aria-hidden="true">&rarr;</span>
+                    &nbsp;&nbsp;&nbsp;
+                  </Link>
+                )}
+
+                {memberData && memberData.firstName && (
+                  <div className="text-sm font-semibold leading-6 ">
+                    {memberData.firstName} {memberData.lastName}
+                    &nbsp;&nbsp;&nbsp;
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
