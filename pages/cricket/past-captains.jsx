@@ -5,6 +5,8 @@ import React from "react";
 import img2 from "../../public/assets2/banner/mani.jpg";
 import unavailable from "../../public/assets2/unavailable.jpg";
 import Shajeekan from "../../public/assets2/kobi/shajee.jpg";
+import kobi from "../../public/assets2/kobi/kobi.jpg";
+import uma from "../../public/assets2/banner/uma.jpg";
 
 const PastPresidents = () => {
   const members = [
@@ -40,6 +42,11 @@ const PastPresidents = () => {
 
   const caption = [
     {
+      name: "Kobiram",
+      year: "2024",
+      img: kobi,
+    },
+    {
       name: "J. Shajeekan",
       year: "2023",
       img: Shajeekan,
@@ -47,7 +54,7 @@ const PastPresidents = () => {
     {
       name: "J.Shajeekan",
       year: "2022",
-      img: unavailable,
+      img: Shajeekan,
     },
     {
       name: "Kirushoban",
@@ -92,7 +99,7 @@ const PastPresidents = () => {
     {
       name: "Manivannan",
       year: "2013",
-      img: unavailable,
+      img: img2,
     },
     {
       name: "Saileswaran",
@@ -107,12 +114,12 @@ const PastPresidents = () => {
     {
       name: "Umadaran",
       year: "2010",
-      img: unavailable,
+      img: uma,
     },
     {
       name: "Umadaran",
       year: "2009",
-      img: unavailable,
+      img: uma,
     },
     {
       name: "Pakeerathan",
@@ -125,7 +132,7 @@ const PastPresidents = () => {
       img: unavailable,
     },
     {
-      name: "",
+      name: "Did Not Play",
       year: "2006",
       img: unavailable,
     },
@@ -208,20 +215,42 @@ const PastPresidents = () => {
       name: "Premnath",
       year: "1990",
       img: unavailable,
-    }
-];
+    },
+  ];
 
+  const vicecaption = [
+    {
+      name: "Kobiram",
+      year: "2024",
+      img: kobi,
+    },
+    {
+      name: "J. Shajeekan",
+      year: "2023",
+      img: Shajeekan,
+    },
+    {
+      name: "J.Shajeekan",
+      year: "2022",
+      img: Shajeekan,
+    },
+    {
+      name: "Kirushoban",
+      year: "2021",
+      img: unavailable,
+    },
+  ];
   return (
     <div className="bg-white">
       <Container>
         <h1 className="text-2xl font-bold text-slate-800 p-5">Captains</h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {[1].map((img) => (
+          {caption.map((item, i) => (
             <UserCard
-              key={img}
-              picture={img2}
-              name={"Mr. V. Manivannan"}
-              occupation={"Captain (2023/24)"}
+              key={i}
+              picture={item.img}
+              name={item.name}
+              occupation={`Captain (${item.year})`}
             />
           ))}
         </div>
@@ -231,7 +260,7 @@ const PastPresidents = () => {
           Vice Captains
         </h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {caption.map((item, i) => (
+          {vicecaption.map((item, i) => (
             <UserCard
               key={i}
               picture={item.img}
