@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../UI/InputField";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useMembers } from "@/contexts/MemberContext";
@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 import Image from "next/image";
+import { membershipPaymentdata } from "@/services/fixedDatas";
 
 const PaymentDetail = (props) => {
   const {
@@ -63,6 +64,7 @@ const PaymentDetail = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const { setStep } = useMembers();
+
   const formik = useFormik({
     initialValues: {
       paymentCategory:
@@ -77,10 +79,7 @@ const PaymentDetail = (props) => {
         paymentlData && paymentlData.paymentDetails
           ? paymentlData.paymentDetails.branch
           : "",
-      total:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.total
-          : "",
+      total: 0,
       date:
         paymentlData && paymentlData.paymentDetails
           ? paymentlData.paymentDetails.date
@@ -130,10 +129,12 @@ const PaymentDetail = (props) => {
       console.log(paymentData);
     },
   });
+
   const handleButtonClick = () => {
     // Manually trigger form submission
     formik.handleSubmit();
   };
+
   const pre = async () => {
     var base64String = "";
     if (paymentlData) {
@@ -172,6 +173,17 @@ const PaymentDetail = (props) => {
     AllPaymentData(paymentData);
     console.log(paymentData);
   };
+
+  useEffect(() => {
+    if (PersonalData.membershipCategory) {
+      formik.setValues((prevState) => ({
+        ...prevState,
+        paymentCategory: PersonalData.membershipCategory,
+        total: membershipPaymentdata.find(x => x.title.toLowerCase() === PersonalData.membershipCategory.toLowerCase()).price
+      }));
+    }
+  }, [PersonalData]);
+
   return (
     <form
       // onSubmit={formik.handleSubmit}
@@ -250,6 +262,7 @@ const PaymentDetail = (props) => {
                 // placeholder="075XXXXXXXX"
               />
               <InputField
+              disabled
                 label="Total"
                 name="total"
                 type={"number"}

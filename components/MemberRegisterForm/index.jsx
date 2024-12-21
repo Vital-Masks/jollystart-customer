@@ -27,6 +27,7 @@ const MemberRegisterForm = () => {
     console.log(payObj, "payObj");
     setpaymentlData(payObj);
   };
+  
   const AllPaymentDatas = (payObj) => {
     console.log(payObj, "payObj");
     setpaymentlData(payObj);

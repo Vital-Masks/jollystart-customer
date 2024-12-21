@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
 
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
@@ -76,9 +77,11 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     to: "",
     role: "",
   };
+
   const initialValues3 = {
     file: null,
   };
+
   const initialValues2 = {
     clubName: "",
     invloved: "",
@@ -87,12 +90,14 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     to: "",
     role: "",
   };
+
   const [items, setItems] = React.useState([]);
   const [editIndex, setEditIndex] = React.useState(null);
 
   const [items2, setItems2] = React.useState([]);
   const [items3, setItems3] = React.useState(null);
   const [editIndex2, setEditIndex2] = React.useState(null);
+
   useEffect(() => {
     if (!isObjectEmpty(SchoolData)) {
       setItems(SchoolData.schoolDetails);
@@ -139,6 +144,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
       resetForm();
     },
   });
+
   const formik3 = useFormik({
     initialValues: initialValues3,
     validationSchema: validationSchema3,
@@ -154,6 +160,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     const { schoolName, participated, game, from, to, role } = items[index];
     formik.setValues({ schoolName, participated, game, from, to, role });
   };
+
   const handleEditItem2 = (index) => {
     setEditIndex2(index);
     const { clubName, invloved, game, from, to, role } = items2[index];
@@ -165,11 +172,13 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
     updatedItems.splice(index, 1);
     setItems(updatedItems);
   };
+
   const handleDeleteItem2 = (index) => {
     const updatedItems = [...items2];
     updatedItems.splice(index, 1);
     setItems2(updatedItems);
   };
+
   const nextPage = () => {
     let obj = {
       schoolDetails: items,
@@ -193,6 +202,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
 
     console.log(items, "ohhh");
   };
+
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="p-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
@@ -242,7 +252,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                     height: "45px",
                   }}
                 >
-                  {editIndex !== null ? "Edit" : "Add"}
+                  {editIndex !== null ? "Update" : "Add"}
                 </button>
               </div>
             </div>
