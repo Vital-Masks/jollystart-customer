@@ -38,13 +38,20 @@ const ContactPage = () => {
 
         // Handle success
         if (!isEmpty(response.data.result)) {
-          localStorage.setItem(
-            "userData",
-            JSON.stringify(response.data.result)
+          const isAllowed = await axios.get(
+            `https://api.jollystarssc.com/api/member/getEmail?email=${response.data.result.email}`
           );
-          window.location.href ="/info"
-          router.push("/info", { scroll: false });
-          resetForm();
+          if(isAllowed[0] && (isAllowed[0].memberApprovalStatus === "APPROVED" || isAllowed[0].memberApprovalStatus === "PENDING" )){
+            localStorage.setItem(
+              "userData",
+              JSON.stringify(response.data.result)
+            );
+            window.location.href ="/info"
+            router.push("/info", { scroll: false });
+            resetForm();
+          }else{
+            setError("Access deinied, please contact the admin!");
+          }
         } else {
           setError("email or password incorrect");
         }
