@@ -13,7 +13,12 @@ const MemberRegisterForm = () => {
   const [SchoolData, setSchoolData] = useState({});
   const [paymentlData, setpaymentlData] = useState({});
   const [Loading, setLoading] = useState(false);
-  const router = useRouter()
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage2, setSelectedImage2] = useState(null);
+  const [selectedImage3, setSelectedImage3] = useState(null);
+
+  const router = useRouter();
 
   const AllPersonalData = (parObj) => {
     console.log(parObj, "payObj");
@@ -27,7 +32,7 @@ const MemberRegisterForm = () => {
     console.log(payObj, "payObj");
     setpaymentlData(payObj);
   };
-  
+
   const AllPaymentDatas = (payObj) => {
     console.log(payObj, "payObj");
     setpaymentlData(payObj);
@@ -40,20 +45,23 @@ const MemberRegisterForm = () => {
     const handlePostRequest = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://api.jollystarssc.com/api/member", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(allData),
-        });
+        const response = await fetch(
+          "https://api.jollystarssc.com/api/member",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(allData),
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         toast.success("Successfully Added");
         router.push("/login/logreg");
-        
+
         const data = await response.json();
         console.log("POST request successful. Response:", data);
       } catch (error) {
@@ -71,11 +79,18 @@ const MemberRegisterForm = () => {
       <PersonalDetail
         AllPersonalData={AllPersonalData}
         PersonalData={PersonalData}
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
       />
     );
   } else if (step === 2) {
     return (
-      <SchoolDetail AllSchoollData={AllSchoollData} SchoolData={SchoolData} />
+      <SchoolDetail
+        AllSchoollData={AllSchoollData}
+        SchoolData={SchoolData}
+        selectedImage2={selectedImage2}
+        setSelectedImage2={setSelectedImage2}
+      />
     );
   } else if (step === 3) {
     return (
@@ -85,6 +100,8 @@ const MemberRegisterForm = () => {
         paymentlData={paymentlData}
         AllPaymentDatas={AllPaymentDatas}
         PersonalData={PersonalData}
+        selectedImage3={selectedImage3}
+        setSelectedImage3={setSelectedImage3}
       />
     );
   }

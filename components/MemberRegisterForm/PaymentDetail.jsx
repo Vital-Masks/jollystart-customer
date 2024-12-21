@@ -15,6 +15,7 @@ const PaymentDetail = (props) => {
     paymentlData,
     AllPaymentDatas,
     PersonalData,
+    selectedImage3, setSelectedImage3
   } = props;
   const validationSchema = Yup.object().shape({
     paymentCategory: Yup.string()
@@ -60,8 +61,6 @@ const PaymentDetail = (props) => {
       })
       .required("File is required"),
   });
-
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const { setStep } = useMembers();
 
@@ -305,8 +304,8 @@ const PaymentDetail = (props) => {
                   }
                 >
                   <div className="text-center">
-                    {selectedImage ? (
-                      <Image src={selectedImage} width={200} height={200} />
+                    {selectedImage3 ? (
+                      <Image src={selectedImage3} width={200} height={200} />
                     ) : (
                       <PhotoIcon
                         className="w-12 h-12 mx-auto text-gray-300"
@@ -330,7 +329,7 @@ const PaymentDetail = (props) => {
                               "paymentSlip",
                               event.currentTarget.files[0]
                             );
-                            setSelectedImage(
+                            setSelectedImage3(
                               URL.createObjectURL(event.currentTarget.files[0])
                             );
                           }}

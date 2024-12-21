@@ -65,9 +65,8 @@ const validationSchema2 = Yup.object({
 const validationSchema3 = Yup.object().shape({
   file: Yup.mixed().required("File is required"),
 });
-const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
+const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedImage2 }) => {
   const { setStep } = useMembers();
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const initialValues = {
     schoolName: "",
@@ -467,8 +466,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           </label>
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
-              {selectedImage ? (
-                <Image src={selectedImage} width={200} height={200} alt="Preview" />
+              {selectedImage2 ? (
+                <Image src={selectedImage2} width={200} height={200} alt="Preview" />
               ) : (
                 <PhotoIcon
                   className="w-12 h-12 mx-auto text-gray-300"
@@ -490,7 +489,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                       const file = event.currentTarget.files[0];
                       if (file && file.type.startsWith("image/")) {
                         formik3.setFieldValue("file", file);
-                        setSelectedImage(URL.createObjectURL(file));
+                        setSelectedImage2(URL.createObjectURL(file));
                       } else {
                         alert("Please select a valid image file.");
                       }

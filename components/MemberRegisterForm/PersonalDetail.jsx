@@ -14,8 +14,8 @@ import {
 } from "@/services/defaultConst";
 import Image from "next/image";
 
-const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const PersonalDetail = ({ AllPersonalData, PersonalData, selectedImage, setSelectedImage }) => {
+ 
 
   const validationSchema = Yup.object().shape({
     membershipCategory: Yup.string().required("Required"),
