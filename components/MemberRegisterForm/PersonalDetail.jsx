@@ -18,15 +18,10 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const validationSchema = Yup.object().shape({
-    membershipCategory: Yup.string()
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+    membershipCategory: Yup.string().required("Required"),
     title: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .required("Required"),
     firstName: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
@@ -101,9 +96,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
       .max(40, "Max 40 Letter"),
     maritalStatus: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
-      .required("Required")
-      .min(3, "Minimum 3 letter")
-      .max(40, "Max 40 Letter"),
+      .required("Required"),
     profilePicture: Yup.mixed()
       .test("fileValidation", "Invalid file", (value) => {
         if (!value) {
@@ -139,24 +132,38 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   };
   const formik = useFormik({
     initialValues: {
-      membershipCategory: PersonalData.membershipCategory ? PersonalData.membershipCategory : "",
-      title: PersonalData ? PersonalData.title : "",
+      membershipCategory: PersonalData.membershipCategory
+        ? PersonalData.membershipCategory
+        : "",
+      title: PersonalData.title ? PersonalData.title : "",
       firstName: PersonalData.firstName ? PersonalData.firstName : "",
       lastName: PersonalData.lastName ? PersonalData.lastName : "",
       dateOfBirth: PersonalData.dateOfBirth ? PersonalData.dateOfBirth : "",
-      passportNumber: PersonalData.passportNumber ? PersonalData.passportNumber : "",
+      passportNumber: PersonalData.passportNumber
+        ? PersonalData.passportNumber
+        : "",
       email: PersonalData.email ? PersonalData.email : "",
       userName: PersonalData.userName ? PersonalData.userName : "",
       password: PersonalData.password ? PersonalData.password : "",
       cpassword: PersonalData.cpassword ? PersonalData.cpassword : "",
       phoneNumber: PersonalData.phoneNumber ? PersonalData.phoneNumber : "",
-      telephoneNumber: PersonalData.telephoneNumber ? PersonalData.telephoneNumber : "",
+      telephoneNumber: PersonalData.telephoneNumber
+        ? PersonalData.telephoneNumber
+        : "",
       address: PersonalData.address ? PersonalData.address : "",
-      workPlaceName: PersonalData.workPlaceName ? PersonalData.workPlaceName : "",
+      workPlaceName: PersonalData.workPlaceName
+        ? PersonalData.workPlaceName
+        : "",
       occupation: PersonalData.occupation ? PersonalData.occupation : "",
-      officeAddress: PersonalData.officeAddress ? PersonalData.officeAddress : "",
-      maritalStatus: PersonalData.maritalStatus ? PersonalData.maritalStatus : "",
-      profilePicture: PersonalData.profilePicture ? PersonalData.profilePicture : "",
+      officeAddress: PersonalData.officeAddress
+        ? PersonalData.officeAddress
+        : "",
+      maritalStatus: PersonalData.maritalStatus
+        ? PersonalData.maritalStatus
+        : "",
+      profilePicture: PersonalData.profilePicture
+        ? PersonalData.profilePicture
+        : "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -245,7 +252,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
         <div className="flex flex-col md:flex-row items-center gap-4 px-10 mt-10">
           <select
             className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
-            id="selectedOption"
+            id="membershipCategory"
             name="membershipCategory"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -303,7 +310,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                   required={true}
                   onBlur={() => formik.setFieldTouched("title")}
                   className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
-                  id="selectedOption"
+                  id="title"
                   name="title"
                   onChange={formik.handleChange}
                   value={formik.values.title}
@@ -429,20 +436,26 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                   )
                 }
               />
-              <InputField
-                label="Marital Status"
-                name="maritalStatus"
-                required={true}
-                value={formik.values.maritalStatus}
-                onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("maritalStatus")}
-                error={
-                  formik.touched.maritalStatus &&
-                  formik.errors.maritalStatus && (
-                    <p>{formik.errors.maritalStatus}</p>
-                  )
-                }
-              />
+              <div>
+                <label htmlFor={"maritalStatus"} className="ml-2">
+                  {"Marital Status"}
+                  {true && <span className="text-red-500">*</span>}
+                </label>
+                <select
+                  required={true}
+                  onBlur={() => formik.setFieldTouched("maritalStatus")}
+                  className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
+                  id="maritalStatus"
+                  name="maritalStatus"
+                  onChange={formik.handleChange}
+                  value={formik.values.maritalStatus}
+                >
+                  <option value="" label="Select an option" />
+                  <option value={"single"} label={"Single"} />
+                  <option value={"married"} label={"Married"} />
+                  <option value={"divorced"} label={"Divorced"} />
+                </select>
+              </div>
               <InputField
                 label="User Name"
                 name="userName"
