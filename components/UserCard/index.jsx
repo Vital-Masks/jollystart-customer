@@ -1,9 +1,16 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const UserCard = ({ picture, name, occupation }) => {
   return (
-    <div className='caption-card' >
+    <div
+      className="caption-car"
+      style={{
+        width: "280px",
+        maxWidth:'100%',
+        minWidth:"200px"
+      }}
+    >
       <Image
         width={1024}
         height={1024}

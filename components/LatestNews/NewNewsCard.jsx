@@ -27,7 +27,12 @@ const NewNewsCard = ({ SingleNew }) => {
             {gallery &&
               gallery.length > 0 &&
               gallery.map((item, index) => (
-                <div key={index}>
+                <div
+                  key={index}
+                  style={{
+                    width: "100%",
+                  }}
+                >
                   <Image
                     src={`data:image/png;base64,${item}`}
                     width={400}

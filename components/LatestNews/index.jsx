@@ -56,18 +56,18 @@ const LatestNews = () => {
           </p>
         </div>
 
-   
         {Loading ? (
           <div className="loaderBody">
             <div className="loader"></div>
           </div>
         ) : (
-          <div className="flex items-center text-red justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-            {memberData.map((item, index) => (
-              <div key={index}>
-                <LatestNewsCard data={item} />
-              </div>
-            ))}
+          <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
+            {memberData.length > 0 &&
+              memberData.map((item, index) => (
+                <div key={index}>
+                  <LatestNewsCard data={item} />
+                </div>
+              ))}
           </div>
         )}
 
@@ -93,7 +93,7 @@ const LatestNewsCard = ({ data }) => {
   //  '/assets/banner/gallery3.jpg'
 
   return (
-    <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
+    <div className="w-full max-w-xs border-2 rounded-lg shrink-0 latestnewcard">
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
         {/* <img
            

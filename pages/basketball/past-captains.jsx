@@ -3,7 +3,8 @@ import Container from "@/components/Shared/Container";
 import UserCard from "@/components/UserCard";
 import React from "react";
 import img2 from "../../public/assets2/banner/mani.jpg";
-import siva from "../../public/assets2/banner/siva.jpg"
+import siva from "../../public/assets2/banner/siva.jpg";
+import kabil from "../../public/assets2/kobi/kabil.jpg";
 
 const PastPresidents = () => {
   const members = [
@@ -29,26 +30,36 @@ const PastPresidents = () => {
           {[1].map((img) => (
             <UserCard
               key={img}
-              picture={siva}
-              name={"Mr. V. Manivannan"}
+              picture={kabil}
+              name={"Mr. Kabilan"}
               occupation={"Captain (2023/24)"}
             />
           ))}
+          <UserCard
+            picture={siva}
+            name={"Mr. T.Sivathas"}
+            occupation={"Captain (2020/21)"}
+          />
         </div>
         <br /> <br />
         <h1 className="text-2xl font-bold text-slate-800 p-5">
           {" "}
-          Past Captains
+          Vice Captains
         </h1>
         <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
           {[1].map((img) => (
             <UserCard
               key={img}
-              picture={siva}
-              name={"Mr. V. Manivannan"}
+              picture={kabil}
+              name={"Mr. Kabilan"}
               occupation={"Captain (2022/23)"}
             />
           ))}
+          <UserCard
+            picture={siva}
+            name={"Mr. T.Sivathas"}
+            occupation={"Captain (2019/20)"}
+          />
         </div>
         {/* <ListViewer data={members} /> */}
       </Container>

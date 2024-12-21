@@ -59,7 +59,7 @@ const ContactPage = () => {
   });
 
   return (
-    <div className="w-full bg-white border rounded-xl">
+    <div className="w-full bg-white border ">
       <Container className="text-center">
         <h1 className="text-2xl font-bold text-slate-800 uppercase">LOGIN</h1>
         <p className="mt-5 text-slate-600 p-5">

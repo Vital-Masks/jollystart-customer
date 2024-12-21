@@ -61,67 +61,67 @@ const Committee = () => {
           <h1 className="text-2xl font-bold text-slate-800 p-5">
             CURRENT COMMITTEE 2022/23
           </h1>
-          <div className="flex">
-            <div className="flex h-screen">
-              <div className="flex-shrink-0 w-8/10">
-                <UserFullView
-                  picture={commityImg}
-                  name={"Mr. V. Manivannan"}
-                  occupation={"President"}
-                />
-              </div>
-              <div className="w-2/10  p-8">
-                <div className="flex-shrink-1 w-[400px] p-2 w-100">
-                  <div
-                    className="m-3 text-lg text-slate-600 p-2 font"
-                    style={{ fontWeight: "bold" }}
+          <div className="flex flex-col md:flex-row">
+            <div className="flex-shrink-0 w-full md:w-7/12">
+              <UserFullView
+                picture={commityImg}
+                name={"Mr. V. Manivannan"}
+                occupation={"President"}
+              />
+            </div>
+
+            <div className="w-full md:w-5/12 p-4 md:p-8">
+              <div className="w-full p-2">
+                <div
+                  className="m-3 text-lg text-slate-600 p-2 font"
+                  style={{ fontWeight: "bold" }}
+                >
+                  <span
+                    className="font-bold"
+                    style={{
+                      fontSize: "20px",
+                    }}
                   >
-                    <span
-                      className="font-bold"
-                      style={{
-                        fontSize: "20px",
-                      }}
-                    >
-                      Sitting Right to left
-                    </span>
-                    <br />
+                    Sitting Right to left
+                  </span>
+                  <br />
+                  <p className="text-sm md:text-base">
                     Mr. S. Umadaran (Treasurer), Mr. P. Satheesraj (Vice
                     President), Mr. V. Manivannan (President), Mr. T. Sivathas
                     (Secretary), Mr. P. Murugavel (Vice President)
-                    <br />
-                    <div
-                      className="font-bold"
-                      style={{
-                        fontSize: "20px",
-                        marginTop: "10px",
-                      }}
-                    >
-                      {" "}
-                      Standing Right to left{" "}
-                    </div>
+                  </p>
+                  <div
+                    className="font-bold"
+                    style={{
+                      fontSize: "20px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    {" "}
+                    Standing Right to left{" "}
+                  </div>
+                  <p className="text-sm md:text-base">
                     Mr. K. Thayananthan (Member), Mr. S. Thirukumaran (Member),
-                    Mr. P. Pirasanna (Member), Mr. S. Sarangan (Member)
-                    <br />
-                    <div
-                      className="font-bold"
-                      style={{
-                        fontSize: "20px",
-                        marginTop: "10px",
-                      }}
-                    >
-                      Absentees
-                    </div>{" "}
-                    Mr. N. Sivaraja(Vice President), Mr. K. Kabilan (Member),
+                    Mr. P. Pirasanna (Member), Mr. S. Sarangan (Member)
+                  </p>
+                  <div
+                    className="font-bold"
+                    style={{
+                      fontSize: "20px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    Absentees
+                  </div>
+                  <p className="text-sm md:text-base">
+                    Mr. N. Sivaraja (Vice President), Mr. K. Kabilan (Member),
                     Mr. S. Thayalan (Member), Mr. U. Kethees (Member), Mr. G.
                     Kirishanthan (Member)
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
-            
           </div>
-
-          
         </Container>
       </div>
     </>

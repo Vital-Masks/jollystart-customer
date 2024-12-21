@@ -74,6 +74,11 @@ body {
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
+.latestnewcard {
+  width: 300px;
+  height: 360px;
+  max-width: 100%;
+}
 
 .card:hover {
   /* transform: translateY(20px); */

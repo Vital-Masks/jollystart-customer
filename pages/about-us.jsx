@@ -68,18 +68,20 @@ const AboutUs = () => {
             Made!
           </p>
           <div className="flex justify-start gap-3 py-5">
-            <div
+            <a
               className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
-              href="/memberregister"
+              href="https://drive.google.com/file/d/1tjFVt_i1hdT1R4HY4WU4ZXveWtVIhWJy/view?usp=sharing"
+              target="_blank"
             >
               English
-            </div>
-            <div
+            </a>
+            <a
               className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 text-center"
-              href="/login/logreg"
+              href="https://drive.google.com/file/d/1y5VdUy7WPFUGhRNS1-CT_vVRVhMeXxeq/view?usp=sharing"
+              target="_blank"
             >
               Tamil
-            </div>
+            </a>
           </div>
         </Container>
       </div>

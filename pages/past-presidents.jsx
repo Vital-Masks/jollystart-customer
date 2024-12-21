@@ -56,7 +56,7 @@ const PastPresidents = () => {
               key={img}
               picture={uma}
               name={"Umadharan"}
-              occupation={"Treasurers"}
+              occupation={"Treasurer"}
             />
           ))}
         </div>
