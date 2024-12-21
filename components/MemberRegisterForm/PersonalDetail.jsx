@@ -260,13 +260,13 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
               />
             ))}
           </select>
-          <Link
+          <a
             href={routes.MEMBERSHIPFULL}
             target="_blank"
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
           >
             Pricing Table
-          </Link>
+          </a>
         </div>
         {formik.touched.membershipCategory &&
           formik.errors.membershipCategory && (

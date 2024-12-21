@@ -265,9 +265,9 @@ const PaymentDetail = (props) => {
               disabled
                 label="Total"
                 name="total"
-                type={"number"}
+                type={"text"}
                 required={true}
-                value={formik.values.total}
+                value={formik.values.total }
                 onChange={formik.handleChange}
                 onBlur={() => formik.setFieldTouched("total")}
                 error={
