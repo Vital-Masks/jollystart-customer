@@ -46,7 +46,6 @@ const ContactPage = () => {
               "userData",
               JSON.stringify(response.data.result)
             );
-            window.location.href ="/info"
             router.push("/info", { scroll: false });
             resetForm();
           }else{
