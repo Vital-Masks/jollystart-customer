@@ -38,10 +38,11 @@ const ContactPage = () => {
 
         // Handle success
         if (!isEmpty(response.data.result)) {
-          const isAllowed = await axios.get(
+          const res = await axios.get(
             `https://api.jollystarssc.com/api/member/getEmail?email=${response.data.result.email}`
           );
-          if(isAllowed[0] && (isAllowed[0].memberApprovalStatus === "APPROVED" || isAllowed[0].memberApprovalStatus === "PENDING" )){
+          const isAllowed = res.data.result?.[0];
+          if(isAllowed && (isAllowed.memberApprovalStatus === "APPROVED" || isAllowed.memberApprovalStatus === "PENDING" )){
             localStorage.setItem(
               "userData",
               JSON.stringify(response.data.result)
