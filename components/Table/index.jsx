@@ -64,22 +64,22 @@ const Table = (props) => {
                       {person.role}
                     </td>
                     {!(schoolDetails && schoolDetails.length > 0)&&     <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                      <div
+                      <button
                         href="#"
                         className="text-indigo-600 hover:text-indigo-900"
                         onClick={() => handleEditItem(index)}
                       >
                         Edit<span className="sr-only">, {person.name}</span>
-                      </div>
+                      </button>
                     </td>}
                  {!(schoolDetails && schoolDetails.length > 0)&&   <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                      <div
+                      <button
                         onClick={() => handleDeleteItem(index)}
                         href="#"
                         className="text-red-500 hover:text-red-700"
                       >
                         Delete<span className="sr-only">, {person.name}</span>
-                      </div>
+                      </button>
                     </td>}
                   </tr>
                 ))}

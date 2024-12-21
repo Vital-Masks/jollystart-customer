@@ -139,24 +139,24 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
   };
   const formik = useFormik({
     initialValues: {
-      membershipCategory: PersonalData ? PersonalData.membershipCategory : "",
+      membershipCategory: PersonalData.membershipCategory ? PersonalData.membershipCategory : "",
       title: PersonalData ? PersonalData.title : "",
-      firstName: PersonalData ? PersonalData.firstName : "",
-      lastName: PersonalData ? PersonalData.lastName : "",
-      dateOfBirth: PersonalData ? PersonalData.dateOfBirth : "",
-      passportNumber: PersonalData ? PersonalData.passportNumber : "",
-      email: PersonalData ? PersonalData.email : "",
-      userName: PersonalData ? PersonalData.userName : "",
-      password: PersonalData ? PersonalData.password : "",
-      cpassword: PersonalData ? PersonalData.cpassword : "",
-      phoneNumber: PersonalData ? PersonalData.phoneNumber : "",
-      telephoneNumber: PersonalData ? PersonalData.telephoneNumber : "",
-      address: PersonalData ? PersonalData.address : "",
-      workPlaceName: PersonalData ? PersonalData.workPlaceName : "",
-      occupation: PersonalData ? PersonalData.occupation : "",
-      officeAddress: PersonalData ? PersonalData.officeAddress : "",
-      maritalStatus: PersonalData ? PersonalData.maritalStatus : "",
-      profilePicture: PersonalData ? PersonalData.profilePicture : "",
+      firstName: PersonalData.firstName ? PersonalData.firstName : "",
+      lastName: PersonalData.lastName ? PersonalData.lastName : "",
+      dateOfBirth: PersonalData.dateOfBirth ? PersonalData.dateOfBirth : "",
+      passportNumber: PersonalData.passportNumber ? PersonalData.passportNumber : "",
+      email: PersonalData.email ? PersonalData.email : "",
+      userName: PersonalData.userName ? PersonalData.userName : "",
+      password: PersonalData.password ? PersonalData.password : "",
+      cpassword: PersonalData.cpassword ? PersonalData.cpassword : "",
+      phoneNumber: PersonalData.phoneNumber ? PersonalData.phoneNumber : "",
+      telephoneNumber: PersonalData.telephoneNumber ? PersonalData.telephoneNumber : "",
+      address: PersonalData.address ? PersonalData.address : "",
+      workPlaceName: PersonalData.workPlaceName ? PersonalData.workPlaceName : "",
+      occupation: PersonalData.occupation ? PersonalData.occupation : "",
+      officeAddress: PersonalData.officeAddress ? PersonalData.officeAddress : "",
+      maritalStatus: PersonalData.maritalStatus ? PersonalData.maritalStatus : "",
+      profilePicture: PersonalData.profilePicture ? PersonalData.profilePicture : "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -301,12 +301,11 @@ const PersonalDetail = ({ AllPersonalData, PersonalData }) => {
                 </label>
                 <select
                   required={true}
-                  nBlur={() => formik.setFieldTouched("title")}
+                  onBlur={() => formik.setFieldTouched("title")}
                   className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
                   id="selectedOption"
                   name="title"
                   onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
                   value={formik.values.title}
                 >
                   <option value="" label="Select an option" />

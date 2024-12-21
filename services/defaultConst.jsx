@@ -4,10 +4,12 @@ export const MembershipTypeDetails = {
   ORDINARY_MEMBERS: "ORDINARY MEMBERS",
   PLAYING_MEMBER: "PLAYING MEMBER",
 };
+
 export const MemberTitle = {
   MRS: "MRS",
   MR: "MR",
 };
+
 export const MembershipTypeDetailsOptions = [
   {
     value: MembershipTypeDetails.RESIDENT_LIFE_MEMBER,
