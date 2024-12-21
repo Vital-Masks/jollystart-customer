@@ -169,7 +169,7 @@ const Navbar = () => {
     },
   ];
   const currentPath = usePathname();
-  useEffect(() => {}, [currentPath]);
+  useEffect(() => { }, [currentPath]);
 
   return (
     <header className="bg-blue-900 text-slate-100">
@@ -197,6 +197,7 @@ const Navbar = () => {
         </Popover.Group>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end uppercase">
+        
           {!(memberData && memberData.firstName) && (
             <Link
               href="/login/logreg"
@@ -208,16 +209,17 @@ const Navbar = () => {
           )}
 
           {memberData && memberData.firstName && (
-            <div className="text-sm font-semibold leading-6 text-gray-100">
-              {memberData.firstName} {memberData.lastName}
+            <Link href="/info" className="text-sm font-semibold leading-6 text-gray-100">
+              {memberData.firstName} 
               &nbsp;&nbsp;&nbsp;
-            </div>
+            </Link>
           )}
           {memberData && memberData.firstName && (
             <div
               onClick={logout}
               href="/login/logreg"
               className="text-sm font-semibold leading-6 text-gray-100"
+              style={{cursor: 'pointer',color:"yellow"}}
             >
               Logout <span aria-hidden="true">&rarr;</span>
               &nbsp;&nbsp;&nbsp;
@@ -258,11 +260,10 @@ const NavItems = ({ menu, currentPath }) => {
     return (
       <Link
         href={link}
-        className={`flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1 ${
-          currentPath === link ? " navactive" : " "
-        } `}
+        className={`flex uppercase items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1 ${currentPath === link ? " navactive" : " "
+          } `}
         style={{ padding: "6px" }}
-        // className={currentPath.pathname == "/" ? "active" : ""}
+      // className={currentPath.pathname == "/" ? "active" : ""}
       >
         {label}
       </Link>
@@ -290,7 +291,7 @@ const MobileMenu = ({
             href={routes.HOME}
             className="-m-1.5 p-1.5 text-blue-900 text-2xl font-bold"
           >
-            JOLLY STARS SC 
+            JOLLY STARS SC
           </Link>
           <button
             type="button"
@@ -322,14 +323,17 @@ const MobileMenu = ({
                           </Disclosure.Button>
                           <Disclosure.Panel className="mt-2 space-y-2">
                             {subMenu.map(({ id, label, link }) => (
-                              <Disclosure.Button
-                                key={id}
-                                as="a"
-                                href={link}
-                                className="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
-                              >
-                                {label}
-                              </Disclosure.Button>
+                              <Link href={link}>
+                                <Disclosure.Button
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  key={id}
+                                  as="Link"
+                                  className="block py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
+                                >
+
+                                  {label}
+                                </Disclosure.Button>
+                              </Link>
                             ))}
                           </Disclosure.Panel>
                         </>
@@ -338,13 +342,13 @@ const MobileMenu = ({
                   );
                 } else {
                   return (
-                    <a
-                      key={id}
+                    <Link
+                      onClick={() => setMobileMenuOpen(false)} key={id}
                       href={link}
                       className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
                     >
                       {label}
-                    </a>
+                    </Link>
                   );
                 }
               })}
@@ -365,7 +369,7 @@ const MobileMenu = ({
                     Logout <span aria-hidden="true">&rarr;</span>
                     &nbsp;&nbsp;&nbsp;
                   </a>
-                 
+
                   bsp;&nbsp;
                 </div>
               )}

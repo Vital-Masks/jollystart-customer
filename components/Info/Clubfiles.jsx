@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DateDisplay from "@/utils/dateDisplay";
 
-const Clubfile = () => {
+const Clubfile = ({ memberData }) => {
   //
   const [MemberFileData, setMemberFileData] = useState([]);
   const [Loading, setLoading] = useState(true);
@@ -56,11 +56,24 @@ const Clubfile = () => {
           </div>
         ) : (
           <div>
-            <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-2 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-              {MemberFileData &&
-                MemberFileData.map((item, i) => (
-                  <ClubfileCard key={i} filedata={item} />
-                ))}
+            <div className="flex items-center justify-start gap-5 overflow-auto lg:justify-center p-5">
+
+              {
+                memberData && memberData.memberApprovalStatus === "APPROVED" ?
+                  MemberFileData &&
+                  MemberFileData.map((item, i) => (
+                    <ClubfileCard key={i} filedata={item} />
+                  )) : (
+                    <div style={{
+                      display:"flex",
+                      justifyContent:'center',
+                      margin:"0 auto"
+                    }}>
+                      
+                        Can not view without approved
+                    </div>
+                  )
+              }
             </div>
           </div>
         )}
@@ -69,11 +82,11 @@ const Clubfile = () => {
           <ClubfileCard />
           <ClubfileCard /> */}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <button className="content-center px-4 py-2 mt-10 text-white bg-blue-900 rounded-md">
             View More
           </button>
-        </div>
+        </div> */}
       </Container>
     </div>
   );

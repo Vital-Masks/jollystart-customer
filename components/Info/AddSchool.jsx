@@ -7,8 +7,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object({
-  schoolName: Yup.string().required("Name is required"),
-  participated: Yup.string().required("Age is required"),
+  schoolName: Yup.string().required("required"),
+  participated: Yup.string().required("required"),
   game: Yup.string().required("required"),
   from: Yup.string().required("required"),
   to: Yup.string().required("required"),
@@ -103,7 +103,12 @@ const AddSchool = ({ schoolDetails }) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="px-10 my-10">
-        <div className="flex items-end gap-4 mb-10">
+        <div className="flex items-end gap-4 mb-10"style={{
+              alignItems:
+                formik.errors.schoolName && formik.touched.schoolName
+                  ? "center"
+                  : "end",
+            }}>
           <div className="w-full">
             <InputField
               label="School Name"
@@ -123,7 +128,7 @@ const AddSchool = ({ schoolDetails }) => {
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
             type="submit"
           >
-            {editIndex !== null ? "Edit" : "Add"}
+            {editIndex !== null ? "Save" : "Add"}
           </button>
         </div>
         <div className="grid grid-cols-5 gap-3">

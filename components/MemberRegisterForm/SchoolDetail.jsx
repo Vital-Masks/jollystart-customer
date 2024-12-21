@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image"; // Ensure you're importing Next.js's Image component
 
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
@@ -231,9 +232,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
               </div>
 
               <div
-                className={`flex justify-center ${
-                  formik.errors.schoolName ? "items-center" : "items-end"
-                }`}
+                className={`flex justify-center ${formik.errors.schoolName ? "items-center" : "items-end"
+                  }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -242,7 +242,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                     height: "45px",
                   }}
                 >
-                  {editIndex !== null ? "Edit" : "Add"}
+                  {editIndex !== null ? "Save" : "Add"}
                 </button>
               </div>
             </div>
@@ -351,9 +351,8 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
               </div>
 
               <div
-                className={`flex justify-center ${
-                  formik2.errors.clubName ? "items-center" : "items-end"
-                }`}
+                className={`flex justify-center ${formik2.errors.clubName ? "items-center" : "items-end"
+                  }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -460,7 +459,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
               {selectedImage ? (
-                <Image src={selectedImage} width={200} height={200} />
+                <Image src={selectedImage} width={200} height={200} alt="Preview" />
               ) : (
                 <PhotoIcon
                   className="w-12 h-12 mx-auto text-gray-300"
@@ -479,13 +478,13 @@ const SchoolDetail = ({ AllSchoollData, SchoolData }) => {
                     type="file"
                     className="sr-only"
                     onChange={(event) => {
-                      formik3.setFieldValue(
-                        "file",
-                        event.currentTarget.files[0]
-                      );
-                      setSelectedImage(
-                        URL.createObjectURL(event.currentTarget.files[0])
-                      );
+                      const file = event.currentTarget.files[0];
+                      if (file && file.type.startsWith("image/")) {
+                        formik3.setFieldValue("file", file);
+                        setSelectedImage(URL.createObjectURL(file));
+                      } else {
+                        alert("Please select a valid image file.");
+                      }
                     }}
                     accept="image/*"
                   />

@@ -11,6 +11,7 @@ import { MembershipTypeDetails } from "@/services/defaultConst";
 
 const Paymentinfo = ({ memberData }) => {
   const paymentDetails = memberData.paymentDetails || [];
+  // const paymentDetails = memberData.paymentDetails || [];
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5">
@@ -24,18 +25,20 @@ const Paymentinfo = ({ memberData }) => {
         </div>
         <div className="px-10 my-10">
           <div className="mt-10">
-            <PaymentTable paymentDetails={paymentDetails} />
+            <PaymentTable paymentDetails={paymentDetails} memberData={memberData}  />
           </div>
         </div>
+        
         {memberData &&
           memberData.membershipCategory !==
-            MembershipTypeDetails.RESIDENT_LIFE_MEMBER && (
+            MembershipTypeDetails.ORDINARY_MEMBERS ||  MembershipTypeDetails.PLAYING_MEMBER  && (
             <div className="flex items-center justify-center mb-10">
               <button
-                onClick={() => setStep(2)}
+                // onClick={() => setStep(2)}
                 className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-72"
               >
                 Pay Member Fee
+
               </button>
             </div>
           )}

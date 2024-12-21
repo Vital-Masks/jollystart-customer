@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const PaymentTable = ({ paymentDetails }) => {
+const PaymentTable = ({ paymentDetails ,memberData}) => {
   console.log(paymentDetails, "payment");
   // const {membershipCategory,} = memberData.
   const data = paymentDetails || [];
@@ -69,7 +69,7 @@ const PaymentTable = ({ paymentDetails }) => {
                 data.map((person) => (
                   <tr key={person.date}>
                     <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
-                      {person.paymentCategory}
+                      {person.memberType}
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.bank}

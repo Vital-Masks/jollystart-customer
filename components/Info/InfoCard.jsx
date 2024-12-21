@@ -41,10 +41,12 @@ const SchoolinfoCard = (memberData) => {
             Member Request -  {created_at ? formatDate(created_at, "dd.MM.yyyy | hh.mm a") : ""}
           </p>
           <p className="mb-2 text-lg sm:text-xs text-dark">
-            Membership Approval Date - {updated_at ? formatDate(updated_at, "dd.MM.yyyy | hh.mm a") : ""}
+            Membership Approval Date -{
+              memberApprovalStatus==="APPROVED" ? updated_at ? formatDate(updated_at, "dd.MM.yyyy | hh.mm a") : "" : "Not Approved Yet "
+            } 
           </p>
           <p className="mb-2 text-lg sm:text-xs text-dark">
-            Membership ID - {membershipId ? membershipId :"Not Approved Yet "}
+            Membership ID - {membershipId ? membershipId :"Not Assign Yet "}
           </p>
         </div>
       </div>

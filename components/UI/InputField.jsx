@@ -12,6 +12,7 @@ const InputField = ({
   max,
   min,
   disabled,
+  options, // New prop for select options
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -19,19 +20,41 @@ const InputField = ({
         {label}
         {required && <span className="text-red-500">*</span>}{" "}
       </label>
-      <input
-        type={type ? type : "text"}
-        name={name}
-        id={name}
-        value={value}
-        onChange={onChange}
-        className="p-2 ps-4 bg-transparent border rounded-full"
-        placeholder={placeholder && placeholder}
-        max={max && max}
-        min={min && min}
-        disabled={disabled ? true : false}
-      />
-      {error && <p className="text-red-400 ps-4"> {error}</p>}
+
+      {/* If type is "select", render a select dropdown */}
+      {type === "select" ? (
+        <select
+          name={name}
+          id={name}
+          value={value}
+          onChange={onChange}
+          className="p-2 ps-4 bg-transparent border rounded-full"
+          disabled={disabled ? true : false}
+        >
+          <option value="">Select {label}</option>
+          {options?.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      ) : (
+        // Otherwise render a standard input field
+        <input
+          type={type || "text"}
+          name={name}
+          id={name}
+          value={value}
+          onChange={onChange}
+          className="p-2 ps-4 bg-transparent border rounded-full"
+          placeholder={placeholder}
+          max={max}
+          min={min}
+          disabled={disabled ? true : false}
+        />
+      )}
+
+      {error && <p className="text-red-400 ps-4">{error}</p>}
     </div>
   );
 };
