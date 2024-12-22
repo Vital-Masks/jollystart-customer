@@ -8,6 +8,7 @@ import PaymentTable from "../PaymentTable";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import SchoolinfoCard from "./InfoCard";
 import { MembershipTypeDetails } from "@/services/defaultConst";
+import AddNewPaymentDetail from "./addNewPayment.jsx";
 
 const Paymentinfo = ({ memberData }) => {
   const paymentDetails = memberData.paymentDetails || [];
@@ -25,24 +26,33 @@ const Paymentinfo = ({ memberData }) => {
         </div>
         <div className="px-10 my-10">
           <div className="mt-10">
-            <PaymentTable paymentDetails={paymentDetails} memberData={memberData}  />
+            <PaymentTable
+              paymentDetails={paymentDetails}
+              memberData={memberData}
+            />
           </div>
         </div>
-        
-        {memberData &&
+
+        {(memberData &&
           memberData.membershipCategory !==
-            MembershipTypeDetails.ORDINARY_MEMBERS ||  MembershipTypeDetails.PLAYING_MEMBER  && (
+            MembershipTypeDetails.ORDINARY_MEMBERS) ||
+          (MembershipTypeDetails.PLAYING_MEMBER && (
             <div className="flex items-center justify-center mb-10">
               <button
                 // onClick={() => setStep(2)}
                 className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-72"
               >
                 Pay Member Fee
-
               </button>
             </div>
-          )}
+          ))}
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <AddNewPaymentDetail PersonalData={memberData} />
     </div>
   );
 };

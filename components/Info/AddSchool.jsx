@@ -103,12 +103,15 @@ const AddSchool = ({ schoolDetails }) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="px-10 my-10">
-        <div className="flex items-end gap-4 mb-10"style={{
-              alignItems:
-                formik.errors.schoolName && formik.touched.schoolName
-                  ? "center"
-                  : "end",
-            }}>
+        <div
+          className="flex items-end gap-4 mb-10"
+          style={{
+            alignItems:
+              formik.errors.schoolName && formik.touched.schoolName
+                ? "center"
+                : "end",
+          }}
+        >
           <div className="w-full">
             <InputField
               label="School Name"
@@ -160,17 +163,24 @@ const AddSchool = ({ schoolDetails }) => {
             label="From"
             name="from"
             required={true}
+            type={"date"}
             error={
               formik.errors.from && formik.touched.from && formik.errors.from
             }
+            max={new Date().toISOString().split("T")[0]}
           />
           <InputField
-            value={formik.values.to}
+            min={formik.values.from}
+            // value={formik.values.to}
+            value={formik.values.to.split("/").reverse().join("-") || ""} // Convert DD/MM/YYYY to YYYY-MM-DD
             onChange={formik.handleChange}
             label="To"
             name="to"
+            type={"date"}
             required={true}
+            placeholder="DD/MM/YYYY"
             error={formik.errors.to && formik.touched.to && formik.errors.to}
+            max={new Date().toISOString().split("T")[0]}
           />
           <InputField
             value={formik.values.role}

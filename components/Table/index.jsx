@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import formatDate from "../utils/formDate";
 
 const Table = (props) => {
   const { items, handleEditItem, handleDeleteItem, table, schoolDetails } =
@@ -24,7 +25,7 @@ const Table = (props) => {
                   scope="col"
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                 >
-                  Title
+                  Team
                 </th>
                 <th
                   scope="col"
@@ -38,13 +39,28 @@ const Table = (props) => {
                 >
                   Role
                 </th>
-                {!(schoolDetails && schoolDetails.length > 0)&&  <th
-                  colSpan={2}
+                <th
                   scope="col"
-                  className="px-3 py-3.5 text-center text-sm font-semibold text-gray-900"
+                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                 >
-                  Action
-                </th>}
+                  From
+                </th>
+                <th
+                  scope="col"
+                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  To
+                </th>
+
+                {!(schoolDetails && schoolDetails.length > 0) && (
+                  <th
+                    colSpan={2}
+                    scope="col"
+                    className="px-3 py-3.5 text-center text-sm font-semibold text-gray-900"
+                  >
+                    Action
+                  </th>
+                )}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -62,25 +78,35 @@ const Table = (props) => {
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.role}
+                    </td>{" "}
+                    <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                      {formatDate(person.from)}
+                    </td>{" "}
+                    <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                      {formatDate(person.to)}
                     </td>
-                    {!(schoolDetails && schoolDetails.length > 0)&&     <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                      <button
-                        href="#"
-                        className="text-indigo-600 hover:text-indigo-900"
-                        onClick={() => handleEditItem(index)}
-                      >
-                        Edit<span className="sr-only">, {person.name}</span>
-                      </button>
-                    </td>}
-                 {!(schoolDetails && schoolDetails.length > 0)&&   <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                      <button
-                        onClick={() => handleDeleteItem(index)}
-                        href="#"
-                        className="text-red-500 hover:text-red-700"
-                      >
-                        Delete<span className="sr-only">, {person.name}</span>
-                      </button>
-                    </td>}
+                    {!(schoolDetails && schoolDetails.length > 0) && (
+                      <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                        <button
+                          href="#"
+                          className="text-indigo-600 hover:text-indigo-900"
+                          onClick={() => handleEditItem(index)}
+                        >
+                          Edit<span className="sr-only">, {person.name}</span>
+                        </button>
+                      </td>
+                    )}
+                    {!(schoolDetails && schoolDetails.length > 0) && (
+                      <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                        <button
+                          onClick={() => handleDeleteItem(index)}
+                          href="#"
+                          className="text-red-500 hover:text-red-700"
+                        >
+                          Delete<span className="sr-only">, {person.name}</span>
+                        </button>
+                      </td>
+                    )}
                   </tr>
                 ))}
             </tbody>

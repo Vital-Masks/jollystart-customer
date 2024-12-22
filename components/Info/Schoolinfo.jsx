@@ -23,7 +23,7 @@ const Schoolinfo = ({ memberData }) => {
 
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
-          School Details
+          School Details 
         </div>
         <div className="px-10 my-10">
           <AddSchool schoolDetails={schoolDetails} />
@@ -33,7 +33,7 @@ const Schoolinfo = ({ memberData }) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Club Details
         </div>
-        <AddClub schoolDetails={clubDetails}/>
+        <AddClub schoolDetails={clubDetails} />
         {/* <div className="px-10 my-10">
           <div className="mt-10">
             <Table schoolDetails={clubDetails} />

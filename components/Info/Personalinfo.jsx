@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const validationSchema = Yup.object().shape({
-  membershipCategory: Yup.string().required("Category is required"),
+  title: Yup.string().required("Category is required"),
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
   dateOfBirth: Yup.string().required("DOB is required"),
@@ -61,7 +61,7 @@ const Personalinfo = ({ memberData }) => {
   };
   const formik = useFormik({
     initialValues: {
-      membershipCategory: memberData ? memberData.membershipCategory : "",
+      title: memberData ? memberData.title : "",
       firstName: memberData ? memberData.firstName : "",
       lastName: memberData ? memberData.lastName : "",
       passportNumber: memberData ? memberData.passportNumber : "",
@@ -103,15 +103,15 @@ const Personalinfo = ({ memberData }) => {
                 <div className="grid grid-cols-4 col-span-4 gap-3">
                   <InputField
                     label="Title"
-                    name="membershipCategory"
+                    name="title"
                     required={true}
-                    value={formik.values.membershipCategory}
+                    value={formik.values.title}
                     onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("membershipCategory")}
+                    onBlur={() => formik.setFieldTouched("title")}
                     error={
-                      formik.touched.membershipCategory &&
-                      formik.errors.membershipCategory && (
-                        <p>{formik.errors.membershipCategory}</p>
+                      formik.touched.title &&
+                      formik.errors.title && (
+                        <p>{formik.errors.title}</p>
                       )
                     }
                   />

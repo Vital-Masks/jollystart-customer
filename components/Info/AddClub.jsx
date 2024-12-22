@@ -28,7 +28,7 @@ const AddClub = ({ schoolDetails }) => {
   const [items, setItems] = React.useState([]);
   const [editIndex, setEditIndex] = React.useState(null);
   useEffect(() => {
-    console.log(schoolDetails,"schoooooooo");
+    console.log(schoolDetails, "schoooooooo");
     setItems(schoolDetails);
   }, []);
 
@@ -104,13 +104,15 @@ const AddClub = ({ schoolDetails }) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="px-10 my-10">
-        <div className="flex items-end gap-4 mb-10 "  style={{
-              alignItems:
-                formik.errors.clubName && formik.touched.clubName
-                  ? "center"
-                  : "end",
-            }}>
-         
+        <div
+          className="flex items-end gap-4 mb-10 "
+          style={{
+            alignItems:
+              formik.errors.clubName && formik.touched.clubName
+                ? "center"
+                : "end",
+          }}
+        >
           <div className="w-full">
             <InputField
               label="Club Name"
@@ -156,23 +158,30 @@ const AddClub = ({ schoolDetails }) => {
               formik.errors.game && formik.touched.game && formik.errors.game
             }
           />
+
           <InputField
             value={formik.values.from}
             onChange={formik.handleChange}
             label="From"
             name="from"
             required={true}
+            type={"date"}
             error={
               formik.errors.from && formik.touched.from && formik.errors.from
             }
+            max={new Date().toISOString().split("T")[0]}
           />
+
           <InputField
+            min={formik.values.from}
             value={formik.values.to}
             onChange={formik.handleChange}
             label="To"
             name="to"
+            type={"date"}
             required={true}
             error={formik.errors.to && formik.touched.to && formik.errors.to}
+            max={new Date().toISOString().split("T")[0]}
           />
           <InputField
             value={formik.values.role}

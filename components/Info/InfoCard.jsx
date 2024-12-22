@@ -9,18 +9,19 @@ const SchoolinfoCard = (memberData) => {
     memberApprovalStatus,
     created_at,
     updated_at,
-    membershipId,profilePicture
+    membershipId,
+    profilePicture,
   } = memberData.memberData;
   return (
     <div
       className="max-w-[80rem] w-full h-full bg-[#e2e2e7] shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
       style={{ borderRadius: "10px" }}
     >
-      
+      {/* memberData.memberData:{JSON.stringify(memberData.memberData)} */}
       <div className="p-5 sm:p-10 flex flex-col sm:flex-row items-center text-white bg-blue-900">
         <div className="w-60 h-60 rounded-md overflow-hidden object-cover mb-5 sm:mb-0">
           <img
-           src={`data:image/png;base64,${profilePicture}`}
+            src={`data:image/png;base64,${profilePicture}`}
             // src="/assets/banner/gallery1.jpg"
             alt="profile"
             className="w-full h-full object-cover"
@@ -38,15 +39,20 @@ const SchoolinfoCard = (memberData) => {
             Status - {memberApprovalStatus}
           </p>
           <p className="mb-2 text-lg sm:text-xs text-dark">
-            Member Request -  {created_at ? formatDate(created_at, "dd.MM.yyyy | hh.mm a") : ""}
+            Member Request -{" "}
+            {created_at ? formatDate(created_at, "dd.MM.yyyy | hh.mm a") : ""}
           </p>
           <p className="mb-2 text-lg sm:text-xs text-dark">
-            Membership Approval Date -{
-              memberApprovalStatus==="APPROVED" ? updated_at ? formatDate(updated_at, "dd.MM.yyyy | hh.mm a") : "" : "Not Approved Yet "
-            } 
+            Membership Approval Date -
+            {memberApprovalStatus === "APPROVED" ||
+            memberApprovalStatus === "REMOVED"
+              ? updated_at
+                ? formatDate(updated_at, "dd.MM.yyyy | hh.mm a")
+                : ""
+              : "Not Approved Yet " + memberApprovalStatus}
           </p>
           <p className="mb-2 text-lg sm:text-xs text-dark">
-            Membership ID - {membershipId ? membershipId :"Not Assign Yet "}
+            Membership ID - {membershipId ? membershipId : "Not Assign Yet "}
           </p>
         </div>
       </div>

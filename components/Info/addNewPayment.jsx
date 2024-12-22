@@ -7,17 +7,13 @@ import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 import Image from "next/image";
 import { membershipPaymentdata } from "@/services/fixedDatas";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PaymentDetail = (props) => {
-  const {
-    AllPaymentData,
-    Loading,
-    paymentlData,
-    AllPaymentDatas,
-    PersonalData,
-    selectedImage3,
-    setSelectedImage3,
-  } = props;
+  const { Loading, PersonalData } = props;
+  const [selectedImage3, setSelectedImage3] = useState(false);
+
   const validationSchema = Yup.object().shape({
     paymentCategory: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
@@ -63,33 +59,20 @@ const PaymentDetail = (props) => {
       .required("File is required"),
   });
 
-  const { setStep } = useMembers();
-
   const formik = useFormik({
     initialValues: {
       paymentCategory:
         PersonalData && PersonalData.membershipCategory
           ? PersonalData.membershipCategory
           : "",
-      bank:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.bank
-          : "",
-      branch:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.branch
-          : "",
+      bank: "",
+      branch: "",
       total: 0,
-      date:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.date
-          : "",
-      paymentSlip:
-        paymentlData && paymentlData.paymentDetails
-          ? paymentlData.paymentDetails.paymentSlip
-          : null,
+      date: "",
+      paymentSlip: null,
       isPaymentDetailVerified: false,
       mobileNumber: "",
+      memberId: PersonalData && PersonalData._id ? PersonalData._id : "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -97,21 +80,6 @@ const PaymentDetail = (props) => {
       console.log("Submitted values:", values);
 
       var base64String = "";
-      if (paymentlData) {
-        var img = paymentlData.paymentDetails;
-        try {
-          base64String = await convertFileToBase64(values.paymentSlip);
-        } catch (error) {
-          base64String = img.paymentSlip;
-          console.log(error, "error");
-        }
-      } else {
-        try {
-          base64String = await convertFileToBase64(values.paymentSlip);
-        } catch (error) {
-          console.log(error, "error");
-        }
-      }
 
       let paymentData = {
         paymentDetails: {
@@ -126,53 +94,45 @@ const PaymentDetail = (props) => {
           memberId: PersonalData && PersonalData._id ? PersonalData._id : "",
         },
       };
-      AllPaymentDatas(paymentData);
+      // post data
+      postData(paymentData);
       console.log(paymentData);
     },
   });
+  const postData = async (dataObj) => {
+    try {
+      const response = await fetch(
+        `https://api.jollystarssc.com/api/memberPayment/${
+          dataObj && dataObj.paymentDetails
+            ? dataObj.paymentDetails.memberId
+            : ""
+        }`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataObj.paymentDetails),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      toast.success("Successfully Added");
+
+      const data = await response.json();
+      console.log("POST request successful. Response:", data);
+    } catch (error) {
+      console.error("Error during POST request:", error);
+      toast.error("Something Went Wrong");
+    } finally {
+    }
+  };
 
   const handleButtonClick = () => {
     // Manually trigger form submission
     formik.handleSubmit();
-  };
-
-  const pre = async () => {
-    var base64String = "";
-    if (paymentlData) {
-      var img = paymentlData.paymentDetails;
-      try {
-        base64String = await convertFileToBase64(formik.values.paymentSlip);
-      } catch (error) {
-        base64String =
-          paymentlData && paymentlData.paymentDetails
-            ? paymentlData.paymentDetails.paymentSlip
-            : "";
-        console.log(error, "error");
-      }
-    } else {
-      try {
-        base64String = await convertFileToBase64(formik.values.paymentSlip);
-      } catch (error) {
-        console.log(error, "error");
-      }
-    }
-    let data = formik.values;
-    let paymentData = {
-      paymentDetails: {
-        paymentCategory: data.paymentCategory,
-        bank: data.bank,
-        branch: data.branch,
-        total: data.total,
-        date: data.date,
-        isPaymentDetailVerified: data.isPaymentDetailVerified,
-        mobileNumber: data.mobileNumber,
-        paymentSlip: base64String,
-      },
-    };
-
-    setStep(2);
-    AllPaymentData(paymentData);
-    console.log(paymentData);
   };
 
   useEffect(() => {
@@ -194,17 +154,6 @@ const PaymentDetail = (props) => {
       // onSubmit={formik.handleSubmit}
       className="w-full bg-white border rounded-xl"
     >
-      <div className="py-4 m-2 text-xl md:text-2xl font-semibold text-center text-white bg-blue-900 rounded-xl">
-        STEP 03 - PAYMENT DETAILS
-      </div>
-
-      <div className="px-10 my-10">
-        <p className="text-xl text-center">
-          The membership of the club is open to all persons who are approved by
-          the Executive Committee. Each applicant for admission as a member of
-          the club shall apply in the prescribed.
-        </p>
-      </div>
       <div>
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Payment Details
@@ -391,7 +340,6 @@ const PaymentDetail = (props) => {
         <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-5">
           <button
             type="button"
-            onClick={pre}
             className=" text-center p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 "
           >
             Previous
