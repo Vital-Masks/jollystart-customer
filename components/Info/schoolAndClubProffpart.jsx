@@ -186,7 +186,7 @@ const ProffImageUploader = ({ gallery }) => {
             type="submit"
             onClick={handlePut}
           >
-            {Loading ? "Loading... " : "Conform"}
+            {Loading ? "Loading... " : "Confirm"}
           </button>
         </div>
       </div>

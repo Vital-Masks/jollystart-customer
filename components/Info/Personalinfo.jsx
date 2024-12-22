@@ -236,7 +236,7 @@ const Personalinfo = ({ memberData }) => {
                       )
                     }
                     type="select"
-                    options={["Single", "Married", "Divorced"]} // Pass options as an array
+                    options={["single", "married", "divorced"]} // Pass options as an array
                   />
                   <InputField
                     label="User Name"

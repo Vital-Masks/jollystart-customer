@@ -33,8 +33,8 @@ const InputField = ({
         >
           <option value="">Select {label}</option>
           {options?.map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option} value={option} className="lowercase">
+              {option.charAt(0).toUpperCase() + option.slice(1).toLowerCase()}
             </option>
           ))}
         </select>
