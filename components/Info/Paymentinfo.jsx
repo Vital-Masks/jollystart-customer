@@ -33,7 +33,7 @@ const Paymentinfo = ({ memberData }) => {
           </div>
         </div>
 
-        {(memberData &&
+        {/* {(memberData &&
           memberData.membershipCategory !==
             MembershipTypeDetails.ORDINARY_MEMBERS) ||
           (MembershipTypeDetails.PLAYING_MEMBER && (
@@ -45,14 +45,14 @@ const Paymentinfo = ({ memberData }) => {
                 Pay Member Fee
               </button>
             </div>
-          ))}
+          ))} */}
       </div>
       <br />
       <br />
       <br />
       <br />
       <br />
-      <AddNewPaymentDetail PersonalData={memberData} />
+      {/* <AddNewPaymentDetail PersonalData={memberData} /> */}
     </div>
   );
 };
