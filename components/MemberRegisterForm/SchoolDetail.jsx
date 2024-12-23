@@ -65,7 +65,12 @@ const validationSchema2 = Yup.object({
 const validationSchema3 = Yup.object().shape({
   file: Yup.mixed().required("File is required"),
 });
-const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedImage2 }) => {
+const SchoolDetail = ({
+  AllSchoollData,
+  SchoolData,
+  selectedImage2,
+  setSelectedImage2,
+}) => {
   const { setStep } = useMembers();
 
   const initialValues = {
@@ -240,8 +245,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
               </div>
 
               <div
-                className={`flex justify-center ${formik.errors.schoolName ? "items-center" : "items-end"
-                  }`}
+                className={`flex justify-center ${
+                  formik.errors.schoolName ? "items-center" : "items-end"
+                }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -305,7 +311,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik.errors.to && formik.touched.to && formik.errors.to
                 }
                 max={new Date().toISOString().split("T")[0]}
-
               />
               <InputField
                 value={formik.values.role}
@@ -355,12 +360,14 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                     formik2.touched.clubName &&
                     formik2.errors.clubName
                   }
+                  astric
                 />
               </div>
 
               <div
-                className={`flex justify-center ${formik2.errors.clubName ? "items-center" : "items-end"
-                  }`}
+                className={`flex justify-center ${
+                  formik2.errors.clubName ? "items-center" : "items-end"
+                }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -385,6 +392,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik2.touched.invloved &&
                   formik2.errors.invloved
                 }
+                astric
               />
               <InputField
                 value={formik2.values.game}
@@ -397,6 +405,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik2.touched.game &&
                   formik2.errors.game
                 }
+                astric
               />
               <InputField
                 value={formik2.values.from}
@@ -411,6 +420,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                 }
                 type={"date"}
                 max={new Date().toISOString().split("T")[0]}
+                astric
               />
               <InputField
                 value={formik2.values.to}
@@ -424,7 +434,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik2.errors.to && formik2.touched.to && formik2.errors.to
                 }
                 max={new Date().toISOString().split("T")[0]}
-
+                astric
               />
               <InputField
                 value={formik2.values.role}
@@ -437,6 +447,7 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik2.touched.role &&
                   formik2.errors.role
                 }
+                astric
               />
             </div>
 
@@ -467,7 +478,12 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
               {selectedImage2 ? (
-                <Image src={selectedImage2} width={200} height={200} alt="Preview" />
+                <Image
+                  src={selectedImage2}
+                  width={200}
+                  height={200}
+                  alt="Preview"
+                />
               ) : (
                 <PhotoIcon
                   className="w-12 h-12 mx-auto text-gray-300"
