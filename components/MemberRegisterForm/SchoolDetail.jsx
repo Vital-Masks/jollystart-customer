@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image"; // Ensure you're importing Next.js's Image component
+import { convertFileToBase64 } from "../utils/fileUtils";
 
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
@@ -65,7 +66,13 @@ const validationSchema2 = Yup.object({
 const validationSchema3 = Yup.object().shape({
   file: Yup.mixed().required("File is required"),
 });
-const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedImage2 }) => {
+
+const SchoolDetail = ({
+  AllSchoollData,
+  SchoolData,
+  selectedImage2,
+  setSelectedImage2,
+}) => {
   const { setStep } = useMembers();
 
   const initialValues = {
@@ -77,10 +84,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
     role: "",
   };
 
-  const initialValues3 = {
-    file: null,
-  };
-
   const initialValues2 = {
     clubName: "",
     invloved: "",
@@ -88,6 +91,12 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
     from: "",
     to: "",
     role: "",
+  };
+
+  const initialValues3 = {
+    file: SchoolData.file
+    ? SchoolData.file
+    : "",
   };
 
   const [items, setItems] = React.useState([]);
@@ -147,10 +156,36 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
   const formik3 = useFormik({
     initialValues: initialValues3,
     validationSchema: validationSchema3,
-    onSubmit: (values, { resetForm }) => {
-      console.log("jmiknm", values);
-
-      resetForm();
+    onSubmit: async (values, { resetForm }) => {
+      console.log(">>", values)
+      var base64String = "";
+      try {
+        if (SchoolData) {
+          base64String = values.file;
+        }else{
+          base64String = await convertFileToBase64(values.file);
+        }
+        let obj = {
+          schoolDetails: items,
+          clubDetails: items2,
+          file: base64String,
+        };
+        if (SchoolData) {
+          if (items && items.length > 0) {
+            AllSchoollData(obj);
+            if (values.file) {
+              setStep(3);
+            } else {
+              toast.error("Upload the Image");
+            }
+          } else {
+            console.log(items, formik3.values.file);
+            toast.error("Fill the School Details");
+          }
+        }
+      } catch (error) {
+        console.log(error, "error");
+      }
     },
   });
 
@@ -184,14 +219,15 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
       clubDetails: items2,
       file: items3,
     };
+
     if (SchoolData) {
       if (items && items.length > 0) {
+        console.log(">>", obj);
         if (formik3.values.file) {
           setStep(3);
         } else {
           toast.error("Upload the Image");
         }
-
         AllSchoollData(obj);
       } else {
         console.log(items, formik3.values.file);
@@ -240,8 +276,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
               </div>
 
               <div
-                className={`flex justify-center ${formik.errors.schoolName ? "items-center" : "items-end"
-                  }`}
+                className={`flex justify-center ${
+                  formik.errors.schoolName ? "items-center" : "items-end"
+                }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -305,7 +342,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik.errors.to && formik.touched.to && formik.errors.to
                 }
                 max={new Date().toISOString().split("T")[0]}
-
               />
               <InputField
                 value={formik.values.role}
@@ -359,8 +395,9 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
               </div>
 
               <div
-                className={`flex justify-center ${formik2.errors.clubName ? "items-center" : "items-end"
-                  }`}
+                className={`flex justify-center ${
+                  formik2.errors.clubName ? "items-center" : "items-end"
+                }`}
               >
                 <button
                   className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
@@ -424,7 +461,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                   formik2.errors.to && formik2.touched.to && formik2.errors.to
                 }
                 max={new Date().toISOString().split("T")[0]}
-
               />
               <InputField
                 value={formik2.values.role}
@@ -467,7 +503,12 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
             <div className="text-center">
               {selectedImage2 ? (
-                <Image src={selectedImage2} width={200} height={200} alt="Preview" />
+                <Image
+                  src={selectedImage2}
+                  width={200}
+                  height={200}
+                  alt="Preview"
+                />
               ) : (
                 <PhotoIcon
                   className="w-12 h-12 mx-auto text-gray-300"
@@ -490,8 +531,6 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
                       if (file && file.type.startsWith("image/")) {
                         formik3.setFieldValue("file", file);
                         setSelectedImage2(URL.createObjectURL(file));
-                      } else {
-                        alert("Please select a valid image file.");
                       }
                     }}
                     accept="image/*"
@@ -505,21 +544,22 @@ const SchoolDetail = ({ AllSchoollData, SchoolData, selectedImage2, setSelectedI
             </div>
           </div>
         </div>
+        <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-3 mt-10">
+          <button
+            type="button"
+            onClick={() => setStep(1)}
+            className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52"
+          >
+            Previous
+          </button>
+          <button
+            type="submit"
+            className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
+          >
+            Next
+          </button>
+        </div>
       </form>
-      <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-3">
-        <button
-          onClick={() => setStep(1)}
-          className="p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52"
-        >
-          Previous
-        </button>
-        <button
-          onClick={nextPage}
-          className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
-        >
-          Next
-        </button>
-      </div>
     </div>
   );
 };

@@ -175,7 +175,7 @@ const PersonalDetail = ({ AllPersonalData, PersonalData, selectedImage, setSelec
           base64String = await convertFileToBase64(values.profilePicture);
         } catch (error) {
           base64String = values.profilePicture;
-          console.log(error, "error");
+          console.log("error >>", error);
         }
       } else {
         try {
