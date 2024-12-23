@@ -13,12 +13,13 @@ const InputField = ({
   min,
   disabled,
   options, // New prop for select options
+  astric,
 }) => {
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="ml-2">
         {label}
-        {required && <span className="text-red-500">*</span>}{" "}
+        {required && !astric && <span className="text-red-500">*</span>}{" "}
       </label>
 
       {/* If type is "select", render a select dropdown */}
@@ -33,8 +34,8 @@ const InputField = ({
         >
           <option value="">Select {label}</option>
           {options?.map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option} value={option} className="lowercase">
+              {option.charAt(0).toUpperCase() + option.slice(1).toLowerCase()}
             </option>
           ))}
         </select>

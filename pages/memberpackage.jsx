@@ -61,7 +61,14 @@ const MembershipCard = ({ datas }) => {
   return (
     <div className="flex-shrink-0 w-full max-w-xs border-2 rounded-lg snap-start member-pack-home-card ">
       <div className="flex items-center justify-center h-20 bg-black rounded-t-lg">
-        <h1 className=" text-xl font-bold uppercase ">{title}</h1>
+        <h1
+          className="font-bold uppercase  "
+          style={{
+            color: "white",
+          }}
+        >
+          {title}
+        </h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
         <div className="mb-10 text-sm">{para}</div>

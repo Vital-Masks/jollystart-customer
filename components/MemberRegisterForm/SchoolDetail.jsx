@@ -391,6 +391,7 @@ const SchoolDetail = ({
                     formik2.touched.clubName &&
                     formik2.errors.clubName
                   }
+                  astric
                 />
               </div>
 
@@ -422,6 +423,7 @@ const SchoolDetail = ({
                   formik2.touched.invloved &&
                   formik2.errors.invloved
                 }
+                astric
               />
               <InputField
                 value={formik2.values.game}
@@ -434,6 +436,7 @@ const SchoolDetail = ({
                   formik2.touched.game &&
                   formik2.errors.game
                 }
+                astric
               />
               <InputField
                 value={formik2.values.from}
@@ -448,6 +451,7 @@ const SchoolDetail = ({
                 }
                 type={"date"}
                 max={new Date().toISOString().split("T")[0]}
+                astric
               />
               <InputField
                 value={formik2.values.to}
@@ -473,6 +477,7 @@ const SchoolDetail = ({
                   formik2.touched.role &&
                   formik2.errors.role
                 }
+                astric
               />
             </div>
 

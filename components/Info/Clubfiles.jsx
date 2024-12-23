@@ -57,23 +57,22 @@ const Clubfile = ({ memberData }) => {
         ) : (
           <div>
             <div className="flex items-center justify-start gap-5 overflow-auto lg:justify-center p-5">
-
-              {
-                memberData && memberData.memberApprovalStatus === "APPROVED" ?
-                  MemberFileData &&
-                  MemberFileData.map((item, i) => (
-                    <ClubfileCard key={i} filedata={item} />
-                  )) : (
-                    <div style={{
-                      display:"flex",
-                      justifyContent:'center',
-                      margin:"0 auto"
-                    }}>
-                      
-                        Can not view without approved
-                    </div>
-                  )
-              }
+              {memberData && memberData.memberApprovalStatus === "APPROVED" ? (
+                MemberFileData &&
+                MemberFileData.map((item, i) => (
+                  <ClubfileCard key={i} filedata={item} />
+                ))
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: "0 auto",
+                  }}
+                >
+                  Access is restricted for Approved Members Only.
+                </div>
+              )}
             </div>
           </div>
         )}

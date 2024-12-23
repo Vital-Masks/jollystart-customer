@@ -42,14 +42,19 @@ const ContactPage = () => {
             `https://api.jollystarssc.com/api/member/getEmail?email=${response.data.result.email}`
           );
           const isAllowed = res.data.result?.[0];
-          if(isAllowed && (isAllowed.memberApprovalStatus === "APPROVED" || isAllowed.memberApprovalStatus === "PENDING" )){
+          if (
+            isAllowed &&
+            (isAllowed.memberApprovalStatus === "APPROVED" ||
+              isAllowed.memberApprovalStatus === "PENDING")
+          ) {
             localStorage.setItem(
               "userData",
               JSON.stringify(response.data.result)
             );
-            router.push("/info", { scroll: false });
-            resetForm();
-          }else{
+            window.location.href = "/info";
+            // router.push("/info", { scroll: false });
+            // resetForm();
+          } else {
             setError("Access deinied, please contact the admin!");
           }
         } else {

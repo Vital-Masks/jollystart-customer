@@ -115,6 +115,7 @@ const AddClub = ({ schoolDetails }) => {
         >
           <div className="w-full">
             <InputField
+              astric
               label="Club Name"
               name="clubName"
               required={true}
@@ -137,6 +138,7 @@ const AddClub = ({ schoolDetails }) => {
         </div>
         <div className="grid grid-cols-5 gap-3">
           <InputField
+            astric
             label="Team you played"
             name="invloved"
             required={true}
@@ -149,6 +151,7 @@ const AddClub = ({ schoolDetails }) => {
             }
           />
           <InputField
+            astric
             value={formik.values.game}
             onChange={formik.handleChange}
             label="Game"
@@ -160,6 +163,7 @@ const AddClub = ({ schoolDetails }) => {
           />
 
           <InputField
+            astric
             value={formik.values.from}
             onChange={formik.handleChange}
             label="From"
@@ -173,6 +177,7 @@ const AddClub = ({ schoolDetails }) => {
           />
 
           <InputField
+            astric
             min={formik.values.from}
             value={formik.values.to}
             onChange={formik.handleChange}
@@ -184,6 +189,7 @@ const AddClub = ({ schoolDetails }) => {
             max={new Date().toISOString().split("T")[0]}
           />
           <InputField
+            astric
             value={formik.values.role}
             onChange={formik.handleChange}
             label="Role"

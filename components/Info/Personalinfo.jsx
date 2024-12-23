@@ -82,8 +82,7 @@ const Personalinfo = ({ memberData }) => {
       updateData(values, memberData._id);
     },
   });
-  const Maritaloptions = ['Single', "Married", "Divorced"
-  ];
+  const Maritaloptions = ["Single", "Married", "Divorced"];
   return (
     <div className="w-full bg-white border rounded-xl">
       <div className="flex flex-col space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5">
@@ -110,9 +109,7 @@ const Personalinfo = ({ memberData }) => {
                     onBlur={() => formik.setFieldTouched("title")}
                     error={
                       formik.touched.title &&
-                      formik.errors.title && (
-                        <p>{formik.errors.title}</p>
-                      )
+                      formik.errors.title && <p>{formik.errors.title}</p>
                     }
                   />
                   <InputField
@@ -225,7 +222,6 @@ const Personalinfo = ({ memberData }) => {
                       }
                     />
                   </div>
-                  
                   <InputField
                     label="Marital Status"
                     name="maritalStatus"
@@ -240,11 +236,8 @@ const Personalinfo = ({ memberData }) => {
                       )
                     }
                     type="select"
-                    options={["Single", "Married", "Divorced"]} // Pass options as an array
+                    options={["single", "married", "divorced"]} // Pass options as an array
                   />
-
-
-
                   <InputField
                     label="User Name"
                     name="userName"

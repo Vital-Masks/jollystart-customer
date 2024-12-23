@@ -14,9 +14,12 @@ import {
 } from "@/services/defaultConst";
 import Image from "next/image";
 
-const PersonalDetail = ({ AllPersonalData, PersonalData, selectedImage, setSelectedImage }) => {
- 
-
+const PersonalDetail = ({
+  AllPersonalData,
+  PersonalData,
+  selectedImage,
+  setSelectedImage,
+}) => {
   const validationSchema = Yup.object().shape({
     membershipCategory: Yup.string().required("Required"),
     title: Yup.string()
@@ -451,9 +454,9 @@ const PersonalDetail = ({ AllPersonalData, PersonalData, selectedImage, setSelec
                   value={formik.values.maritalStatus}
                 >
                   <option value="" label="Select an option" />
-                  <option value={"single"} label={"Single"} />
-                  <option value={"married"} label={"Married"} />
-                  <option value={"divorced"} label={"Divorced"} />
+                  <option value={"Single"} label={"Single"} />
+                  <option value={"Married"} label={"Married"} />
+                  <option value={"Divorced"} label={"Divorced"} />
                 </select>
               </div>
               <InputField
