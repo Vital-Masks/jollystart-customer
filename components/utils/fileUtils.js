@@ -4,7 +4,7 @@ export const convertFileToBase64 = (file) => {
     const reader = new FileReader();
 
     reader.onload = () => {
-      resolve(reader.result.split(',')[1]);
+      resolve(reader.result.split(",")[1]);
     };
 
     reader.onerror = (error) => {
