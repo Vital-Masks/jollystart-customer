@@ -42,6 +42,9 @@ const MemberRegisterForm = () => {
     console.log(PersonalData, SchoolData, paymentlData, status);
 
     var allData = Object.assign({}, PersonalData, SchoolData, payObj, status);
+    allData['gallery'] = allData.file;
+    delete allData.file;
+    
     const handlePostRequest = async () => {
       try {
         setLoading(true);

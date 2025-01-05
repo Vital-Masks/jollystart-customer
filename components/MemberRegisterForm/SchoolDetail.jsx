@@ -94,9 +94,7 @@ const SchoolDetail = ({
   };
 
   const initialValues3 = {
-    file: SchoolData.file
-    ? SchoolData.file
-    : "",
+    file: SchoolData.file ? SchoolData.file : "",
   };
 
   const [items, setItems] = React.useState([]);
@@ -157,13 +155,14 @@ const SchoolDetail = ({
     initialValues: initialValues3,
     validationSchema: validationSchema3,
     onSubmit: async (values, { resetForm }) => {
-      console.log(">>", values)
-      var base64String = "";
+      var base64String = [];
       try {
-        if (SchoolData) {
+        if (!Object.keys(SchoolData).length === 0) {
           base64String = values.file;
-        }else{
-          base64String = await convertFileToBase64(values.file);
+        } else {
+          base64String = await Promise.all(
+            values.file.map((file) => convertFileToBase64(file))
+          );
         }
         let obj = {
           schoolDetails: items,
@@ -172,7 +171,7 @@ const SchoolDetail = ({
         };
         if (SchoolData) {
           if (items && items.length > 0) {
-            AllSchoollData(obj);
+            AllSchoollData(obj);  
             if (values.file) {
               setStep(3);
             } else {
@@ -222,7 +221,6 @@ const SchoolDetail = ({
 
     if (SchoolData) {
       if (items && items.length > 0) {
-        console.log(">>", obj);
         if (formik3.values.file) {
           setStep(3);
         } else {
@@ -506,20 +504,25 @@ const SchoolDetail = ({
             Add picture
           </label>
           <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
-            <div className="text-center">
-              {selectedImage2 ? (
-                <Image
-                  src={selectedImage2}
-                  width={200}
-                  height={200}
-                  alt="Preview"
-                />
-              ) : (
-                <PhotoIcon
-                  className="w-12 h-12 mx-auto text-gray-300"
-                  aria-hidden="true"
-                />
-              )}
+            <div className="text-center items-center justify-center flex flex-col">
+              <div className="flex items-center gap-2 justify-center text-center">
+                {selectedImage2 ? (
+                  selectedImage2.map((img, i) => (
+                    <Image
+                      key={i}
+                      src={img}
+                      width={200}
+                      height={200}
+                      alt="Preview"
+                    />
+                  ))
+                ) : (
+                  <PhotoIcon
+                    className="w-12 h-12 mx-auto text-gray-300"
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
               <div className="flex mt-4 text-sm leading-6 text-gray-600">
                 <label
                   htmlFor="file"
@@ -531,12 +534,21 @@ const SchoolDetail = ({
                     name="file"
                     type="file"
                     className="sr-only"
+                    multiple
                     onChange={(event) => {
-                      const file = event.currentTarget.files[0];
-                      if (file && file.type.startsWith("image/")) {
-                        formik3.setFieldValue("file", file);
-                        setSelectedImage2(URL.createObjectURL(file));
-                      }
+                      const files = Array.from(event.currentTarget.files);
+                      const obj = [];
+                      const obj2 = [];
+                      files.map((file) => {
+                        obj.push(URL.createObjectURL(file));
+                        obj2.push(file);
+                      });
+                      formik3.setFieldValue("file", obj2);
+                      setSelectedImage2(obj);
+                      // if (file && file.type.startsWith("image/")) {
+                      //   formik3.setFieldValue("file", file);
+                      //   setSelectedImage2(URL.createObjectURL(file));
+                      // }
                     }}
                     accept="image/*"
                   />
