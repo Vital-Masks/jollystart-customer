@@ -1,5 +1,6 @@
 // utils/fileUtils.js
 export const convertFileToBase64 = (file) => {
+  console.log(file);
   
   return new Promise((resolve, reject) => {
     if (typeof file === "string") {

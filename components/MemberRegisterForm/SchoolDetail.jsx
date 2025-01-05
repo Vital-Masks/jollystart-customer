@@ -156,6 +156,7 @@ const SchoolDetail = ({
     validationSchema: validationSchema3,
     onSubmit: async (values, { resetForm }) => {
       var base64String = [];
+   
       try {
         if (!Object.keys(SchoolData).length === 0) {
           base64String = values.file;
@@ -164,11 +165,15 @@ const SchoolDetail = ({
             values.file.map((file) => convertFileToBase64(file))
           );
         }
+        base64String = base64String.map((data) =>
+          data.startsWith("data:image/png;base64,") ? data : `data:image/png;base64,${data}`
+        );
         let obj = {
           schoolDetails: items,
           clubDetails: items2,
           file: base64String,
         };
+        console.log(obj,"ooobbjjj");
         if (SchoolData) {
           if (items && items.length > 0) {
             AllSchoollData(obj);  
@@ -189,14 +194,9 @@ const SchoolDetail = ({
   });
 
   const handleEditItem = (index) => {
-    console.log(index,items);
-    
     setEditIndex(index);
     const { schoolName, participated, game, from, to, role } = items[index];
-    console.log(schoolName,"===");
-    formik.setValues({ schoolName,participated,game,from,to,role});
-
-    // formik.setValues({ schoolName, participated, game, from, to, role });
+    formik.setValues({ schoolName, participated, game, from, to, role });
   };
 
   const handleEditItem2 = (index) => {
@@ -359,7 +359,7 @@ const SchoolDetail = ({
                 }
               />
             </div>
-zxzxzxzxzxzx
+
             {items && items.length > 0 && (
               <div className="mt-10">
                 <Table
@@ -410,7 +410,7 @@ zxzxzxzxzxzx
                     height: "45px",
                   }}
                 >
-                  {editIndex !== null ? "Edit" : "Add"}
+                  {editIndex2 !== null ? "Edit" : "Add"}
                 </button>
               </div>
             </div>
@@ -545,8 +545,10 @@ zxzxzxzxzxzx
                       const obj = [];
                       const obj2 = [];
                       files.map((file) => {
-                        obj.push(URL.createObjectURL(file));
+                        console.log(file,"values.file22");
+                        
                         obj2.push(file);
+                        obj.push(URL.createObjectURL(file));
                       });
                       formik3.setFieldValue("file", obj2);
                       setSelectedImage2(obj);
@@ -577,7 +579,6 @@ zxzxzxzxzxzx
           <button
             type="submit"
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
-            
           >
             Next
           </button>

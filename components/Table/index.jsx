@@ -91,6 +91,7 @@ const Table = (props) => {
                           href="#"
                           className="text-indigo-600 hover:text-indigo-900"
                           onClick={() => handleEditItem(index)}
+                           type="button"
                         >
                           Edit<span className="sr-only">, {person.name}</span>
                         </button>
@@ -102,6 +103,7 @@ const Table = (props) => {
                           onClick={() => handleDeleteItem(index)}
                           href="#"
                           className="text-red-500 hover:text-red-700"
+                           type="button"
                         >
                           Delete<span className="sr-only">, {person.name}</span>
                         </button>
