@@ -29,16 +29,18 @@ body {
   }
 }
 .title-truncated {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  transition: all 0.3s ease;
 }
 
-
-
-
+.title-truncated:hover {
+  white-space: normal; /* Allow wrapping when hovered */
+  /* overflow: visible; Make the overflow visible */
+  /* text-overflow: unset; Disable text overflow */
+}
 
 .loaderBody {
   display: flex;
