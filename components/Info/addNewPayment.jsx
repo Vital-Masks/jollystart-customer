@@ -9,9 +9,10 @@ import Image from "next/image";
 import { membershipPaymentdata } from "@/services/fixedDatas";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MembershipTypeDetails } from "../utils/variable";
 
 const PaymentDetail = (props) => {
-  const { Loading, PersonalData } = props;
+  const { Loading, PersonalData, afterpayment } = props;
   const [selectedImage3, setSelectedImage3] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -80,6 +81,21 @@ const PaymentDetail = (props) => {
       console.log("Submitted values:", values);
 
       var base64String = "";
+      if (values) {
+        var img = values.paymentDetails;
+        try {
+          base64String = await convertFileToBase64(values.paymentSlip);
+        } catch (error) {
+          base64String = img.paymentSlip;
+          console.log(error, "error");
+        }
+      } else {
+        try {
+          base64String = await convertFileToBase64(values.paymentSlip);
+        } catch (error) {
+          console.log(error, "error");
+        }
+      }
 
       let paymentData = {
         paymentDetails: {
@@ -102,11 +118,7 @@ const PaymentDetail = (props) => {
   const postData = async (dataObj) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/memberPayment/${
-          dataObj && dataObj.paymentDetails
-            ? dataObj.paymentDetails.memberId
-            : ""
-        }`,
+        `http://localhost:3000/api/payment`,
         {
           method: "POST",
           headers: {
@@ -119,7 +131,8 @@ const PaymentDetail = (props) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      toast.success("Successfully Added");
+      afterpayment()
+      toast.success("Payment Successfull");
 
       const data = await response.json();
       console.log("POST request successful. Response:", data);
@@ -136,18 +149,19 @@ const PaymentDetail = (props) => {
   };
 
   useEffect(() => {
-    if (PersonalData.membershipCategory) {
+    console.log("Sdsd");
+    
+    if (formik.values.membershipCategory) {
       formik.setValues((prevState) => ({
         ...prevState,
-        membershipCategory: PersonalData.membershipCategory,
         total: membershipPaymentdata.find(
           (x) =>
             x.title.toLowerCase() ===
-            PersonalData.membershipCategory.toLowerCase()
+            formik.values.membershipCategory.toLowerCase()
         ).price,
       }));
     }
-  }, [PersonalData]);
+  }, [formik.values.membershipCategory]);
 
   return (
     <form
@@ -161,21 +175,28 @@ const PaymentDetail = (props) => {
         <div className="px-10 my-10">
           <div className="md:grid md:grid-cols-4 gap-3">
             <div className="md:grid md:grid-cols-3 col-span-3 gap-2 space-y-4 md:space-y-0">
-              <InputField
-                disabled
-                label="Member Type"
-                name="membershipCategory"
+            <div>
+              <label htmlFor={"membershipCategory"} className="ml-2">
+                {"Membership Category"}
+                {true && <span className="text-red-500">*</span>}
+              </label>
+              <select
                 required={true}
-                value={formik.values.membershipCategory}
-                onChange={formik.handleChange}
                 onBlur={() => formik.setFieldTouched("membershipCategory")}
-                error={
-                  formik.touched.membershipCategory &&
-                  formik.errors.membershipCategory && (
-                    <p>{formik.errors.membershipCategory}</p>
-                  )
-                }
-              />
+                className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
+                id="membershipCategory"
+                name="membershipCategory"
+                onChange={formik.handleChange}
+                value={formik.values.membershipCategory}
+              >
+                <option value="" label="Select an option" />
+                <option value={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} label={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} />
+                <option value={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} label={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} />
+                <option value={MembershipTypeDetails.ORDINARY_MEMBERS} label={MembershipTypeDetails.ORDINARY_MEMBERS} />
+                <option value={MembershipTypeDetails.PLAYING_MEMBER} label={MembershipTypeDetails.PLAYING_MEMBER} />
+              </select>
+              </div>
+             
               <InputField
                 label="Bank"
                 name="bank"
@@ -213,7 +234,7 @@ const PaymentDetail = (props) => {
                     <p>{formik.errors.mobileNumber}</p>
                   )
                 }
-                // placeholder="075XXXXXXXX"
+              // placeholder="075XXXXXXXX"
               />
               <InputField
                 disabled
@@ -241,6 +262,8 @@ const PaymentDetail = (props) => {
                   formik.touched.date &&
                   formik.errors.date && <p>{formik.errors.date}</p>
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
             </div>
             <div className="mt-5">

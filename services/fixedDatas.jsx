@@ -18,7 +18,7 @@ export const membershipPaymentdata = [
       link: "",
     },
     {
-      title: "Playing members",
+      title: "Playing MEMBER",
       para: "Entrance Fee: 300 LKR",
       price: "300 LKR",
       link: "",

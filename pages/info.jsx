@@ -10,27 +10,7 @@ import { isEmpty, isUserData } from "@/utils/utils";
 const Info = () => {
   const [memberData, setmemberData] = useState({});
   const [Loading, setLoading] = useState(true);
-  const tabs = [
-    {
-      name: "Personal Info",
-      component: <Personalinfo memberData={memberData} />,
-    },
-
-    {
-      name: "Payment Info",
-      component: <Paymentinfo memberData={memberData} />,
-    },
-    {
-      name: "Occupation Info",
-      component: <Occupationinfo memberData={memberData} />,
-    },
-    {
-      name: "School & Club",
-      component: <Schoolinfo memberData={memberData} />,
-    },
-    { name: "Clubfiles", component: <Clubfiles memberData={memberData} /> },
-  ];
-  const [currentTab, setCurrentTab] = useState(tabs[0].name);
+ 
   var userDataStrings = {};
   if (typeof window !== "undefined") {
      userDataStrings = localStorage.getItem("userData");
@@ -92,11 +72,33 @@ const Info = () => {
   useEffect(() => {
     fetchUserData(userDataStrings);
   }, [userDataStrings]);
-
+const afterpayment =()=>{
+  fetchUserData(userDataStrings);
+}
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+  const tabs = [
+    {
+      name: "Personal Info",
+      component: <Personalinfo memberData={memberData} />,
+    },
 
+    {
+      name: "Payment Info",
+      component: <Paymentinfo memberData={memberData} afterpayment={afterpayment}/>,
+    },
+    {
+      name: "Occupation Info",
+      component: <Occupationinfo memberData={memberData} />,
+    },
+    {
+      name: "School & Club",
+      component: <Schoolinfo memberData={memberData} />,
+    },
+    { name: "Clubfiles", component: <Clubfiles memberData={memberData} /> },
+  ];
+  const [currentTab, setCurrentTab] = useState(tabs[0].name);
   return (
     <div className="bg-white p-5">
       {!Loading && !isEmpty(memberData) ? (

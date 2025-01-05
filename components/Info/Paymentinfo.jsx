@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import HomeBanner from "@/components/HomeBanner";
 import Container from "@/components/Shared/Container";
@@ -10,8 +10,13 @@ import SchoolinfoCard from "./InfoCard";
 import { MembershipTypeDetails } from "@/services/defaultConst";
 import AddNewPaymentDetail from "./addNewPayment.jsx";
 
-const Paymentinfo = ({ memberData }) => {
+const Paymentinfo = ({ memberData, afterpayment }) => {
   const paymentDetails = memberData.paymentDetails || [];
+  const [Open, setOpen] = useState(false)
+  const closeTable=()=>{
+    setOpen(false)
+    afterpayment()
+  }
   // const paymentDetails = memberData.paymentDetails || [];
   return (
     <div className="w-full bg-white border rounded-xl">
@@ -33,26 +38,32 @@ const Paymentinfo = ({ memberData }) => {
           </div>
         </div>
 
-        {/* {(memberData &&
+        {(memberData &&
           memberData.membershipCategory !==
-            MembershipTypeDetails.ORDINARY_MEMBERS) ||
+          MembershipTypeDetails.ORDINARY_MEMBERS) ||
           (MembershipTypeDetails.PLAYING_MEMBER && (
             <div className="flex items-center justify-center mb-10">
               <button
-                // onClick={() => setStep(2)}
+                onClick={() => setOpen(!Open)}
                 className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-72"
               >
-                Pay Member Fee
+                {
+                  !Open ? "Pay Member Fee " : "Cancel"
+                }
+
               </button>
             </div>
-          ))} */}
+          ))}
       </div>
       <br />
       <br />
       <br />
+      <div
+        onClick={afterpayment}>
+      </div>
       <br />
       <br />
-      {/* <AddNewPaymentDetail PersonalData={memberData} /> */}
+      {Open && <AddNewPaymentDetail PersonalData={memberData} afterpayment={closeTable} />}
     </div>
   );
 };

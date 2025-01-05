@@ -166,6 +166,8 @@ const Personalinfo = ({ memberData }) => {
                         <p>{formik.errors.dateOfBirth}</p>
                       )
                     }
+                    max={new Date().toISOString().split("T")[0]}
+
                   />
                   <InputField
                     label="E-Mail Address"
