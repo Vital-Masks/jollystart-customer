@@ -189,9 +189,14 @@ const SchoolDetail = ({
   });
 
   const handleEditItem = (index) => {
+    console.log(index,items);
+    
     setEditIndex(index);
     const { schoolName, participated, game, from, to, role } = items[index];
-    formik.setValues({ schoolName, participated, game, from, to, role });
+    console.log(schoolName,"===");
+    formik.setValues({ schoolName,participated,game,from,to,role});
+
+    // formik.setValues({ schoolName, participated, game, from, to, role });
   };
 
   const handleEditItem2 = (index) => {
@@ -354,7 +359,7 @@ const SchoolDetail = ({
                 }
               />
             </div>
-
+zxzxzxzxzxzx
             {items && items.length > 0 && (
               <div className="mt-10">
                 <Table
@@ -572,6 +577,7 @@ const SchoolDetail = ({
           <button
             type="submit"
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52"
+            
           >
             Next
           </button>

@@ -19,7 +19,7 @@ const PaymentDetail = (props) => {
     setSelectedImage3,
   } = props;
   const validationSchema = Yup.object().shape({
-    paymentCategory: Yup.string()
+    membershipCategory: Yup.string()
       .matches(/^\S.*$/, "Cannot start with a space")
       .required("Required")
       .min(3, "Minimum 3 letter")
@@ -67,7 +67,7 @@ const PaymentDetail = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      paymentCategory:
+      membershipCategory:
         PersonalData && PersonalData.membershipCategory
           ? PersonalData.membershipCategory
           : "",
@@ -115,7 +115,7 @@ const PaymentDetail = (props) => {
 
       let paymentData = {
         paymentDetails: {
-          paymentCategory: values.paymentCategory,
+          membershipCategory: values.membershipCategory,
           bank: values.bank,
           branch: values.branch,
           total: values.total,
@@ -159,7 +159,7 @@ const PaymentDetail = (props) => {
     let data = formik.values;
     let paymentData = {
       paymentDetails: {
-        paymentCategory: data.paymentCategory,
+        membershipCategory: data.membershipCategory,
         bank: data.bank,
         branch: data.branch,
         total: data.total,
@@ -179,7 +179,7 @@ const PaymentDetail = (props) => {
     if (PersonalData.membershipCategory) {
       formik.setValues((prevState) => ({
         ...prevState,
-        paymentCategory: PersonalData.membershipCategory,
+        membershipCategory: PersonalData.membershipCategory,
         total: membershipPaymentdata.find(
           (x) =>
             x.title.toLowerCase() ===
@@ -215,15 +215,15 @@ const PaymentDetail = (props) => {
               <InputField
                 disabled
                 label="Member Type"
-                name="paymentCategory"
+                name="membershipCategory"
                 required={true}
-                value={formik.values.paymentCategory}
+                value={formik.values.membershipCategory}
                 onChange={formik.handleChange}
-                onBlur={() => formik.setFieldTouched("paymentCategory")}
+                onBlur={() => formik.setFieldTouched("membershipCategory")}
                 error={
-                  formik.touched.paymentCategory &&
-                  formik.errors.paymentCategory && (
-                    <p>{formik.errors.paymentCategory}</p>
+                  formik.touched.membershipCategory &&
+                  formik.errors.membershipCategory && (
+                    <p>{formik.errors.membershipCategory}</p>
                   )
                 }
               />

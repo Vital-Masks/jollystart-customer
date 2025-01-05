@@ -1,6 +1,11 @@
 // utils/fileUtils.js
 export const convertFileToBase64 = (file) => {
+  
   return new Promise((resolve, reject) => {
+    if (typeof file === "string") {
+      resolve(file);
+      return;
+    }
     const reader = new FileReader();
 
     reader.onload = () => {
