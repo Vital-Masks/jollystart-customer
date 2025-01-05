@@ -95,6 +95,19 @@ const LatestNewsOne = () => {
           ) : (
             <>
               {<NewNewsCard SingleNew={SingleNew} />}
+              <br/>
+              <br/>
+              <br/>   <br/>
+              <br/>
+              <br/>   <br/>
+              <br/>
+              <br/>
+              <div className="m-auto w-full h2 bold"  style={{
+                fontSize:'22px',
+                textAlign:'center',
+                fontWeight:'bolder'
+              }}>Latest News</div>
+              <br/>
               <div className="flex items-center text-red justify-center gap-5 overflow-auto flex-wrap lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 md:justify-center   p-5">
                 {AllNewsData &&
                   AllNewsData.map((item, index) => (
@@ -154,7 +167,12 @@ const LatestNewsCard = ({ data }) => {
           {" "}
           <DateDisplay dateString={updated_at} />
         </div>
-        <h1 className="mb-5 text-xl font-bold">{title}</h1>
+        <Link
+          href={`/latest-news/${_id}`}
+          target="blank"
+          className="mb-5 text-sm font-bold text-blue-900"
+        >
+        <h1 className="mb-5 text-xl font-bold title-truncated ">{title}</h1></Link>
         <div className="mb-5 text-sm">
           {/* <div style={{
            whiteSpace: 'nowrap',

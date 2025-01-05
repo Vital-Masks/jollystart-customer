@@ -45,7 +45,7 @@ const validationSchema2 = Yup.object({
     .required("Required")
     .min(3, "Minimum 3 letter")
     .max(40, "Max 40 Letter"),
-  invloved: Yup.string()
+  involved: Yup.string()
     .matches(/^\S.*$/, "Cannot start with a space")
     .required("Required")
     .min(3, "Minimum 3 letter")
@@ -86,7 +86,7 @@ const SchoolDetail = ({
 
   const initialValues2 = {
     clubName: "",
-    invloved: "",
+    involved: "",
     game: "",
     from: "",
     to: "",
@@ -201,8 +201,8 @@ const SchoolDetail = ({
 
   const handleEditItem2 = (index) => {
     setEditIndex2(index);
-    const { clubName, invloved, game, from, to, role } = items2[index];
-    formik2.setValues({ clubName, invloved, game, from, to, role });
+    const { clubName, involved, game, from, to, role } = items2[index];
+    formik2.setValues({ clubName, involved, game, from, to, role });
   };
 
   const handleDeleteItem = (index) => {
@@ -290,7 +290,7 @@ const SchoolDetail = ({
                     height: "45px",
                   }}
                 >
-                  {editIndex !== null ? "Edit" : "Add"}
+                  {editIndex !== null ? "Save" : "Add"}
                 </button>
               </div>
             </div>
@@ -410,21 +410,21 @@ const SchoolDetail = ({
                     height: "45px",
                   }}
                 >
-                  {editIndex2 !== null ? "Edit" : "Add"}
+                  {editIndex2 !== null ? "Save" : "Add"}
                 </button>
               </div>
             </div>
             <div className="md:grid md:grid-cols-5 gap-3 space-y-4 md:space-y-0">
               <InputField
                 label="Team you played"
-                name="invloved"
+                name="involved"
                 required={true}
-                value={formik2.values.invloved}
+                value={formik2.values.involved}
                 onChange={formik2.handleChange}
                 error={
-                  formik2.errors.invloved &&
-                  formik2.touched.invloved &&
-                  formik2.errors.invloved
+                  formik2.errors.involved &&
+                  formik2.touched.involved &&
+                  formik2.errors.involved
                 }
                 astric
               />

@@ -94,44 +94,32 @@ const LatestNewsCard = ({ data }) => {
 
   return (
     <div className="w-full max-w-xs border-2 rounded-lg shrink-0 latestnewcard">
-      <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
-        {/* <img
-           
-            alt="Mountain"
-          /> */}
-        <Image
-          src={`data:image/png;base64,${coverImage}`}
-          width={720}
-          height={720}
-          className="object-cover w-full h-full rounded-t-lg"
-          alt="news -dumbnail"
-        />
-      </div>
-      <div className="p-5 text-black">
-        <div className="mb-5 text-sm text-slate-400">
-          <DateDisplay dateString={updated_at} />
-        </div>
-        <h1 className="mb-5 text-xl font-bold">{title}</h1>
-        <div className="mb-5 text-sm">
-          {/* <div style={{
-           whiteSpace: 'nowrap',
-           width: '400px',
-           overflow: 'hidden',
-           textOverflow: 'ellipsis',
-        }} dangerouslySetInnerHTML={{ __html: description }} /> */}
-
-          {/* TruncatedParagraph */}
-          {/* <TruncatedParagraph text={description} maxLength={40} /> */}
-          {/* <p>{description}</p> */}
-          {/* <p>{description}</p> */}
-        </div>
-        <Link
-          href={`/latest-news/${_id}`}
-          className="mb-5 text-sm font-bold text-blue-900"
-        >
-          Read More
-        </Link>
-      </div>
+    <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
+      <Image
+        src={`data:image/png;base64,${coverImage}`}
+        width={720}
+        height={720}
+        className="object-cover w-full h-full rounded-t-lg"
+        alt="news-thumbnail"
+      />
     </div>
+    <div className="p-5 text-black">
+      <div className="mb-5 text-sm text-slate-400">
+        <DateDisplay dateString={updated_at} />
+      </div>
+      <Link href={`/latest-news/${_id}`} className="mb-5 text-sm font-bold text-blue-900">
+        <h1 className="mb-5 text-xl font-bold title-truncated">
+          damdflkaflknasasfasdfsndfjnsdkfjnsjdbf
+        </h1>
+      </Link>
+      <div className="mb-5 text-sm">
+        {/* Your other content */}
+      </div>
+      <Link href={`/latest-news/${_id}`} className="mb-5 text-sm font-bold text-blue-900">
+        Read More
+      </Link>
+    </div>
+  </div>
+  
   );
 };

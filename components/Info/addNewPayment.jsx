@@ -115,8 +115,39 @@ const PaymentDetail = (props) => {
       console.log(paymentData);
     },
   });
+
+  const updateMembershipCategory = async (data) => {
+    alert("sd;lfjsdhf")
+    try {
+      const userDataString = localStorage.getItem("userData");
+      // Parse the userData JSON string
+      const userData = JSON.parse(userDataString);
+      const response = await fetch(
+        `http://localhost:3000/api/member/` + userData._id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+    } catch (error) {
+      console.log(error, "eeee");
+
+    }
+  }
+
   const postData = async (dataObj) => {
     try {
+      const userDataString = localStorage.getItem("userData");
+      // Parse the userData JSON string
+      const userData = JSON.parse(userDataString);
+      let membershipCategory1 = formik.values.membershipCategory
+      let data1 = {
+        membershipCategory: membershipCategory1.toUpperCase()
+      }
       const response = await fetch(
         `http://localhost:3000/api/payment`,
         {
@@ -127,10 +158,22 @@ const PaymentDetail = (props) => {
           body: JSON.stringify(dataObj.paymentDetails),
         }
       );
+      const response2 = await fetch(
+        `http://localhost:3000/api/member/` + userData._id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data1),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+     
+
       afterpayment()
       toast.success("Payment Successfull");
 
@@ -150,7 +193,7 @@ const PaymentDetail = (props) => {
 
   useEffect(() => {
     console.log("Sdsd");
-    
+
     if (formik.values.membershipCategory) {
       formik.setValues((prevState) => ({
         ...prevState,
@@ -175,28 +218,28 @@ const PaymentDetail = (props) => {
         <div className="px-10 my-10">
           <div className="md:grid md:grid-cols-4 gap-3">
             <div className="md:grid md:grid-cols-3 col-span-3 gap-2 space-y-4 md:space-y-0">
-            <div>
-              <label htmlFor={"membershipCategory"} className="ml-2">
-                {"Membership Category"}
-                {true && <span className="text-red-500">*</span>}
-              </label>
-              <select
-                required={true}
-                onBlur={() => formik.setFieldTouched("membershipCategory")}
-                className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
-                id="membershipCategory"
-                name="membershipCategory"
-                onChange={formik.handleChange}
-                value={formik.values.membershipCategory}
-              >
-                <option value="" label="Select an option" />
-                <option value={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} label={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} />
-                <option value={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} label={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} />
-                <option value={MembershipTypeDetails.ORDINARY_MEMBERS} label={MembershipTypeDetails.ORDINARY_MEMBERS} />
-                <option value={MembershipTypeDetails.PLAYING_MEMBER} label={MembershipTypeDetails.PLAYING_MEMBER} />
-              </select>
+              <div>
+                <label htmlFor={"membershipCategory"} className="ml-2">
+                  {"Membership Category"}
+                  {true && <span className="text-red-500">*</span>}
+                </label>
+                <select
+                  required={true}
+                  onBlur={() => formik.setFieldTouched("membershipCategory")}
+                  className="w-full h-12 px-4 py-2 bg-transparent border rounded-full"
+                  id="membershipCategory"
+                  name="membershipCategory"
+                  onChange={formik.handleChange}
+                  value={formik.values.membershipCategory}
+                >
+                  <option value="" label="Select an option" />
+                  <option value={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} label={MembershipTypeDetails.RESIDENT_LIFE_MEMBER} />
+                  <option value={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} label={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} />
+                  <option value={MembershipTypeDetails.ORDINARY_MEMBERS} label={MembershipTypeDetails.ORDINARY_MEMBERS} />
+                  <option value={MembershipTypeDetails.PLAYING_MEMBER} label={MembershipTypeDetails.PLAYING_MEMBER} />
+                </select>
               </div>
-             
+
               <InputField
                 label="Bank"
                 name="bank"

@@ -13,7 +13,7 @@ import AddNewPaymentDetail from "./addNewPayment.jsx";
 const Paymentinfo = ({ memberData, afterpayment }) => {
   const paymentDetails = memberData.paymentDetails || [];
   const [Open, setOpen] = useState(false)
-  const closeTable=()=>{
+  const closeTable = () => {
     setOpen(false)
     afterpayment()
   }
@@ -38,22 +38,21 @@ const Paymentinfo = ({ memberData, afterpayment }) => {
           </div>
         </div>
 
-        {(memberData &&
-          memberData.membershipCategory !==
-          MembershipTypeDetails.ORDINARY_MEMBERS) ||
-          (MembershipTypeDetails.PLAYING_MEMBER && (
+        {
+          memberData &&
+          memberData.membershipCategory !== MembershipTypeDetails.RESIDENT_LIFE_MEMBER &&
+          memberData.membershipCategory !== MembershipTypeDetails.OVERSEAS_LIFE_MEMBER && (
             <div className="flex items-center justify-center mb-10">
               <button
                 onClick={() => setOpen(!Open)}
                 className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-72"
               >
-                {
-                  !Open ? "Pay Member Fee " : "Cancel"
-                }
-
+                {!Open ? "Pay Member Fee" : "Cancel"}
               </button>
             </div>
-          ))}
+          )
+        }
+
       </div>
       <br />
       <br />

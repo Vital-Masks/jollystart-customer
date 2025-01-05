@@ -71,7 +71,7 @@ const Table = (props) => {
                       {table === "2" ? person.clubName : person.schoolName}
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                      {table === "2" ? person.invloved : person.participated}
+                      {table === "2" ? person.involved : person.participated}
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.game}

@@ -8,7 +8,7 @@ import * as Yup from "yup";
 
 const validationSchema = Yup.object({
   clubName: Yup.string().required("required"),
-  invloved: Yup.string().required("required"),
+  involved: Yup.string().required("required"),
   game: Yup.string().required("required"),
   from: Yup.string().required("required"),
   to: Yup.string().required("required"),
@@ -18,7 +18,7 @@ const AddClub = ({ schoolDetails }) => {
   const [Loading, setLoading] = useState(false);
   const initialValues = {
     clubName: "",
-    invloved: "",
+    involved: "",
     game: "",
     from: "",
     to: "",
@@ -90,8 +90,8 @@ const AddClub = ({ schoolDetails }) => {
   };
   const handleEditItem = (index) => {
     setEditIndex(index);
-    const { clubName, invloved, game, from, to, role } = items[index];
-    formik.setValues({ clubName, invloved, game, from, to, role });
+    const { clubName, involved, game, from, to, role } = items[index];
+    formik.setValues({ clubName, involved, game, from, to, role });
   };
 
   const handleDeleteItem = (index) => {
@@ -140,14 +140,14 @@ const AddClub = ({ schoolDetails }) => {
           <InputField
             astric
             label="Team you played"
-            name="invloved"
+            name="involved"
             required={true}
-            value={formik.values.invloved}
+            value={formik.values.involved}
             onChange={formik.handleChange}
             error={
-              formik.errors.invloved &&
-              formik.touched.invloved &&
-              formik.errors.invloved
+              formik.errors.involved &&
+              formik.touched.involved &&
+              formik.errors.involved
             }
           />
           <InputField
