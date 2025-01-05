@@ -32,14 +32,14 @@ const ContactPage = () => {
       try {
         // Perform the API request (replace the URL with your actual API endpoint)
         const response = await axios.post(
-          "https://api.jollystarssc.com/api/member/login",
+          "http://localhost:3000/api/member/login",
           values
         );
 
         // Handle success
         if (!isEmpty(response.data.result)) {
           const res = await axios.get(
-            `https://api.jollystarssc.com/api/member/getEmail?email=${response.data.result.email}`
+            `http://localhost:3000/api/member/getEmail?email=${response.data.result.email}`
           );
           const isAllowed = res.data.result?.[0];
           if (

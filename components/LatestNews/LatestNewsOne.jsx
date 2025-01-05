@@ -17,7 +17,7 @@ const LatestNewsOne = () => {
   const [Loading2, setLoading2] = useState(true);
   const fetchUserData = () => {
     try {
-      fetch(`https://api.jollystarssc.com/api/newsManagement/getAllNews`)
+      fetch(`http://localhost:3000/api/newsManagement/getAllNews`)
         .then((fetchResponse) => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {
@@ -45,7 +45,7 @@ const LatestNewsOne = () => {
   };
   const fetchUserSingleData = () => {
     try {
-      fetch(`https://api.jollystarssc.com/api/newsManagement/${id}`)
+      fetch(`http://localhost:3000/api/newsManagement/${id}`)
         .then((fetchResponse) => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {

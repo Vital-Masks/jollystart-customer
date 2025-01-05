@@ -65,7 +65,7 @@ const AddSchool = ({ schoolDetails }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://api.jollystarssc.com/api/member/" + userData._id,
+        "http://localhost:3000/api/member/" + userData._id,
         {
           method: "PUT",
           headers: {

@@ -102,7 +102,7 @@ const PaymentDetail = (props) => {
   const postData = async (dataObj) => {
     try {
       const response = await fetch(
-        `https://api.jollystarssc.com/api/memberPayment/${
+        `http://localhost:3000/api/memberPayment/${
           dataObj && dataObj.paymentDetails
             ? dataObj.paymentDetails.memberId
             : ""

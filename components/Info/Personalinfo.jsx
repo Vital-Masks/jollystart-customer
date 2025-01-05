@@ -36,7 +36,7 @@ const Personalinfo = ({ memberData }) => {
     try {
       // Perform the API request (replace the URL with your actual API endpoint)
       const response = await axios.put(
-        "https://api.jollystarssc.com/api/member/" + id,
+        "http://localhost:3000/api/member/" + id,
         obj
       );
       console.log(response);
@@ -236,7 +236,7 @@ const Personalinfo = ({ memberData }) => {
                       )
                     }
                     type="select"
-                    options={["single", "married", "divorced"]} // Pass options as an array
+                    options={["Single", "Married", "Divorced"]} // Pass options as an array
                   />
                   <InputField
                     label="User Name"

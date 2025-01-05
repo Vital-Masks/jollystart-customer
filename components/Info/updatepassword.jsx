@@ -37,7 +37,7 @@ export default function ChangePasswordForm({ memberData }) {
     try {
       // Perform the API request (replace the URL with your actual API endpoint)
       const response = await axios.put(
-        "https://api.jollystarssc.com/api/member/"+id,
+        "http://localhost:3000/api/member/"+id,
         data
       );
       console.log(response);
