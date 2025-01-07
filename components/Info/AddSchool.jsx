@@ -104,7 +104,8 @@ const AddSchool = ({ schoolDetails }) => {
     <form onSubmit={formik.handleSubmit}>
       <div className="px-10 my-10">
         <div
-          className="flex items-end gap-4 mb-10"
+          className="flex flex-col sm:flex-row items-end gap-4 mb-10"
+
           style={{
             alignItems:
               formik.errors.schoolName && formik.touched.schoolName
@@ -134,7 +135,7 @@ const AddSchool = ({ schoolDetails }) => {
             {editIndex !== null ? "Save" : "Add"}
           </button>
         </div>
-        <div className="grid grid-cols-5 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           <InputField
             label="Team you played"
             name="participated"

@@ -63,7 +63,7 @@ const MemberRegisterForm = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        toast.success("Successfully Added");
+        toast.success("User Created");
         router.push("/login/logreg");
 
         const data = await response.json();

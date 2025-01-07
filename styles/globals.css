@@ -29,7 +29,7 @@ body {
   }
 }
 .title-truncated {
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%; /* Ensure it doesn't exceed the container */

@@ -44,9 +44,11 @@ export default function ChangePasswordForm({ memberData }) {
 
       // Handle success
       if (!isEmpty(response.data.result)) {
-        toast.success("successfully changed");
-        localStorage.setItem("userData", JSON.stringify(response.data.result));
-        window.location.href = "/info";
+        toast.success("Password Changed");
+        localStorage.clear();
+
+        // localStorage.setItem("userData", JSON.stringify(response.data.result));
+        window.location.href = "/login/logreg";
       } else {
         toast.error("something went wrong");
       }
@@ -79,8 +81,8 @@ export default function ChangePasswordForm({ memberData }) {
   return (
     <div className="px-10 my-10">
       <form onSubmit={formik.handleSubmit}>
-        <div className="grid grid-cols-4 gap-6">
-          <div className="col-span-1">
+      <div class="flex flex-wrap gap-4">
+      <div className="col-span-1">
             <label
               htmlFor="old_password"
               className="block text-sm font-medium text-gray-700"

@@ -120,6 +120,8 @@ const SchoolDetail = ({
         // If editing, update the existing item
         const updatedItems = [...items];
         updatedItems[editIndex] = { ...values, id: editIndex + 1 };
+        console.log(updatedItems,items,"==================");
+
         setItems(updatedItems);
         setEditIndex(null);
       } else {
@@ -139,7 +141,9 @@ const SchoolDetail = ({
       if (editIndex2 !== null) {
         // If editing, update the existing item
         const updatedItems = [...items2];
-        updatedItems[editIndex] = { ...values, id: editIndex2 + 1 };
+        updatedItems[editIndex2] = { ...values, id: editIndex2 + 1 };
+        console.log(updatedItems,items2,"==================");
+        
         setItems2(updatedItems);
         setEditIndex2(null);
       } else {

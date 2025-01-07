@@ -117,7 +117,9 @@ const GridExample = () => {
         let sample = [];
         sample = userDataFromFetch.result;
 
-        const flatData = sample.map((row) => ({
+        const flatData = sample
+        .filter((row) => row.memberApprovalStatus === "APPROVED")
+        .map((row) => ({
           ...row,
         }));
         setRowData(flatData);

@@ -18,6 +18,7 @@ const ProffImageUploader = ({ gallery }) => {
     const files = Array.from(event.target.files);
     const base64Files = await Promise.all(files.map((file) => toBase64(file)));
     setImages((prev) => [...prev, ...base64Files]);
+    setNewImages((prev) => [...prev, ...base64Files]);
   };
 
   // Remove a new image (not yet uploaded)
@@ -108,7 +109,7 @@ const ProffImageUploader = ({ gallery }) => {
             </p>
           </div>
         </div>
-        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+        {/* <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
           {newImages.map((img, index) => (
             <div key={index} style={{ position: "relative" }}>
               <img
@@ -137,7 +138,7 @@ const ProffImageUploader = ({ gallery }) => {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
         {/* <button
           onClick={handleSubmit}
           style={{
@@ -180,13 +181,15 @@ const ProffImageUploader = ({ gallery }) => {
         </div>
         <br />
         <br />
+       
         <div className="w-full m-auto text-center">
           <button
             className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 m-auto"
             type="submit"
             onClick={handlePut}
+            disabled={newImages &&newImages.length ===0}
           >
-            {Loading ? "Loading... " : "Confirm"}
+            {Loading ? "Loading... " :newImages &&newImages.length ===0 ? "Add Images" :"Confirm"}
           </button>
         </div>
       </div>

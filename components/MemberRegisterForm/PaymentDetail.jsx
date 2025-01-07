@@ -292,6 +292,8 @@ const PaymentDetail = (props) => {
                   formik.touched.date &&
                   formik.errors.date && <p>{formik.errors.date}</p>
                 }
+                max={new Date().toISOString().split("T")[0]}
+
               />
             </div>
             <div className="mt-5">

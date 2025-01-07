@@ -98,161 +98,160 @@ const Personalinfo = ({ memberData }) => {
         {!isEmpty(memberData) && (
           <form onSubmit={formik.handleSubmit}>
             <div className="px-10 my-10 ">
-              <div className="grid grid-cols-4 gap-3">
-                <div className="grid grid-cols-4 col-span-4 gap-3">
-                  <InputField
-                    label="Title"
-                    name="title"
-                    required={true}
-                    value={formik.values.title}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("title")}
-                    error={
-                      formik.touched.title &&
-                      formik.errors.title && <p>{formik.errors.title}</p>
-                    }
-                  />
-                  <InputField
-                    label="First Name"
-                    name="firstName"
-                    required={true}
-                    value={formik.values.firstName}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("firstName")}
-                    error={
-                      formik.touched.firstName &&
-                      formik.errors.firstName && (
-                        <p>{formik.errors.firstName}</p>
-                      )
-                    }
-                  />
-                  <InputField
-                    label="Last Name"
-                    name="lastName"
-                    required={true}
-                    value={formik.values.lastName}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("lastName")}
-                    error={
-                      formik.touched.lastName &&
-                      formik.errors.lastName && <p>{formik.errors.lastName}</p>
-                    }
-                  />
-                  <InputField
-                    label="NIC/ Passport ID"
-                    name="passportNumber"
-                    required={true}
-                    value={formik.values.passportNumber}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("passportNumber")}
-                    error={
-                      formik.touched.passportNumber &&
-                      formik.errors.passportNumber && (
-                        <p>{formik.errors.passportNumber}</p>
-                      )
-                    }
-                  />
-                  <InputField
-                    label="Date of Birth"
-                    name="dateOfBirth"
-                    type="date"
-                    required={true}
-                    value={formik.values.dateOfBirth}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("dateOfBirth")}
-                    error={
-                      formik.touched.dateOfBirth &&
-                      formik.errors.dateOfBirth && (
-                        <p>{formik.errors.dateOfBirth}</p>
-                      )
-                    }
-                    max={new Date().toISOString().split("T")[0]}
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                  />
+                <InputField
+                  label="Title"
+                  name="title"
+                  required={true}
+                  value={formik.values.title}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("title")}
+                  error={
+                    formik.touched.title &&
+                    formik.errors.title && <p>{formik.errors.title}</p>
+                  }
+                />
+                <InputField
+                  label="First Name"
+                  name="firstName"
+                  required={true}
+                  value={formik.values.firstName}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("firstName")}
+                  error={
+                    formik.touched.firstName &&
+                    formik.errors.firstName && (
+                      <p>{formik.errors.firstName}</p>
+                    )
+                  }
+                />
+                <InputField
+                  label="Last Name"
+                  name="lastName"
+                  required={true}
+                  value={formik.values.lastName}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("lastName")}
+                  error={
+                    formik.touched.lastName &&
+                    formik.errors.lastName && <p>{formik.errors.lastName}</p>
+                  }
+                />
+                <InputField
+                  label="NIC/ Passport ID"
+                  name="passportNumber"
+                  required={true}
+                  value={formik.values.passportNumber}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("passportNumber")}
+                  error={
+                    formik.touched.passportNumber &&
+                    formik.errors.passportNumber && (
+                      <p>{formik.errors.passportNumber}</p>
+                    )
+                  }
+                />
+                <InputField
+                  label="Date of Birth"
+                  name="dateOfBirth"
+                  type="date"
+                  required={true}
+                  value={formik.values.dateOfBirth}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("dateOfBirth")}
+                  error={
+                    formik.touched.dateOfBirth &&
+                    formik.errors.dateOfBirth && (
+                      <p>{formik.errors.dateOfBirth}</p>
+                    )
+                  }
+                  max={new Date().toISOString().split("T")[0]}
+
+                />
+                <InputField
+                  label="E-Mail Address"
+                  type="email"
+                  name="email"
+                  required={true}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("email")}
+                  error={
+                    formik.touched.email &&
+                    formik.errors.email && <p>{formik.errors.email}</p>
+                  }
+                />
+                <InputField
+                  label="Mobile Number"
+                  name="phoneNumber"
+                  required={true}
+                  value={formik.values.phoneNumber}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("phoneNumber")}
+                  error={
+                    formik.touched.phoneNumber &&
+                    formik.errors.phoneNumber && (
+                      <p>{formik.errors.phoneNumber}</p>
+                    )
+                  }
+                />
+                <InputField
+                  label="Telephone Number"
+                  name="telephoneNumber"
+                  required={true}
+                  value={formik.values.telephoneNumber}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("telephoneNumber")}
+                  error={
+                    formik.touched.telephoneNumber &&
+                    formik.errors.telephoneNumber && (
+                      <p>{formik.errors.telephoneNumber}</p>
+                    )
+                  }
+                />
+                <div className="col-span-1 lg:grid-cols-4 ">
                   <InputField
-                    label="E-Mail Address"
-                    type="email"
-                    name="email"
+                    label="Resident Address"
+                    name="address"
                     required={true}
-                    value={formik.values.email}
+                    value={formik.values.address}
                     onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("email")}
+                    onBlur={() => formik.setFieldTouched("address")}
                     error={
-                      formik.touched.email &&
-                      formik.errors.email && <p>{formik.errors.email}</p>
+                      formik.touched.address &&
+                      formik.errors.address && <p>{formik.errors.address}</p>
                     }
                   />
-                  <InputField
-                    label="Mobile Number"
-                    name="phoneNumber"
-                    required={true}
-                    value={formik.values.phoneNumber}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("phoneNumber")}
-                    error={
-                      formik.touched.phoneNumber &&
-                      formik.errors.phoneNumber && (
-                        <p>{formik.errors.phoneNumber}</p>
-                      )
-                    }
-                  />
-                  <InputField
-                    label="Telephone Number"
-                    name="telephoneNumber"
-                    required={true}
-                    value={formik.values.telephoneNumber}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("telephoneNumber")}
-                    error={
-                      formik.touched.telephoneNumber &&
-                      formik.errors.telephoneNumber && (
-                        <p>{formik.errors.telephoneNumber}</p>
-                      )
-                    }
-                  />
-                  <div className="col-span-2">
-                    <InputField
-                      label="Resident Address"
-                      name="address"
-                      required={true}
-                      value={formik.values.address}
-                      onChange={formik.handleChange}
-                      onBlur={() => formik.setFieldTouched("address")}
-                      error={
-                        formik.touched.address &&
-                        formik.errors.address && <p>{formik.errors.address}</p>
-                      }
-                    />
-                  </div>
-                  <InputField
-                    label="Marital Status"
-                    name="maritalStatus"
-                    required={true}
-                    value={formik.values.maritalStatus}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("maritalStatus")}
-                    error={
-                      formik.touched.maritalStatus &&
-                      formik.errors.maritalStatus && (
-                        <p>{formik.errors.maritalStatus}</p>
-                      )
-                    }
-                    type="select"
-                    options={["Single", "Married", "Divorced"]} // Pass options as an array
-                  />
-                  <InputField
-                    label="User Name"
-                    name="userName"
-                    required={true}
-                    value={formik.values.userName}
-                    onChange={formik.handleChange}
-                    onBlur={() => formik.setFieldTouched("userName")}
-                    error={
-                      formik.touched.userName &&
-                      formik.errors.userName && <p>{formik.errors.userName}</p>
-                    }
-                  />{" "}
                 </div>
+                <InputField
+                  label="Marital Status"
+                  name="maritalStatus"
+                  required={true}
+                  value={formik.values.maritalStatus}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("maritalStatus")}
+                  error={
+                    formik.touched.maritalStatus &&
+                    formik.errors.maritalStatus && (
+                      <p>{formik.errors.maritalStatus}</p>
+                    )
+                  }
+                  type="select"
+                  options={["Single", "Married", "Divorced"]} // Pass options as an array
+                />
+                <InputField
+                  label="User Name"
+                  name="userName"
+                  required={true}
+                  value={formik.values.userName}
+                  onChange={formik.handleChange}
+                  onBlur={() => formik.setFieldTouched("userName")}
+                  error={
+                    formik.touched.userName &&
+                    formik.errors.userName && <p>{formik.errors.userName}</p>
+                  }
+                />{" "}
               </div>
             </div>
             <div className="flex items-center justify-center mb-10">

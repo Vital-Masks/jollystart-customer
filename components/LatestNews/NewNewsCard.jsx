@@ -30,26 +30,22 @@ const NewNewsCard = ({ SingleNew }) => {
             />
           </div>
           <div dangerouslySetInnerHTML={{ __html: description }} />
-          <div className="flex items-center text-red justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
-            {gallery &&
-              gallery.length > 0 &&
-              gallery.map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: "100%",
-                  }}
-                >
-                  <Image
-                    src={`data:image/png;base64,${item}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-[400px] object-cover"
-                    alt="gg"
-                  />
-                </div>
-              ))}
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  {gallery &&
+    gallery.length > 0 &&
+    gallery.map((item, index) => (
+      <div key={index} className="w-full">
+        <Image
+          src={`data:image/png;base64,${item}`}
+          width={400}
+          height={400}
+          className="w-full h-auto object-cover"
+          alt={`Gallery image ${index + 1}`}
+        />
+      </div>
+    ))}
+</div>
+
         </div>
       </div>
     </>

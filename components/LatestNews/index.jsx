@@ -109,7 +109,7 @@ const LatestNewsCard = ({ data }) => {
       </div>
       <Link href={`/latest-news/${_id}`} className="mb-5 text-sm font-bold text-blue-900">
         <h1 className="mb-5 text-xl font-bold title-truncated">
-          damdflkaflknasasfasdfsndfjnsdkfjnsjdbf
+          {title}
         </h1>
       </Link>
       <div className="mb-5 text-sm">

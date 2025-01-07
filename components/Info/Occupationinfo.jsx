@@ -21,8 +21,8 @@ const Occupationinfo = ({ memberData }) => {
           Occupation Informations
         </div>
         <div className="px-10 my-10 ">
-          <div className="grid grid-cols-4 gap-6">
-            <InputField
+        <div class="flex flex-wrap gap-4">
+        <InputField
               label="Workplace Name"
               name="workplace_name"
               required={true}

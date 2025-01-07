@@ -26,40 +26,44 @@ const PastPresidents = () => {
     <div className="bg-white">
       <Container>
         <h1 className="text-2xl font-bold text-slate-800 p-5">Captains</h1>
-        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {[1].map((img) => (
+        <div className=" flex items-start justify-center p-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
+            {[1].map((img) => (
+              <UserCard
+                key={img}
+                picture={kabil}
+                name={"Mr. Kabilan"}
+                occupation={"Captain (2023/24)"}
+              />
+            ))}
             <UserCard
-              key={img}
-              picture={kabil}
-              name={"Mr. Kabilan"}
-              occupation={"Captain (2023/24)"}
+              picture={siva}
+              name={"Mr. T.Sivathas"}
+              occupation={"Captain (2020/21)"}
             />
-          ))}
-          <UserCard
-            picture={siva}
-            name={"Mr. T.Sivathas"}
-            occupation={"Captain (2020/21)"}
-          />
+          </div>
         </div>
         <br /> <br />
         <h1 className="text-2xl font-bold text-slate-800 p-5">
           {" "}
           Vice Captains
         </h1>
-        <div className="flex items-center justify-center gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-6 md:grid md:grid-cols-2 lg:justify-center p-5">
-          {[1].map((img) => (
+        <div className=" flex items-start justify-center p-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
+            {[1].map((img) => (
+              <UserCard
+                key={img}
+                picture={kabil}
+                name={"Mr. Kabilan"}
+                occupation={"Captain (2022/23)"}
+              />
+            ))}
             <UserCard
-              key={img}
-              picture={kabil}
-              name={"Mr. Kabilan"}
-              occupation={"Captain (2022/23)"}
+              picture={siva}
+              name={"Mr. T.Sivathas"}
+              occupation={"Captain (2019/20)"}
             />
-          ))}
-          <UserCard
-            picture={siva}
-            name={"Mr. T.Sivathas"}
-            occupation={"Captain (2019/20)"}
-          />
+          </div>
         </div>
         {/* <ListViewer data={members} /> */}
       </Container>
