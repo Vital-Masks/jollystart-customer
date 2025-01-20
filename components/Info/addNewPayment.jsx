@@ -108,6 +108,7 @@ const PaymentDetail = (props) => {
           mobileNumber: values.mobileNumber,
           paymentSlip: base64String,
           memberId: PersonalData && PersonalData._id ? PersonalData._id : "",
+          isPaymentDetailVerified: false
         },
       };
       // post data
@@ -146,7 +147,8 @@ const PaymentDetail = (props) => {
       const userData = JSON.parse(userDataString);
       let membershipCategory1 = formik.values.membershipCategory
       let data1 = {
-        membershipCategory: membershipCategory1.toUpperCase()
+        membershipCategory: membershipCategory1.toUpperCase(),
+        "memberApprovalStatus": "PENDING",
       }
       const response = await fetch(
         `http://localhost:3000/api/payment`,
@@ -172,7 +174,7 @@ const PaymentDetail = (props) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-     
+
 
       afterpayment()
       toast.success("Payment Successfull");

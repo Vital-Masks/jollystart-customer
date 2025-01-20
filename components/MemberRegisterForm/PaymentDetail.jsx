@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { convertFileToBase64 } from "../utils/fileUtils";
 import Image from "next/image";
-import { membershipPaymentdata } from "@/services/fixedDatas";
+import { membershipPaymentdata2 } from "@/services/fixedDatas";
 
 const PaymentDetail = (props) => {
   const {
@@ -180,7 +180,7 @@ const PaymentDetail = (props) => {
       formik.setValues((prevState) => ({
         ...prevState,
         membershipCategory: PersonalData.membershipCategory,
-        total: membershipPaymentdata.find(
+        total: membershipPaymentdata2.find(
           (x) =>
             x.title.toLowerCase() ===
             PersonalData.membershipCategory.toLowerCase()
@@ -209,8 +209,17 @@ const PaymentDetail = (props) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Payment Details
         </div>
+       
         <div className="px-10 my-10">
-          <div className="md:grid md:grid-cols-4 gap-3">
+        <p className="text-red-500 ps-4">
+
+        {
+          formik.values.membershipCategory === "PLAYING MEMBER STUDENT" && "You are not required to submit any payment receipts here.Instead, please submit a consent letter from your principal or class teacher for verification."
+        }
+        </p>
+        <br/>
+        <div className="md:grid md:grid-cols-4 gap-3">
+            
             <div className="md:grid md:grid-cols-3 col-span-3 gap-2 space-y-4 md:space-y-0">
               <InputField
                 disabled

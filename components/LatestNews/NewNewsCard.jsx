@@ -12,7 +12,7 @@ const NewNewsCard = ({ SingleNew }) => {
     <>
       <div className="bg-slate-100">
         <div className="text-left">
-        {/* <h1 className="mb-5 text-xl font-bold title-truncated">{title}</h1> */}
+          {/* <h1 className="mb-5 text-xl font-bold title-truncated">{title}</h1> */}
 
           <h1 className="p-2 text-2xl font-bold text-slate-800">{title}</h1>
           <div className="m-3 mt-1" >
@@ -31,20 +31,24 @@ const NewNewsCard = ({ SingleNew }) => {
           </div>
           <div dangerouslySetInnerHTML={{ __html: description }} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  {gallery &&
-    gallery.length > 0 &&
-    gallery.map((item, index) => (
-      <div key={index} className="w-full">
-        <Image
-          src={`data:image/png;base64,${item}`}
-          width={400}
-          height={400}
-          className="w-full h-auto object-cover"
-          alt={`Gallery image ${index + 1}`}
-        />
-      </div>
-    ))}
-</div>
+            {gallery &&
+              gallery.length > 0 &&
+              gallery.map((item, index) => (
+                <div key={index} className="w-full">
+                  <Image
+                    src={`data:image/png;base64,${item}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    alt={`Gallery image ${index + 1}`}
+                    style={{
+                      width:"360px",
+                      height:"250px"
+                    }}
+                  />
+                </div>
+              ))}
+          </div>
 
         </div>
       </div>

@@ -57,6 +57,12 @@ const PaymentTable = ({ paymentDetails, memberData }) => {
                 >
                   Date
                 </th>
+                <th
+                  scope="col"
+                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  Payment Status
+                </th>
                 <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                   <span className="sr-only">View</span>
                 </th>
@@ -83,6 +89,12 @@ const PaymentTable = ({ paymentDetails, memberData }) => {
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                       {person.date}
+                    </td>
+                    <td
+                      className={`px-3 py-4 text-sm whitespace-nowrap ${person.isPaymentDetailVerified === false ? "text-[#ff8383]" : " text-[#008000] "
+                        }`}
+                    >
+                      {person.isPaymentDetailVerified === false ? "Pending" : "Approved"}
                     </td>
                     <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                       <div

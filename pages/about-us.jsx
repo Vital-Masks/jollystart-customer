@@ -37,7 +37,7 @@ const AboutUs = () => {
               src="/assets/banner/about.jpg"
               width={720}
               height={720}
-              className="w-full h-[400px] object-cover"
+              className="w-full h-[auto] sm:h-[400px] object-cover"
               alt="gg"
             />
           </div>
@@ -67,7 +67,7 @@ const AboutUs = () => {
             that transcends time. Jolly Stars Sports Club - Where Champions are
             Made!
           </p>
-          <div className="flex justify-start gap-3 py-5">
+          {/* <div className="flex justify-start gap-3 py-5">
             <a
               className="p-2 text-lg font-semibold text-white bg-blue-900 rounded-full w-52 text-center"
               href="https://drive.google.com/file/d/1tjFVt_i1hdT1R4HY4WU4ZXveWtVIhWJy/view?usp=sharing"
@@ -82,7 +82,7 @@ const AboutUs = () => {
             >
               Tamil
             </a>
-          </div>
+          </div> */}
         </Container>
       </div>
     </>

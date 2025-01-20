@@ -71,7 +71,9 @@ const MembershipCard = ({ datas }) => {
         </h1>
       </div>
       <div className="flex-1 p-10 text-center text-black">
-        <div className="mb-10 text-sm">{para}</div>
+        <div className="mb-1 text-sm">{para}</div>
+        <div className="text-sm m-0">{ title && title.toUpperCase()==="PLAYING MEMBER" &&  "Student : Free"}</div>
+
       </div>
     </div>
   );
