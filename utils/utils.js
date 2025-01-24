@@ -29,7 +29,7 @@ export const fetchUserData = async () => {
 
       if (userData && userData._id) {
         const response = await fetch(
-          `http://localhost:3000/api/member/${userData._id}`
+          `https://api.jollystarssc.com/api/member/${userData._id}`
         );
 
         if (response.ok) {

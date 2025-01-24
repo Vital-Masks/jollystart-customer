@@ -124,7 +124,7 @@ const PaymentDetail = (props) => {
       // Parse the userData JSON string
       const userData = JSON.parse(userDataString);
       const response = await fetch(
-        `http://localhost:3000/api/member/` + userData._id,
+        `https://api.jollystarssc.com/api/member/` + userData._id,
         {
           method: "PUT",
           headers: {
@@ -151,7 +151,7 @@ const PaymentDetail = (props) => {
         "memberApprovalStatus": "PENDING",
       }
       const response = await fetch(
-        `http://localhost:3000/api/payment`,
+        `https://api.jollystarssc.com/api/payment`,
         {
           method: "POST",
           headers: {
@@ -161,7 +161,7 @@ const PaymentDetail = (props) => {
         }
       );
       const response2 = await fetch(
-        `http://localhost:3000/api/member/` + userData._id,
+        `https://api.jollystarssc.com/api/member/` + userData._id,
         {
           method: "PUT",
           headers: {

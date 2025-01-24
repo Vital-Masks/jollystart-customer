@@ -105,7 +105,7 @@ const GridExample = () => {
   }, []);
 
   const onGridReady = useCallback((params) => {
-    fetch(`http://localhost:3000/api/member/getAllmembers`)
+    fetch(`https://api.jollystarssc.com/api/member/getAllmembers`)
       .then((fetchResponse) => {
         if (fetchResponse.ok) {
           return fetchResponse.json();
