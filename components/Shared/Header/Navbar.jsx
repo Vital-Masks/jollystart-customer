@@ -353,22 +353,22 @@ const MobileMenu = ({
                 }
               })}
               {isEmpty(memberData) ? (
-                <a
+                <Link
                   href="/login/logreg"
                   className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
                 >
                   Login <span aria-hidden="true">&rarr;</span>
                   &nbsp;&nbsp;&nbsp;
-                </a>
+                </Link>
               ) : (
                 <div>
-                  <a
+                  <Link
                     href="/login/logreg"
                     className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
                   >
                     Logout <span aria-hidden="true">&rarr;</span>
                     &nbsp;&nbsp;&nbsp;
-                  </a>
+                  </Link>
 
                   bsp;&nbsp;
                 </div>
