@@ -5,7 +5,7 @@ import React from "react";
 import img2 from "../../public/assets2/banner/mani.jpg";
 import siva from "../../public/assets2/banner/siva.jpg";
 import kabil from "../../public/assets2/kobi/kabil.jpg";
-
+import manchu from "../../public/assets2/kobi/manchu.jpg";
 const PastPresidents = () => {
   const members = [
     {
@@ -31,15 +31,20 @@ const PastPresidents = () => {
             {[1].map((img) => (
               <UserCard
                 key={img}
-                picture={kabil}
-                name={"Mr. Kabilan"}
-                occupation={"Captain (2023/24)"}
+                picture={manchu}
+                name={"Mr. B. Manchuthan"}
+                occupation={"Captain (2023/25)"}
               />
             ))}
             <UserCard
+              picture={kabil}
+              name={"Mr. Kabilan"}
+              occupation={"Captain (2019/20)"}
+            />
+            <UserCard
               picture={siva}
               name={"Mr. T.Sivathas"}
-              occupation={"Captain (2020/21)"}
+              occupation={"Captain (2006/08)"}
             />
           </div>
         </div>
