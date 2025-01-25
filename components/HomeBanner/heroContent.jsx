@@ -21,8 +21,7 @@ const HeroBanner = ({imgclass}) => {
             {/* Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. */}
           </p>
           <h2 className="text-3xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl text-center md:w-[700px]">
-            First Sports Club 
-            in Jaffna Peninsula!
+          Celebrating 50 Years of Sporting Excellence in Jaffna Peninsula!
           </h2>
          
           <div className="mt-5 sm:mt-8 sm:flex justify-center text-center">
