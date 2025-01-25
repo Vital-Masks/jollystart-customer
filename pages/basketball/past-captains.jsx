@@ -25,7 +25,7 @@ const PastPresidents = () => {
   return (
     <div className="bg-white">
       <Container>
-        <h1 className="text-2xl font-bold text-slate-800 p-5">Captains</h1>
+        <h1 className="text-2xl font-bold text-slate-800 p-5">Our Past Captains</h1>
         <div className=" flex items-start justify-center p-5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
             {[1].map((img) => (
@@ -49,7 +49,7 @@ const PastPresidents = () => {
           </div>
         </div>
         <br /> <br />
-        <h1 className="text-2xl font-bold text-slate-800 p-5">
+        {/* <h1 className="text-2xl font-bold text-slate-800 p-5">
           {" "}
           Vice Captains
         </h1>
@@ -69,7 +69,7 @@ const PastPresidents = () => {
               occupation={"Captain (2019/20)"}
             />
           </div>
-        </div>
+        </div> */}
         {/* <ListViewer data={members} /> */}
       </Container>
     </div>
