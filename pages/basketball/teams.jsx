@@ -63,7 +63,7 @@ const Teams = () => {
       <div className="bg-slate-100">
         <Container className="text-left">
           <h1 className="text-2xl font-bold text-slate-800 py-5">
-            BasketBall Team 2022/23
+            Basketball Team 2025/26
           </h1>
 
           <div className="flex flex-col md:flex-row">

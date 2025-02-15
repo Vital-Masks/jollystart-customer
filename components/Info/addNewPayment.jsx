@@ -239,6 +239,7 @@ const PaymentDetail = (props) => {
                   <option value={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} label={MembershipTypeDetails.OVERSEAS_LIFE_MEMBER} />
                   <option value={MembershipTypeDetails.ORDINARY_MEMBERS} label={MembershipTypeDetails.ORDINARY_MEMBERS} />
                   <option value={MembershipTypeDetails.PLAYING_MEMBER} label={MembershipTypeDetails.PLAYING_MEMBER} />
+                  <option value={MembershipTypeDetails.PLAYING_MEMBER_STUDENT} label={MembershipTypeDetails.PLAYING_MEMBER_STUDENT} />
                 </select>
               </div>
 
@@ -362,7 +363,7 @@ const PaymentDetail = (props) => {
                       <p className="pl-1">or drag and drop</p>
                     </div>
                     <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
+                      PNG, JPG, GIF up to 1 MB
                     </p>
                     {formik.errors.paymentSlip && (
                       <p
@@ -406,12 +407,13 @@ const PaymentDetail = (props) => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center mb-10 gap-5">
-          <button
+          {/* <button
             type="button"
             className=" text-center p-2 text-lg font-semibold text-white bg-gray-400 rounded-full w-52 "
           >
             Previous
-          </button>
+          </button> */}
+
           <button
             disabled={Loading}
             type="button"

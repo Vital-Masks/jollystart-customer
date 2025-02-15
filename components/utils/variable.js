@@ -3,6 +3,7 @@ export const MembershipTypeDetails = {
     OVERSEAS_LIFE_MEMBER: "OVERSEAS LIFE MEMBER",
     ORDINARY_MEMBERS: "ORDINARY MEMBERS",
     PLAYING_MEMBER: "PLAYING MEMBER",
+    PLAYING_MEMBER_STUDENT: "PLAYING MEMBER STUDENT",
   };
   export const MembershipPriceDetails = [
     {

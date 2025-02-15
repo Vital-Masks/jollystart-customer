@@ -110,7 +110,7 @@ const Navbar = () => {
       subMenu: [
         {
           id: 0,
-          label: "Team 22/23",
+          label: "Team 25/26",
           link: routes.CRICKET_TEAM,
         },
         {
@@ -132,7 +132,7 @@ const Navbar = () => {
       subMenu: [
         {
           id: 0,
-          label: "Team 22/23",
+          label: "Team 25/26",
           link: routes.BASKET_TEAM,
         },
         {

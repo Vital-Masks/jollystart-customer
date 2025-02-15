@@ -26,10 +26,10 @@ const Occupationinfo = ({ memberData }) => {
               label="Workplace Name"
               name="workplace_name"
               required={true}
-              value={occupation}
+              value={workPlaceName}
             />
             <InputField
-              value={workPlaceName}
+              value={occupation}
               label="Occupation"
               name="Occupation"
               required={true}

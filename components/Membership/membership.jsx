@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../Shared/Container";
 import Link from "next/link";
 import { StarIcon } from "@heroicons/react/24/solid";
-import { membershipPaymentdata } from "@/services/fixedDatas";
+import { membershipPaymentdata3 } from "@/services/fixedDatas";
 
 const Membership = () => {
   return (
@@ -24,9 +24,9 @@ const Membership = () => {
           </p>
         </div>
         <div className="flex items-center justify-start gap-10 flex-wrap justify-center">
-          {membershipPaymentdata &&
-            membershipPaymentdata.length > 0 &&
-            membershipPaymentdata.map((item, i) => (
+          {membershipPaymentdata3 &&
+            membershipPaymentdata3.length > 0 &&
+            membershipPaymentdata3.map((item, i) => (
               <MembershipCard datas={item} key={i} />
             ))}
         </div>

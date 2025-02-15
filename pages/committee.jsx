@@ -59,7 +59,7 @@ const Committee = () => {
       <div className="bg-slate-100">
         <Container className="text-left">
           <h1 className="text-2xl font-bold text-slate-800 p-5">
-            CURRENT COMMITTEE 2022/23
+          CURRENT COMMITTEE 2025/27
           </h1>
           <div className="flex flex-col md:flex-row">
             <div className="flex-shrink-0 w-full md:w-7/12">

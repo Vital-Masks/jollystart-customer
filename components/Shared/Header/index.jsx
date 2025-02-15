@@ -12,7 +12,7 @@ const Header = () => {
         <div className="py-5 responsive">
           <Image
             priority
-            src={'/assets/brand/logo2.png'}
+            src={'/assets2/brand/logo2.png'}
             alt="logo"
             width={720}
             height={720}

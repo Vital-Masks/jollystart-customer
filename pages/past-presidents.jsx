@@ -5,6 +5,7 @@ import React from "react";
 import img2 from "../public/assets2/banner/mani.jpg"
 import siva from "../public/assets2/banner/siva.jpg"
 import uma from "../public/assets2/banner/uma.jpg"
+import unavailable from "../public/assets2/banner/unavailable.jpg"
 
 const PastPresidents = () => {
   const members = [
@@ -30,9 +31,17 @@ const PastPresidents = () => {
           {[1].map((img) => (
             <UserCard
               key={img}
+              picture={siva}
+              name={"T. Sivathas"}
+              occupation={"President 2025-27"}
+            />
+          ))}
+          {[2].map((img) => (
+            <UserCard
+              key={img}
               picture={img2}
               name={"Mr. V. Manivannan"}
-              occupation={"President"}
+              occupation={"President 2021-24"}
             />
           ))}
         </div>
@@ -42,11 +51,21 @@ const PastPresidents = () => {
           {[1].map((img) => (
             <UserCard
               key={img}
-              picture={siva}
-              name={"T. Sivathas"}
-              occupation={"Secretary"}
+              picture={uma}
+              name={"Umadharan"}
+              occupation={"Secretary 2025-27"}
             />
           ))}
+          
+          {[2].map((img) => (
+            <UserCard
+              key={img}
+              picture={siva}
+              name={"T. Sivathas"}
+              occupation={"Secretary 2023-25"}
+            />
+          ))}
+
         </div>
         <br /> <br />
         <h1 className="text-2xl font-bold text-slate-800 p-5">Treasurers</h1>
@@ -54,9 +73,18 @@ const PastPresidents = () => {
           {[1].map((img) => (
             <UserCard
               key={img}
+              picture={unavailable}
+              name={"Gowthaman"}
+              occupation={"Treasurer 2025-27"}
+            />
+          ))}
+
+          {[2].map((img) => (
+            <UserCard
+              key={img}
               picture={uma}
               name={"Umadharan"}
-              occupation={"Treasurer"}
+              occupation={"Treasurer 2023-25"}
             />
           ))}
         </div>

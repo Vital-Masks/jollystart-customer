@@ -7,7 +7,7 @@ const TopHeader = () => {
       <div className="flex items-center justify-center gap-3 md:justify-end responsive">
         <div className="flex items-center gap-1 text-xs md:text-sm">
           <PhoneIcon className="w-4 h-4" />
-          +94 77 519 3669
+          +94 77 178 9546
         </div>
         <div className="flex items-center gap-1 text-xs md:text-sm">
           <EnvelopeIcon className="w-4 h-4" />

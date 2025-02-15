@@ -114,7 +114,7 @@ const Navbar = () => {
       subMenu: [
         {
           id: 0,
-          label: "Team 22/23",
+          label: "Team 25/26",
           link: routes.CRICKET_TEAM,
         },
         {
@@ -136,7 +136,7 @@ const Navbar = () => {
       subMenu: [
         {
           id: 0,
-          label: "Team 22/23",
+          label: "Team 25/26",
           link: routes.BASKET_TEAM,
         },
         {
@@ -186,7 +186,7 @@ const Navbar = () => {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </button>
-          <h1 className="text-xl font-bold">JOLLY STARS SC</h1>
+          <h1 className="text-xl font-bold">JOLLYSTARS SC</h1>
         </div>
 
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
@@ -291,7 +291,7 @@ const MobileMenu = ({
             href={routes.HOME}
             className="-m-1.5 p-1.5 text-blue-900 text-2xl font-bold"
           >
-            JOLLY STARS SC
+            JOLLYSTARS SC
           </Link>
           <button
             type="button"
@@ -369,7 +369,7 @@ const MobileMenu = ({
                     &nbsp;&nbsp;&nbsp;
                   </Link>
 
-                  bsp;&nbsp;
+                  &nbsp;&nbsp;
                 </div>
               )}
               {/* login part */}

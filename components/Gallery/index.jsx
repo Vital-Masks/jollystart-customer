@@ -132,9 +132,9 @@ const Gallery = () => {
           <div className="mb-10 text-center responsive">
             <h1 className="text-2xl font-bold text-slate-800">Gallery</h1>
             <p className="mt-3 text-slate-600 p-5">
-              The membership of the club is open to all persons who are approved
-              by the Executive Committee. Each applicant for admission as a
-              member of the club shall apply in the prescribed.
+            From exciting events to unforgettable celebrations, 
+            our gallery showcases the spirit and energy of our club. 
+            Dive in and relive the best moments with us!
             </p>
           </div>
           <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">

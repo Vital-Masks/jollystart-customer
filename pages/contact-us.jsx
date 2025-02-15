@@ -24,7 +24,7 @@ const ContactUs = () => {
               </h3>
               <address className="pt-2 pl-6 not-italic text-gray-600 border-l border-gray-200">
                 <p>Jollystars Sports Club,</p>
-                <p> Jaffna Hindu College Jaffna.</p>
+                <p> Jaffna Hindu College, Jaffna.</p>
               </address>
             </div>
             <div>
@@ -32,8 +32,8 @@ const ContactUs = () => {
                 Contact Us
               </h3>
               <address className="pt-2 pl-6 not-italic text-gray-600 border-l border-gray-200">
-                <p>T. Sivathas (Secreatary) </p>
-                <p>+94 77 519 3669</p>
+                <p>T. Sivathas (President) +94 77 519 3669 </p>
+                <p>S. Umadaran (Secretary) +94 77 178 9546 </p>
               </address>
             </div>
             <div>
