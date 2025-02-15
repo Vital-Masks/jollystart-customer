@@ -1,1 +1,1 @@
-export const baseURL= "https://api.jollystarssc.com/"
+export const baseURL= "http://localhost:3000/"

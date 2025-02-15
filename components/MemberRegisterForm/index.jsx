@@ -50,7 +50,7 @@ const MemberRegisterForm = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://api.jollystarssc.com/api/member",
+          "http://localhost:3000/api/member",
           {
             method: "POST",
             headers: {
