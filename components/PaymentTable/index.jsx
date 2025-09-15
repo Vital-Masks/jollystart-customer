@@ -91,10 +91,10 @@ const PaymentTable = ({ paymentDetails, memberData }) => {
                       {person.date}
                     </td>
                     <td
-                      className={`px-3 py-4 text-sm whitespace-nowrap ${person.isPaymentDetailVerified === false ? "text-[#ff8383]" : " text-[#008000] "
+                      className={`px-3 py-4 text-sm whitespace-nowrap ${!person.isPaymentDetailVerified ? "text-[#ff8383]" : " text-[#008000] "
                         }`}
                     >
-                      {person.isPaymentDetailVerified === false ? "Pending" : "Approved"}
+                      {!person.isPaymentDetailVerified? "Pending" : "Approved"}
                     </td>
                     <td className="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                       <div

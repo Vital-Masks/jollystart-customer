@@ -9,6 +9,7 @@ import Image from "next/image";
 import { membershipPaymentdata2 } from "@/services/fixedDatas";
 
 const PaymentDetail = (props) => {
+  const [disabled, setDisabled] = useState(true)
   const {
     AllPaymentData,
     Loading,
@@ -46,10 +47,7 @@ const PaymentDetail = (props) => {
       .min(3, "Minimum 3 letter")
       .max(40, "Max 40 Letter"),
     date: Yup.string().required("Required"),
-    isPaymentDetailVerified: Yup.boolean().oneOf(
-      [true],
-      "You must accept the terms of service and Privacy policy"
-    ),
+    isPaymentDetailVerified: Yup.boolean(),
     paymentSlip: Yup.mixed()
       .test("fileValidation", "Invalid file", (value) => {
         if (!value) {
@@ -209,17 +207,17 @@ const PaymentDetail = (props) => {
         <div className="px-10 py-2 text-xl font-semibold text-left text-white bg-blue-900">
           Payment Details
         </div>
-       
-        <div className="px-10 my-10">
-        <p className="text-red-500 ps-4">
 
-        {
-          formik.values.membershipCategory === "PLAYING MEMBER STUDENT" && "You are not required to submit any payment receipts here.Instead, please submit a consent letter from your principal or class teacher for verification."
-        }
-        </p>
-        <br/>
-        <div className="md:grid md:grid-cols-4 gap-3">
-            
+        <div className="px-10 my-10">
+          <p className="text-red-500 ps-4">
+
+            {
+              formik.values.membershipCategory === "PLAYING MEMBER STUDENT" && "You are not required to submit any payment receipts here.Instead, please submit a consent letter from your principal or class teacher for verification."
+            }
+          </p>
+          <br />
+          <div className="md:grid md:grid-cols-4 gap-3">
+
             <div className="md:grid md:grid-cols-3 col-span-3 gap-2 space-y-4 md:space-y-0">
               <InputField
                 disabled
@@ -273,7 +271,7 @@ const PaymentDetail = (props) => {
                     <p>{formik.errors.mobileNumber}</p>
                   )
                 }
-                // placeholder="075XXXXXXXX"
+              // placeholder="075XXXXXXXX"
               />
               <InputField
                 disabled
@@ -371,29 +369,31 @@ const PaymentDetail = (props) => {
               </div>
             </div>
           </div>
-          <div className="relative flex items-center ">
-            <div className="flex items-center h-6">
-              <input
-                type="checkbox"
-                name="isPaymentDetailVerified"
-                checked={formik.values.isPaymentDetailVerified}
-                onChange={formik.handleChange}
-                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-600"
-              />
-            </div>
-            <div className="ml-3 text-sm mt-4">
+          <div className="relative flex items-center pt-2">
+            <input
+              type="checkbox"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setDisabled(false)
+                } else {
+                  setDisabled(true)
+                }
+              }}
+              className="text-indigo-600 border-gray-300 rounded focus:ring-indigo-600"
+            />
+            <div className="ml-3 text-sm">
               <p id="comments-description" className="text-[#7E7A7C]">
                 I agree the terms of service and Privacy policy.
               </p>
             </div>
           </div>
-          {formik.errors.isPaymentDetailVerified && (
+          {disabled && (
             <div className="mt-1 text-sm">
               <p
                 className="text-xs leading-5 text-red-400"
                 style={{ color: "red" }}
               >
-                {formik.errors.isPaymentDetailVerified}
+                You must accept the terms of service and Privacy policy
               </p>
             </div>
           )}
@@ -408,7 +408,7 @@ const PaymentDetail = (props) => {
             Previous
           </button>
           <button
-            disabled={Loading}
+            disabled={Loading || disabled}
             type="button"
             onClick={handleButtonClick}
             // onClick={() => setStep(3)}
