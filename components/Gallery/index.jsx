@@ -3,6 +3,7 @@ import Container from "../Shared/Container";
 import Image from "next/image";
 import GallaryCard from "../Cards/gallary";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 const sampleGallayData = [
   {
     image:
@@ -88,6 +89,9 @@ const sampleGallayData = [
 const Gallery = () => {
   const [GallaryData, setGallaryData] = useState([]);
   const [Loading, setLoading] = useState(false);
+  const pathName = usePathname()
+
+  console.log(pathName)
 
   const fetchUserData = () => {
     setLoading(true);
@@ -132,19 +136,24 @@ const Gallery = () => {
           <div className="mb-10 text-center responsive">
             <h1 className="text-2xl font-bold text-slate-800">Gallery</h1>
             <p className="mt-3 text-slate-600 p-5">
-            From exciting events to unforgettable celebrations, 
-            our gallery showcases the spirit and energy of our club. 
-            Dive in and relive the best moments with us!
+              From exciting events to unforgettable celebrations,
+              our gallery showcases the spirit and energy of our club.
+              Dive in and relive the best moments with us!
             </p>
           </div>
           <div className="flex items-center justify-start gap-5 overflow-auto lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 lg:justify-center p-5">
             {
-              GallaryData.length > 0 &&
-              GallaryData.map((item, index) => (
-                <div key={index}>
-                  <GallaryCard data={item} />
-                </div>
-              ))}
+              GallaryData.length > 0 && (
+                pathName === '/' ?
+                  GallaryData.slice(0, 4).map((item, index) => (
+                    <div key={index}>
+                      <GallaryCard data={item} />
+                    </div>
+                  )) : GallaryData.map((item, index) => (
+                    <div key={index}>
+                      <GallaryCard data={item} />
+                    </div>
+                  )))}
           </div>
         </Container>
       ) : (
@@ -152,7 +161,7 @@ const Gallery = () => {
           <div className="loader"></div>
         </div>
       )}
-      {GallaryData.length > 4 && (
+      {GallaryData.length > 4 && pathName === '/' && (
         <div className="text-center">
           <Link
             href={"/gallery"}

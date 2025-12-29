@@ -80,23 +80,35 @@ const Teams = () => {
                 <h4 className="text-black text-lg font-bold">
                 Sitting Left to Right:
                 </h4>
-                <p className="text-black font-light">
-                Vijeyabalan Vaamanan (All Rounder), Mahadevan Kobiram (Captain
-               - All Rounder), Subramaniam Pirasanna (All Rounder), Jeyakumar
-                   Sajeekan (Batsman)
-                </p>
+                  <p className="text-black font-light">
+                    J.Shajeekan, 
+                    N.Suthakaran,
+                    T.Sivathas(President), 
+                    U.Kethees (Captain),
+                    S.Umadaran (Secretary),
+                    S.Pirasanna,
+                    Kirushanthan,
+                    S.Luxmikanth,
+                  </p>
               </div>
 
               <div className="mt-4">
                 <h4 className="text-black text-lg font-bold">
                   Standing Left to Right:
                 </h4>
-                <p className="text-black font-light">
-                  Vettivel Vithusikan (Batsman), Raveendran Dayansan (Bowler),
-                  Thanapalasingam Umesh (Bowler), Lingamayam Sivaram (All
-                  Rounder), Uthayasooriyan Kethees (Batsman), Pathmakanthan
-                  Vishnusoorya (Bowler), Nanthakumar Abipiriyan (Bowler)
-                </p>
+                  <p className="text-black font-light">
+                    G.Vithuran,
+                    P.Vishnusoorya,
+                    Thusyanthan,
+                    T.Umesh,
+                    N.Abipiriyan,
+                    K.Komainthan,
+                    Priyandan,
+                    U.Miluxsan,
+                    Barath,
+                    Y.Sharujan,
+                    G.Shanthos
+                  </p>
               </div>
             </div>
           </div>

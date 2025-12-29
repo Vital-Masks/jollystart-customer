@@ -7,6 +7,7 @@ import unavailable from "../../public/assets2/unavailable.jpg";
 import Shajeekan from "../../public/assets2/kobi/shajee.jpg";
 import kobi from "../../public/assets2/kobi/kobi.jpg";
 import uma from "../../public/assets2/banner/uma.jpg";
+import Kethees from "../../public/assets2/kobi/Kethees.jpg";
 
 const PastPresidents = () => {
   const members = [
@@ -42,7 +43,12 @@ const PastPresidents = () => {
 
   const caption = [
     {
-      name: "Kobiram",
+      name: "U. Kethees",
+      year: "2025",
+      img: Kethees,
+    },
+    {
+      name: "M. Kobiram",
       year: "2024",
       img: kobi,
     },

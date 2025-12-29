@@ -24,7 +24,7 @@ const GallaryCard = (props) => {
             <h1>{albumName}</h1>
             <p className="mb-2 line-clamp-5 text-sm font-light text-gray-200">{description}</p>
             <Link href={`${albumLink}`}>
-              <button>VIEW IMAGE</button>
+              <button className="text-sm">VIEW IMAGE</button>
             </Link>
           </div>
         </div>

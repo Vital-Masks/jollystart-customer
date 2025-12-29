@@ -127,7 +127,7 @@ const Footer = () => {
             </div>
             <div className="px-5 py-2">
               <Link className="text-sm text-dark" href="/latest-news">
-                News & Events
+                Latest News
               </Link>
             </div>
             <div className="px-5 py-2">
@@ -158,15 +158,15 @@ const Footer = () => {
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">
-          Copyright &copy; {new Date().getFullYear()} jollystarssc.com. All
-          Rights Reserved. Designed and Developed by{" "}
+          Copyright &copy; {new Date().getFullYear()} jollystarssc.com. All Rights Reserved.
+          {/*  Designed and Developed by{" "}
           <Link
             href="https://www.vitalmasks.lk/"
             target="_blank"
             className="font-bold text-brand-yellow"
           >
             Vital Masks
-          </Link>
+          </Link> */}
         </p>
       </div>
     </>

@@ -82,9 +82,10 @@ const Teams = () => {
                     Sitting Left to Right:
                   </h4>
                   <p className="text-black font-light">
-                    Vijeyabalan Vaamanan (All Rounder), Mahadevan Kobiram
-                    (Captain - All Rounder), Subramaniam Pirasanna (All
-                    Rounder), Jeyakumar Sajeekan (Batsman)
+                    Selvanayagam Thayakaran, Sanmugasuntharalingam Vaheesan, Thaninayagam Sivathas, 
+                    Selvanayagam Thayakaran,   Sanmugasuntharalingam Vaheesan, Thaninayagam Sivathas (President),
+                    Sivadoss Umadaran (Secretary), Balasubramaniyam Manchuthan (Captain), Neelamegam Bakeetharan,
+                    Srikularajah Nishanan
                   </p>
                 </div>
 
@@ -93,10 +94,9 @@ const Teams = () => {
                     Standing Left to Right:
                   </h4>
                   <p className="text-black font-light">
-                    Vettivel Vithusikan (Batsman), Raveendran Dayansan (Bowler),
-                    Thanapalasingam Umesh (Bowler), Lingamayam Sivaram (All
-                    Rounder), Uthayasooriyan Kethees (Batsman), Pathmakanthan
-                    Vishnusoorya (Bowler), Nanthakumar Abipiriyan (Bowler)
+                    Sivaskaran Riishiikaran, Raveendran Keerththanan, Gunasekaran Thuvarshan, 
+                    Jararththanan Thanusankaran, Navaneethakrishnan Sanchajan, 
+                    Thayaparan Pinehash, Kantharupan Thanushigan, Kanthauban Maarsilan
                   </p>
                 </div>
               </div>

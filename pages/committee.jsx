@@ -72,7 +72,37 @@ const Committee = () => {
 
             <div className="w-full md:w-5/12 p-4 md:p-8">
               <div className="w-full p-2">
-                <div
+                <div>
+                  <h4 className="text-black text-lg font-bold">
+                    Sitting Left to Right:
+                  </h4>
+                  <p className="text-black font-light">
+                    Mr. P. Pirasanna (Vice President ), Mr. S. Umadaran (Secretary), Mr. T. Sivathas (President),
+                    Mr. G. Kirishanthan (Member), Mr. S. Luxmikanth (Member)
+                  </p>
+                </div>
+                
+                <div className="mt-4">
+                  <h4 className="text-black text-lg font-bold">
+                    Standing Left to Right:
+                  </h4>
+                  <p className="text-black font-light">
+                    Mr. S. Nishanan (Member), Mr. J. Shajeekan (Member),
+                    Mr. U. Kethees (Member), Mr. T. Umesh (Vice Secretary), Mr. A. Vethakulan (Editor)
+                  </p>
+                </div>
+
+                <div className="mt-4">
+                  <h4 className="text-black text-lg font-bold">
+                    Absentees:
+                  </h4>
+                  <p className="text-black font-light">
+                    Mr. A. Asupathy (POG),  Mr. G. Gowthaman (Treasurer), Mr. S. Sarangan (Vice President),
+                    Mr. K. Kabilan (Member)
+                  </p>
+                </div>
+                
+                {/* <div
                   className="m-3 text-lg text-slate-600 p-2 font"
                   style={{ fontWeight: "bold" }}
                 >
@@ -82,13 +112,12 @@ const Committee = () => {
                       fontSize: "20px",
                     }}
                   >
-                    Sitting Right to left
+                    Sitting Left to Right
                   </span>
                   <br />
                   <p className="text-sm md:text-base">
-                    Mr. S. Umadaran (Treasurer), Mr. P. Satheesraj (Vice
-                    President), Mr. V. Manivannan (President), Mr. T. Sivathas
-                    (Secretary), Mr. P. Murugavel (Vice President)
+                    Mr. P. Pirasanna (Vice President ), Mr. S. Umadaran (Secretary), Mr. T. Sivathas (President),
+                    Mr. G. Kirishanthan (Member), Mr. S. Luxmikanth (Member)
                   </p>
                   <div
                     className="font-bold"
@@ -98,11 +127,11 @@ const Committee = () => {
                     }}
                   >
                     {" "}
-                    Standing Right to left{" "}
+                    Standing Left to Right{" "}
                   </div>
                   <p className="text-sm md:text-base">
-                    Mr. K. Thayananthan (Member), Mr. S. Thirukumaran (Member),
-                    Mr. P. Pirasanna (Member), Mr. S. Sarangan (Member)
+                    Mr. S. Nishanan (Member), Mr. J. Shajeekan (Member),
+                    Mr. U. Kethees (Member), Mr. T. Umesh (Vice Secretary), Mr. A. Vethakulan (Editor)
                   </p>
                   <div
                     className="font-bold"
@@ -114,11 +143,10 @@ const Committee = () => {
                     Absentees
                   </div>
                   <p className="text-sm md:text-base">
-                    Mr. N. Sivaraja (Vice President), Mr. K. Kabilan (Member),
-                    Mr. S. Thayalan (Member), Mr. U. Kethees (Member), Mr. G.
-                    Kirishanthan (Member)
+                    Mr. A. Asupathy (POG),  Mr. G. Gowthaman (Treasurer), Mr. S. Sarangan (Vice President),
+                    Mr. K. Kabilan (Member), 
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

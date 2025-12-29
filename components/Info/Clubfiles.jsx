@@ -55,8 +55,8 @@ const Clubfile = ({ memberData }) => {
             <div className="loader"></div>
           </div>
         ) : (
-          <div>
-            <div className="flex items-center justify-start gap-5 overflow-auto lg:justify-center p-5">
+          <div className="">
+            <div className="grid grid-cols-1 md:grid-cols-3 items-stretch justify-items-stretch h-full gap-5 overflow-auto px-1 md:px-5">
               {memberData && memberData.memberApprovalStatus === "APPROVED" ? (
                 MemberFileData &&
                 MemberFileData.map((item, i) => (
@@ -113,21 +113,21 @@ const ClubfileCard = ({ filedata }) => {
   };
 
   return (
-    <div className="w-full max-w-xs border-2 rounded-lg shrink-0">
+    <div className="w-full flex flex-col border-2 rounded-lg shrink-0">
       <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
         <h1 className="mb-5 text-xl font-bold">{title}</h1>
       </div>
-      <div className="p-5 text-black">
+      <div className="p-5 relative text-black flex-grow">
         <div className="mb-5 text-sm text-slate-400">
           <DateDisplay dateString={created_at} />
         </div>
-        <div className="mb-5 text-sm">
+        <div className="mb-8 text-sm">
           <p>{description}</p>
         </div>
         <div
           onClick={openFileInChrome}
           href="#"
-          className="mb-5 text-sm font-bold text-blue-900"
+          className="mb-5 text-sm absolute bottom-0 font-bold text-blue-900"
         >
           View File
         </div>

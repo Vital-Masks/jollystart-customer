@@ -94,24 +94,18 @@ const LatestNewsOne = () => {
             </>
           ) : (
             <>
-              {<NewNewsCard SingleNew={SingleNew} />}
-              <br/>
-              <br/>
-              <br/>   <br/>
-              <br/>
-              <br/>   <br/>
-              <br/>
-              <br/>
-              <div className="m-auto w-full h2 bold"  style={{
-                fontSize:'22px',
-                textAlign:'center',
-                fontWeight:'bolder'
+              <NewNewsCard SingleNew={SingleNew} />
+
+              <div className="m-auto w-full h2 bold" style={{
+                fontSize: '22px',
+                textAlign: 'center',
+                fontWeight: 'bolder'
               }}>Latest News</div>
-              <br/>
+              <br />
               <div className="flex items-center text-red justify-center gap-5 overflow-auto flex-wrap lg:grid-cols-3 xl:grid-cols-4 md:grid md:grid-cols-2 md:justify-center   p-5">
                 {AllNewsData &&
-                  AllNewsData.map((item, index) => (
-                    <div key={index}>
+                  AllNewsData.slice(0, 4).map((item, index) => (
+                    <div key={index} className="h-full ">
                       <LatestNewsCard data={item} />
                     </div>
                   ))}
@@ -148,21 +142,20 @@ const LatestNewsCard = ({ data }) => {
   //  '/assets/banner/gallery3.jpg'
   console.log(data.data, "props");
   return (
-  <div className="w-full max-w-xs border-2 rounded-lg shrink-0 latestnewcard">
-      <div className="flex items-center justify-center h-40 rounded-t-lg bg-slate-400">
+    <div className="w-full max-w-xs border-2 rounded-lg shrink-0 flex flex-col latestnewcard1 relative">
+      <div className="flex items-center justify-center relative w-fill aspect-[5/2] h-auto rounded-t-lg bg-slate-400">
         {/* <img
            
             alt="Mountain"
           /> */}
         <Image
           src={`data:image/png;base64,${coverImage}`}
-          width={720}
-          height={720}
+          fill
           className="object-cover w-full h-full rounded-t-lg"
           alt="news -dumbnail"
         />
       </div>
-      <div className="p-5 text-black">
+      <div className="p-5 text-black relative flex-grow">
         <div className="mb-5 text-sm text-slate-400">
           {" "}
           <DateDisplay dateString={updated_at} />
@@ -170,25 +163,15 @@ const LatestNewsCard = ({ data }) => {
         <Link
           href={`/latest-news/${_id}`}
           target="blank"
-          className="mb-5 text-sm font-bold text-blue-900"
+          className="mb-8 text-sm font-bold text-blue-900"
         >
-        <h1 className="mb-5 text-xl font-bold title-truncated ">{title}</h1></Link>
-        <div className="mb-5 text-sm">
-          {/* <div style={{
-           whiteSpace: 'nowrap',
-           width: '400px',
-           overflow: 'hidden',
-           textOverflow: 'ellipsis',
-        }} dangerouslySetInnerHTML={{ __html: description }} /> */}
+          <h1 className="mb-5 text-xl font-bold title-truncated ">{title}</h1>
+        </Link>
 
-          {/* TruncatedParagraph */}
-          {/* <TruncatedParagraph text={description} maxLength={40} /> */}
-          {/* <p>{description}</p> */}
-        </div>
         <Link
           href={`/latest-news/${_id}`}
           target="blank"
-          className="mb-5 text-sm font-bold text-blue-900"
+          className="mb-3 text-sm absolute bottom-0 font-bold text-blue-900"
         >
           Read More
         </Link>

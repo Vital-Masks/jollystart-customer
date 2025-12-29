@@ -25,7 +25,7 @@ body {
 
 @layer components {
   .responsive {
-    @apply max-w-screen-xl px-4 mx-auto md:px-8 lg:px-20 xl:px-0;
+    @apply max-w-screen-xl px-2 mx-auto md:px-8 lg:px-20 xl:px-0;
   }
 }
 .title-truncated {
@@ -85,11 +85,18 @@ body {
   display: flex;
   align-items: flex-end;
   transition: 0.4s ease-out;
-  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); */
 }
 .latestnewcard {
   width: 300px;
   height: 360px;
+  max-width: 100%;
+}
+
+.latestnewcard1 {
+  width: 300px;
+  height: 100%;
+  max-height: 360px;
   max-width: 100%;
 }
 
