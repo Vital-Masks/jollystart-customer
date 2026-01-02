@@ -27,7 +27,7 @@ const Navbar = () => {
         // Check if userData has the _id property
         if (userData && userData._id) {
           // Make a fetch request using the _id
-          fetch(`http://localhost:3000/api/member/${userData._id}`)
+          fetch(`https://api.jollystars.lk/api/member/${userData._id}`)
             .then((fetchResponse) => {
               // Check if the fetch request was successful
               if (fetchResponse.ok) {

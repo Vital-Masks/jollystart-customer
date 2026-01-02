@@ -12,7 +12,7 @@ const Clubfile = ({ memberData }) => {
   const [Loading, setLoading] = useState(true);
   const fetchUserData = () => {
     try {
-      fetch(`http://localhost:3000/api/fileManagement/getAllFiles`)
+      fetch(`https://api.jollystars.lk/api/fileManagement/getAllFiles`)
         .then((fetchResponse) => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {
@@ -107,7 +107,7 @@ const ClubfileCard = ({ filedata }) => {
   // },
   const openFileInChrome = () => {
     if (file) {
-      const fileUrl = "http://localhost:3000/files/" + file;
+      const fileUrl = "https://api.jollystars.lk/files/" + file;
       window.open(fileUrl, "_blank");
     }
   };

@@ -36,7 +36,7 @@ const Personalinfo = ({ memberData }) => {
     try {
       // Perform the API request (replace the URL with your actual API endpoint)
       const response = await axios.put(
-        "http://localhost:3000/api/member/" + id,
+        "https://api.jollystars.lk/api/member/" + id,
         obj
       );
       console.log(response);

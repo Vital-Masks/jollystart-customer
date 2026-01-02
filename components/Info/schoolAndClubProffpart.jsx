@@ -53,7 +53,7 @@ const ProffImageUploader = ({ gallery }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:3000/api/member/" + userData._id,
+        "https://api.jollystars.lk/api/member/" + userData._id,
         {
           method: "PUT",
           headers: {

@@ -22,7 +22,7 @@ const Occupationinfo = ({ memberData }) => {
     setLoading(true)
     try {
       const response = await axios.put(
-        "http://localhost:3000/api/member/" + memberData?._id,
+        "https://api.jollystars.lk/api/member/" + memberData?._id,
         formData
       );
       console.log(response);

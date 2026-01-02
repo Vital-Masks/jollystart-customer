@@ -99,7 +99,7 @@ const Gallery = () => {
       // Parse the userData JSON string
       // Check if userData has the _id property
       // Make a fetch request using the _id
-      fetch(`http://localhost:3000/api/galleryManagement/getAllGallery`)
+      fetch(`https://api.jollystars.lk/api/galleryManagement/getAllGallery`)
         .then((fetchResponse) => {
           // Check if the fetch request was successful
           if (fetchResponse.ok) {

@@ -28,7 +28,7 @@ const Info = () => {
         if (userData && userData._id) {
           // Make a fetch request using the _id
           fetch(
-            `http://localhost:3000/api/member/memberPayment/${userData._id}`
+            `https://api.jollystars.lk/api/member/memberPayment/${userData._id}`
           )
             .then((fetchResponse) => {
               // Check if the fetch request was successful
