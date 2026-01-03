@@ -5,12 +5,13 @@ import Image from "next/image";
 import { stringify } from "postcss";
 import TruncatedParagraph from "../utils/truncatedParagraph";
 import DateDisplay from "@/utils/dateDisplay";
-import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const LatestNews = () => {
   const [memberData, setmemberData] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const pathName = usePathname()
+  const router = useRouter();
+  const pathName = router?.pathname || '/';
   const fetchUserData = () => {
     try {
       fetch(`https://api.jollystars.lk/api/newsManagement/getAllNews`)

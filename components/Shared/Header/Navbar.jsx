@@ -6,7 +6,7 @@ import Link from "next/link";
 import { routes } from "@/contents/routes";
 import NavbarSet from "./navbarset";
 import { Button } from "flowbite-react";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/utils";
 
 function classNames(...classes) {
@@ -168,7 +168,8 @@ const Navbar = () => {
       link: routes.CONTACT_US,
     },
   ];
-  const currentPath = usePathname();
+  const router = useRouter();
+  const currentPath = router.pathname;
   useEffect(() => { }, [currentPath]);
 
   return (

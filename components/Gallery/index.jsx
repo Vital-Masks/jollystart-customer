@@ -3,7 +3,7 @@ import Container from "../Shared/Container";
 import Image from "next/image";
 import GallaryCard from "../Cards/gallary";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
 const sampleGallayData = [
   {
     image:
@@ -89,7 +89,8 @@ const sampleGallayData = [
 const Gallery = () => {
   const [GallaryData, setGallaryData] = useState([]);
   const [Loading, setLoading] = useState(false);
-  const pathName = usePathname()
+  const router = useRouter();
+  const pathName = router?.pathname || '/';
 
   console.log(pathName)
 
