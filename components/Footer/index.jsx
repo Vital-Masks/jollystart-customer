@@ -158,7 +158,7 @@ const Footer = () => {
 
       <div className="px-10 py-3 bg-brand-light">
         <p className="text-xs text-center text-gray">
-          Copyright &copy; {new Date().getFullYear()} jollystarssc.com. All Rights Reserved.
+          Copyright &copy; {new Date().getFullYear()} jollystars.lk. All Rights Reserved.
           {/*  Designed and Developed by{" "}
           <Link
             href="https://www.vitalmasks.lk/"

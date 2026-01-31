@@ -156,10 +156,10 @@ const LatestNewsCard = ({ data }) => {
         />
       </div>
       <div className="p-5 text-black relative flex-grow">
-        <div className="mb-5 text-sm text-slate-400">
+        {/* <div className="mb-5 text-sm text-slate-400">
           {" "}
           <DateDisplay dateString={updated_at} />
-        </div>
+        </div> */}
         <Link
           href={`/latest-news/${_id}`}
           target="blank"

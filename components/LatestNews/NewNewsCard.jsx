@@ -15,10 +15,10 @@ const NewNewsCard = ({ SingleNew }) => {
           {/* <h1 className="mb-5 text-xl font-bold title-truncated">{title}</h1> */}
 
           <h1 className="p-2 text-2xl font-bold text-slate-800">{title}</h1>
-          <div className="m-3 mt-1" >
+          {/* <div className="m-3 mt-1" >
             <DateDisplay dateString={updated_at} />
 
-          </div>
+          </div> */}
           <div className="flex relative w-full aspect-[5/2] h-auto justify-center p-2 mt-4">
             <Image
               src={`data:image/png;base64,${coverImage}`}
