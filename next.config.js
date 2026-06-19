@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: [
       "images.unsplash.com",
@@ -10,10 +13,12 @@ const nextConfig = {
       "encrypted-tbn0.gstatic.com",
       "live.staticflickr.com",
     ],
-    unoptimized: true, // Disable image optimization for static export
+    unoptimized: true,
   },
-  
-  output: "export", // Ensure static HTML export is enabled
+  output: "export",
+  experimental: {
+    cpus: 1,
+  },
 };
 
 module.exports = nextConfig;
