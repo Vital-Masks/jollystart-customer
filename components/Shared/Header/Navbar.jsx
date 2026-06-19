@@ -244,19 +244,7 @@ const NavItems = ({ menu, currentPath }) => {
   const { label, link, subMenu } = menu;
 
   if (subMenu) {
-    return (
-      <Popover className="relative">
-        {/* <Popover.Button  className="flex items-center text-sm font-semibold leading-6 text-gray-100 gap-x-1">
-          {label}
-          <ChevronDownIcon
-            className="flex-none w-5 h-5 text-gray-100"
-            aria-hidden="true"
-          />
-        </Popover.Button> */}
-
-        <NavbarSet key={link} currentPath={currentPath} {...menu} />
-      </Popover>
-    );
+    return <NavbarSet key={link} currentPath={currentPath} {...menu} />;
   } else {
     return (
       <Link
